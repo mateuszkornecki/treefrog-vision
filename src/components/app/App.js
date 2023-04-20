@@ -1,4 +1,3 @@
-import logo from '../../logo.svg';
 import Pointer from "../Pointer/Pointer";
 import './App.css';
 
