@@ -13,7 +13,6 @@
   background-color:red;
   height:175px;
     width:175px;
-
   border-radius:50%;
   -moz-border-radius:50%;
   -webkit-border-radius:50%;
@@ -21,6 +20,6 @@
 }
 
  .bounce {
-     animation: bounce 30s infinite linear;
+     animation: bounce 40s infinite linear;
  }
 
