@@ -1,10 +1,26 @@
- .Pointer {
+@keyframes bounce {
+    0% {
+        transform: translateX(-100vh);
+    }
+    50% {
+        transform: translateX(100vh);
+    }
+    100% {
+        transform: translateX(-100vh);
+    }
+}
+.Pointer {
   background-color:red;
+  height:175px;
+    width:175px;
 
-  height:300px;
   border-radius:50%;
   -moz-border-radius:50%;
   -webkit-border-radius:50%;
-  width:300px;
+
 }
+
+ .bounce {
+     animation: bounce 30s infinite linear;
+ }
 

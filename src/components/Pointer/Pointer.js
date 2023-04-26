@@ -1,6 +1,6 @@
 import './Pointer.css';
-function Pointer() {
-  return <div className={"Pointer"}/>
+function Pointer({bounce}) {
+  return <div className={"Pointer bounce test"}/>
 }
 
 export default Pointer;
