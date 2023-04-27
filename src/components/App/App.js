@@ -3,7 +3,7 @@ import './App.css';
 import {useState} from "react";
 
 function App() {
-    const [isBouncing, setIsBouncing] = useState(true)
+    const [isBouncing, setIsBouncing] = useState(true);
 
     function toggleBouncing() {
         setIsBouncing(!isBouncing);
