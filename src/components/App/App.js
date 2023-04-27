@@ -1,10 +1,24 @@
 import Pointer from "../Pointer/Pointer";
 import './App.css';
+import {useState} from "react";
 
 function App() {
+    const [isBouncing, setIsBouncing] = useState(false)
+
+    function toggleBouncing() {
+        setIsBouncing(!isBouncing);
+    }
+
+
   return (
     <div className="App">
-      <Pointer/>
+        <div className={"controllers"}>
+            <div></div>
+      <Pointer bounce={isBouncing} pause={!isBouncing}/>
+            <div>
+                <button onClick={toggleBouncing}>Toggle bouncing</button> Bouncing: <b>{isBouncing ?"On" : "Off"}</b>
+            </div>
+        </div>
     </div>
   );
 }
