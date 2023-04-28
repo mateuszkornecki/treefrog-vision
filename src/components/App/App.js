@@ -8,8 +8,6 @@ function App() {
     function toggleBouncing() {
         setIsBouncing(!isBouncing);
     }
-
-
   return (
     <div className="App">
         <div className={"controllers"}>
