@@ -1,4 +1,4 @@
-import Pointer from "../Pointer/Pointer";
+import Pointer from "../Pointer";
 import './App.css';
 import {useState} from "react";
 
@@ -21,4 +21,4 @@ function App() {
   );
 }
 
-export default App;
+export default  App;
