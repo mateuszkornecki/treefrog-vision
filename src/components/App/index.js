@@ -14,7 +14,7 @@ function App() {
             <div></div>
       <Pointer bounce={isBouncing} pause={!isBouncing}/>
             <div>
-                <button onClick={toggleBouncing}>Toggle bouncing</button> Bouncing: <b>{isBouncing ?"On" : "Off"}</b>
+                <button onClick={toggleBouncing}>{isBouncing ? "Stop bouncing" : "Start bouncing"}</button>
             </div>
         </div>
     </div>
