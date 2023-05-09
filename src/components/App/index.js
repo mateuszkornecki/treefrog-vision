@@ -1,22 +1,26 @@
 import Pointer from "../Pointer";
-import './App.css';
+import './index.css';
 import {useState} from "react";
+import Settings from "../Settings";
 
 function App() {
     const [isBouncing, setIsBouncing] = useState(true);
+    const [isOpenSettings,openSettings ] = useState(false);
 
     function toggleBouncing() {
         setIsBouncing(!isBouncing);
     }
+
+    function toggleSettings() {
+        openSettings(!isOpenSettings);
+    }
   return (
     <div className="App">
-        <div className={"controllers"}>
-            <div></div>
-      <Pointer bounce={isBouncing} pause={!isBouncing}/>
-            <div>
+        <Pointer bounce={isBouncing} pause={!isBouncing}/>
+            <Settings isOpen={true}>
                 <button onClick={toggleBouncing}>{isBouncing ? "Stop bouncing" : "Start bouncing"}</button>
-            </div>
-        </div>
+                <button onClick={toggleSettings}>Settings</button>
+            </Settings>
     </div>
   );
 }
