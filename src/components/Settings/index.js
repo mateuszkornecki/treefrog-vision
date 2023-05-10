@@ -1,8 +1,12 @@
-import {useState} from "react";
 import './index.css';
 
 function Settings({isOpen, children}) {
-    return <div className={"settings"}>
+
+    const settingsStyles = {
+        visibility: isOpen ? "" : "hidden",
+    };
+
+    return <div className={"settings"} style={settingsStyles}>
         {children}
     </div>
 }

@@ -14,13 +14,14 @@ function App() {
     function toggleSettings() {
         openSettings(!isOpenSettings);
     }
+
   return (
     <div className="App">
         <Pointer bounce={isBouncing} pause={!isBouncing}/>
             <Settings isOpen={true}>
                 <button onClick={toggleBouncing}>{isBouncing ? "Stop bouncing" : "Start bouncing"}</button>
-                {/*<button onClick={toggleSettings}>Settings</button>*/}
             </Settings>
+        <button onClick={toggleSettings} className={"toggleSettingsButton"}>Settings</button>
     </div>
   );
 }

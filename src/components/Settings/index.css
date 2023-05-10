@@ -1,5 +1,12 @@
 .settings {
-    bottom: 1rem;
-    color: white;
-    position: absolute;
+background: gray;
+    width: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 15rem;
+    border-radius: 1rem;
+    z-index: 1;
+    opacity: 0.75;
+    padding-top: 1rem;
 }

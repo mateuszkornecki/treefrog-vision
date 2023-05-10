@@ -1,12 +1,15 @@
 @keyframes bounce {
     0% {
-        transform: translateX(-100vh);
+        transform: translateX(0);
     }
-    50% {
+    25% {
         transform: translateX(100vh);
     }
-    100% {
+    50% {
         transform: translateX(-100vh);
+    }
+    100% {
+        transform: translateX(0);
     }
 }
 .Pointer {
