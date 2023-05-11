@@ -1,12 +1,14 @@
 import './index.css';
+import {useEffect, useState} from "react";
 
-function Settings({isOpen, children}) {
+function Settings({isOpen, children, onClose}) {
 
     const settingsStyles = {
         visibility: isOpen ? "" : "hidden",
     };
 
     return <div className={"settings"} style={settingsStyles}>
+        <button onClick={onClose}>Close modal</button>
         {children}
     </div>
 }
