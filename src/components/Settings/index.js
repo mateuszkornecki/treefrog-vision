@@ -1,5 +1,4 @@
 import './index.css';
-import {useEffect, useState} from "react";
 
 function Settings({isOpen, children, onClose}) {
 

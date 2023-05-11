@@ -11,10 +11,6 @@ function App() {
         setIsBouncing(!isBouncing);
     }
 
-    function toggleSettings() {
-        setIsOpenSettings(!isOpenSettings);
-    }
-
     function closeModal() {
         setIsOpenSettings(false);
     }
