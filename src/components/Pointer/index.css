@@ -3,10 +3,10 @@
         transform: translateX(0);
     }
     25% {
-        transform: translateX(100vh);
+        transform: translateX(calc(100vh - 100%));
     }
     50% {
-        transform: translateX(-100vh);
+        transform: translateX(calc(-100vh + 100%));
     }
     100% {
         transform: translateX(0);

@@ -23,7 +23,12 @@ function App() {
             </Settings>
         <button onClick={()=> {
             setIsOpenSettings(!isOpenSettings);}
-        } className={"toggleSettingsButton"}>Settings</button>
+        } className={"toggleSettingsButton"}>
+                <span>
+            <img src="/icons/settings.svg" alt="settings"/>
+                </span>
+
+        </button>
     </div>
   );
 }
