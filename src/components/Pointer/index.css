@@ -1,3 +1,7 @@
+:root {
+    --pointer-size: 175px;
+}
+
 @keyframes bounce {
     0% {
         transform: translateX(0);
@@ -14,8 +18,8 @@
 }
 .Pointer {
   background-color:red;
-  height:175px;
-    width:175px;
+  height:var(--pointer-size);
+    width:var(--pointer-size);
   border-radius:50%;
   -moz-border-radius:50%;
   -webkit-border-radius:50%;
