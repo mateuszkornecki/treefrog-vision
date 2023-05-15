@@ -7,13 +7,6 @@
   height: 100vh;
 }
 
-.controllers {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 100%;
-}
-
 .pause {
   animation-play-state: paused;
 }
@@ -22,7 +15,13 @@
   animation-play-state: running;
 }
 
-.toggleSettingsButton {
+.settingsIcon {
   position: absolute;
   bottom: 1rem;
+  color: lightgray;
+  cursor: pointer;
+}
+
+.settingsIcon:hover {
+  color: white;
 }
