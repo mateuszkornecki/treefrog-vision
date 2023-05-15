@@ -22,8 +22,11 @@ function App() {
             <Settings isOpen={isOpenSettings} onClose={toggleIsOpenSettings}>
                 <button onClick={toggleBouncing}>{isBouncing ? "Stop bouncing" : "Start bouncing"}</button>
             </Settings>
-
-        <SettingsApplicationsIcon fontSize={'large'} className={"settingsIcon"} onClick={toggleIsOpenSettings}/>
+        <SettingsApplicationsIcon
+            fontSize={'large'}
+            className={"settingsIcon"}
+            onClick={toggleIsOpenSettings}
+        />
     </div>
   );
 }
