@@ -5,22 +5,27 @@ import Settings from "../Settings";
 
 function App() {
     const [isBouncing, setIsBouncing] = useState(true);
-    const [isOpenSettings,openSettings ] = useState(false);
+    const [isOpenSettings,setIsOpenSettings ] = useState(false);
 
     function toggleBouncing() {
         setIsBouncing(!isBouncing);
     }
 
-    function toggleSettings() {
-        openSettings(!isOpenSettings);
+    function closeModal() {
+        setIsOpenSettings(false);
     }
+
   return (
     <div className="App">
         <Pointer bounce={isBouncing} pause={!isBouncing}/>
-            <Settings isOpen={true}>
+            <Settings isOpen={isOpenSettings} onClose={closeModal}>
                 <button onClick={toggleBouncing}>{isBouncing ? "Stop bouncing" : "Start bouncing"}</button>
-                <button onClick={toggleSettings}>Settings</button>
             </Settings>
+        <button onClick={()=> {
+            setIsOpenSettings(!isOpenSettings);}
+        } className={"toggleSettingsButton"}>
+                settings
+        </button>
     </div>
   );
 }
