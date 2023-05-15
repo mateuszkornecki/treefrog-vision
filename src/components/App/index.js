@@ -24,10 +24,7 @@ function App() {
         <button onClick={()=> {
             setIsOpenSettings(!isOpenSettings);}
         } className={"toggleSettingsButton"}>
-                <span>
-            <img src="/icons/settings.svg" alt="settings"/>
-                </span>
-
+                settings
         </button>
     </div>
   );
