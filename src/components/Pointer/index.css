@@ -10,7 +10,7 @@
         margin-left: calc(100% - var(--pointer-size))
     }
     66.67%{
-        margin-left: calc(-100% - var(--pointer-size))
+        margin-left: calc(-100% + var(--pointer-size))
     }
     100% {
         margin-left: 0%
