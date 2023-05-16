@@ -7,8 +7,8 @@ function Settings({isOpen, children, onClose}) {
     };
 
     return <div className={"settings"} style={settingsStyles}>
-        <button onClick={onClose}>Close modal</button>
         {children}
+        <button onClick={onClose}>X</button>
     </div>
 }
 

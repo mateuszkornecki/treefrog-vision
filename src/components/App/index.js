@@ -6,10 +6,15 @@ import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 
 function App() {
     const [isBouncing, setIsBouncing] = useState(true);
+    const [shouldRestart,forceRestart] = useState(false)
     const [isOpenSettings,setIsOpenSettings ] = useState(false);
 
     function toggleBouncing() {
         setIsBouncing(!isBouncing);
+    }
+
+    function restartBounding() {
+        forceRestart(!shouldRestart)
     }
 
     function toggleIsOpenSettings() {
@@ -18,9 +23,10 @@ function App() {
 
   return (
     <div className="App">
-        <Pointer bounce={isBouncing} pause={!isBouncing}/>
+        <Pointer bounce={isBouncing} pause={!isBouncing} restart={shouldRestart}/>
             <Settings isOpen={isOpenSettings} onClose={toggleIsOpenSettings}>
                 <button onClick={toggleBouncing}>{isBouncing ? "Pause" : "Unpause"}</button>
+                <button onClick={restartBounding}>{shouldRestart ? "Start" : "`restart"}</button>
             </Settings>
         <SettingsApplicationsIcon
             fontSize={'large'}
