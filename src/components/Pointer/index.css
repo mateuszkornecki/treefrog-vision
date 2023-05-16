@@ -4,12 +4,19 @@
 
 @keyframes bounce {
     0% {
+        margin-left: 0%;
+    }
+    33.33%{
         margin-left: calc(100% - var(--pointer-size))
     }
+    66.67%{
+        margin-left: calc(-100% - var(--pointer-size))
+    }
     100% {
-        margin-left: calc(-100% + var(--pointer-size))
+        margin-left: 0%
     }
 }
+
 .Pointer {
   background-color:red;
   height:var(--pointer-size);
@@ -21,6 +28,6 @@
 }
 
  .bounce {
-     animation: 50s linear 1s infinite alternate none running bounce;
+     animation: 50s linear 1s infinite none running bounce;
  }
 
