@@ -4,16 +4,10 @@
 
 @keyframes bounce {
     0% {
-        transform: translateX(0);
-    }
-    25% {
-        transform: translateX(calc(100vh - 100%));
-    }
-    50% {
-        transform: translateX(calc(-100vh + 100%));
+        margin-left: calc(100% - var(--pointer-size))
     }
     100% {
-        transform: translateX(0);
+        margin-left: calc(-100% + var(--pointer-size))
     }
 }
 .Pointer {
@@ -27,6 +21,6 @@
 }
 
  .bounce {
-     animation: bounce 100s infinite linear;
+     animation: 50s linear 1s infinite alternate none running bounce;
  }
 

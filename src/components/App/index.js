@@ -20,7 +20,7 @@ function App() {
     <div className="App">
         <Pointer bounce={isBouncing} pause={!isBouncing}/>
             <Settings isOpen={isOpenSettings} onClose={toggleIsOpenSettings}>
-                <button onClick={toggleBouncing}>{isBouncing ? "Stop bouncing" : "Start bouncing"}</button>
+                <button onClick={toggleBouncing}>{isBouncing ? "Pause" : "Unpause"}</button>
             </Settings>
         <SettingsApplicationsIcon
             fontSize={'large'}
