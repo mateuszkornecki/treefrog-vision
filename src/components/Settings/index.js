@@ -1,4 +1,6 @@
 import './index.css';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+
 
 function Settings({isOpen, children, onClose}) {
 
@@ -8,7 +10,11 @@ function Settings({isOpen, children, onClose}) {
 
     return <div className={"settings"} style={settingsStyles}>
         {children}
-        <button onClick={onClose}>X</button>
+        <
+            HighlightOffIcon
+            fontSize={'medium'}
+            className={"settingsIcon--black settingsIcon--close"}
+            onClick={onClose}/>
     </div>
 }
 

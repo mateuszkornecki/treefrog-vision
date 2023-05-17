@@ -14,14 +14,3 @@
 .running {
   animation-play-state: running;
 }
-
-.settingsIcon {
-  position: absolute;
-  bottom: 1rem;
-  color: lightgray;
-  cursor: pointer;
-}
-
-.settingsIcon:hover {
-  color: white;
-}
