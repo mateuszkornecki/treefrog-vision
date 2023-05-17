@@ -29,7 +29,11 @@ background: white;
    position: absolute;
    top: 1rem;
    right: 1rem;
-;
+   color: gray;
+}
+
+.settingsIcon--close:hover {
+   color: black !important;
 }
 
 .settingsIcon:hover {
