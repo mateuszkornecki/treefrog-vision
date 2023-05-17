@@ -12,3 +12,31 @@ background: white;
     position: absolute;
     bottom: 1rem;
 }
+
+.settingsIcon {
+   position: absolute;
+   bottom: 1rem;
+   color: lightgray;
+   cursor: pointer;
+}
+
+.settingsIcon--black {
+   color: black;
+   cursor: pointer;
+}
+
+.settingsIcon--close {
+   position: absolute;
+   top: 1rem;
+   right: 1rem;
+;
+}
+
+.settingsIcon:hover {
+   color: white;
+}
+
+.settingsIcon--black:hover {
+   cursor: pointer;
+   color: gray;
+}
