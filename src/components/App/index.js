@@ -5,18 +5,25 @@ import Settings from "../Settings";
 import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import PlayCircleOutline from '@mui/icons-material/PlayCircleOutline';
 import PauseCircleOutline from '@mui/icons-material/PauseCircleOutline';
+import FilterCenterFocus from '@mui/icons-material/FilterCenterFocus';
 
 function App() {
     const [isBouncing, setIsBouncing] = useState(true);
-    const [shouldRestart,forceRestart] = useState(false)
+    const [isFrozenAndCentered,freezeAndCenter] = useState(false)
     const [isOpenSettings,setIsOpenSettings ] = useState(false);
 
     function toggleBouncing() {
         setIsBouncing(!isBouncing);
+
+        if (isFrozenAndCentered) {
+            setIsBouncing(true);
+            freezeAndCenter(false);
+        }
     }
 
-    function restartBounding() {
-        forceRestart(!shouldRestart)
+    function stopAndFreezePointer() {
+        freezeAndCenter(true);
+        setIsBouncing(false);
     }
 
     function toggleIsOpenSettings() {
@@ -25,10 +32,10 @@ function App() {
 
   return (
     <div className="App">
-        <Pointer bounce={isBouncing} pause={!isBouncing} restart={shouldRestart}/>
+        <Pointer bounce={isBouncing} pause={!isBouncing} freezeAndCenter={isFrozenAndCentered}/>
             <Settings isOpen={isOpenSettings} onClose={toggleIsOpenSettings}>
                 {
-                isBouncing ?
+                isBouncing || !isFrozenAndCentered ?
                 <PauseCircleOutline
                 onClick={toggleBouncing}
                 fontSize={'large'}
@@ -40,7 +47,11 @@ function App() {
                 className={"settingsIcon--black"}
             /> }
 
-                <button onClick={restartBounding}>{shouldRestart ? "Start" : "restart"}</button>
+                <FilterCenterFocus
+                    fontSize={'large'}
+                    className={"settingsIcon--black"}
+                    onClick={stopAndFreezePointer}
+                />
             </Settings>
         <SettingsApplicationsIcon
             fontSize={'large'}
