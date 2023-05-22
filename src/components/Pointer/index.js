@@ -1,4 +1,4 @@
-import './index.css';
+import './Pointer.css';
 function Pointer({bounce, pause,freezeAndCenter}) {
   return <div className={`Pointer ${freezeAndCenter ? "" : "bounce"} ${pause ? 'pause' : 'running'}`}/>
 }

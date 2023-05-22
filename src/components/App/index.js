@@ -1,5 +1,5 @@
 import Pointer from "../Pointer";
-import './index.css';
+import './App.css';
 import {useState} from "react";
 import Settings from "../Settings";
 import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
@@ -58,6 +58,7 @@ function App() {
             className={"settingsIcon"}
             onClick={toggleIsOpenSettings}
         />
+        <input type="checkbox">blue</input>
     </div>
   );
 }
