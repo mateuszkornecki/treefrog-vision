@@ -1,6 +1,5 @@
-import './index.css';
+import './Settings.css';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-
 
 function Settings({isOpen, children, onClose}) {
 
