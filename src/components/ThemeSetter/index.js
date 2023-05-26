@@ -5,7 +5,7 @@ function ThemeSetter({onThemeChange, colorPairs}) {
     function getCorespondingBackground(pointerColor) {
         let correspondingbackgroundColor = null;
         colorPairs.forEach(pair => {
-            if (pair.pointer == pointerColor) {
+            if (pair.pointer === pointerColor) {
                 correspondingbackgroundColor = pair.background;
             }
         })
