@@ -18,7 +18,6 @@
 }
 
 .Pointer {
-  background-color:red;
   height:var(--pointer-size);
     width:var(--pointer-size);
   border-radius:50%;
