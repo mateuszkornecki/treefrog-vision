@@ -1,6 +1,7 @@
 import {useState} from "react";
 import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import FilterCenterFocus from '@mui/icons-material/FilterCenterFocus';
+import tinycolor from "tinycolor2";
 import './App.css';
 import Pointer from "../Pointer";
 import Settings from "../Settings";
@@ -22,6 +23,11 @@ function App() {
         setPointerColor(newTheme.pointer);
         setBackgroundColor(newTheme.background);
     }
+
+    const isBackgroundDark = tinycolor(backgroundColor).isDark();
+const settingsIconStyles = {
+    color: isBackgroundDark ? "white" : "black",
+};
     function toggleBouncing() {
         setIsBouncing(!isBouncing);
 
@@ -68,7 +74,7 @@ function App() {
         <SettingsApplicationsIcon
             fontSize={'large'}
             className={"settingsIcon"}
-            style={{}}
+            style={settingsIconStyles}
             onClick={toggleIsOpenSettings}
         />
     </div>

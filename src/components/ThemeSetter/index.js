@@ -2,7 +2,7 @@ import './ThemeSetter.css';
 import ThemeInput from "../ThemeInput";
 
 function ThemeSetter({onThemeChange, colorPairs}) {
-    function getCorespondingBackground(pointerColor) {
+    function getCorrespondingBackground(pointerColor) {
         let correspondingbackgroundColor = null;
         colorPairs.forEach(pair => {
             if (pair.pointer === pointerColor) {
@@ -15,7 +15,7 @@ function ThemeSetter({onThemeChange, colorPairs}) {
     function handleThemeChange(e) {
         onThemeChange({
                 pointer:e.target.value,
-                background: getCorespondingBackground(e.target.value)
+                background: getCorrespondingBackground(e.target.value)
             });
     }
     return <fieldset  className={"options"}>
