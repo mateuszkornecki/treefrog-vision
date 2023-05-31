@@ -13,7 +13,6 @@ background: white;
 .settingsIcon {
    position: absolute;
    bottom: 1rem;
-   color: lightgray;
    cursor: pointer;
 }
 
