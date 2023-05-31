@@ -18,7 +18,11 @@
   -webkit-border-radius:50%;
 }
 
- .bounce {
-     animation: 50s linear 1s infinite none running bounce;
- }
-
+.animatePointer {
+    animation-name: bounce;
+    animation-play-state: running;
+    animation-iteration-count: infinite;
+    animation-timing-function:ease-in-out;
+    animation-direction: alternate-reverse;
+    animation-duration: 30s;
+}

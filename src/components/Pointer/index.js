@@ -5,7 +5,7 @@ function Pointer({paused,freezeAndCenter, color}) {
     backgroundColor: color,
   }
   return <div
-      className={`Pointer ${freezeAndCenter ? "" : "bounce"}`}
+      className={`Pointer ${freezeAndCenter ? "":"animatePointer"}`}
   style={pointerStyles}
   />
 }
