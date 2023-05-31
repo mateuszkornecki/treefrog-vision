@@ -1,6 +1,7 @@
 import {useState} from "react";
 import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import FilterCenterFocus from '@mui/icons-material/FilterCenterFocus';
+import tinycolor from "tinycolor2";
 import './App.css';
 import Pointer from "../Pointer";
 import Settings from "../Settings";
@@ -68,7 +69,7 @@ function App() {
         <SettingsApplicationsIcon
             fontSize={'large'}
             className={"settingsIcon"}
-            style={{}}
+            style={settingsIconStyles}
             onClick={toggleIsOpenSettings}
         />
     </div>
