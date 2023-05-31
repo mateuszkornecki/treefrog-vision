@@ -23,6 +23,11 @@ function App() {
         setPointerColor(newTheme.pointer);
         setBackgroundColor(newTheme.background);
     }
+
+    const isBackgroundDark = tinycolor(backgroundColor).isDark();
+const settingsIconStyles = {
+    color: isBackgroundDark ? "white" : "black",
+};
     function toggleBouncing() {
         setIsBouncing(!isBouncing);
 
