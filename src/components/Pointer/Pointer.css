@@ -3,30 +3,26 @@
 }
 
 @keyframes bounce {
-    0% {
-        margin-left: 0%;
-    }
-    33.33%{
+    0%{
         margin-left: calc(100% - var(--pointer-size))
     }
-    66.67%{
+    100%{
         margin-left: calc(-100% + var(--pointer-size))
     }
-    100% {
-        margin-left: 0%
-    }
 }
-
 .Pointer {
   height:var(--pointer-size);
     width:var(--pointer-size);
   border-radius:50%;
   -moz-border-radius:50%;
   -webkit-border-radius:50%;
-
 }
 
- .bounce {
-     animation: 50s linear 1s infinite none running bounce;
- }
-
+.animatePointer {
+    animation-name: bounce;
+    animation-play-state: running;
+    animation-iteration-count: infinite;
+    animation-timing-function:ease-in-out;
+    animation-direction: alternate-reverse;
+    animation-duration: 30s;
+}
