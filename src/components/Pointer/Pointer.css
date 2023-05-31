@@ -1,5 +1,6 @@
 :root {
     --pointer-size: 175px;
+    --animation-duration: 30s;
 }
 
 @keyframes bounce {
@@ -24,5 +25,6 @@
     animation-iteration-count: infinite;
     animation-timing-function:ease-in-out;
     animation-direction: alternate-reverse;
-    animation-duration: 30s;
+    animation-duration: var(--animation-duration);
+    animation-delay: calc(-1 * var(--animation-duration) / 2);
 }
