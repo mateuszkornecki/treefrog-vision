@@ -3,27 +3,19 @@
 }
 
 @keyframes bounce {
-    0% {
-        margin-left: 0%;
-    }
-    33.33%{
+    0%{
         margin-left: calc(100% - var(--pointer-size))
     }
-    66.67%{
+    100%{
         margin-left: calc(-100% + var(--pointer-size))
     }
-    100% {
-        margin-left: 0%
-    }
 }
-
 .Pointer {
   height:var(--pointer-size);
     width:var(--pointer-size);
   border-radius:50%;
   -moz-border-radius:50%;
   -webkit-border-radius:50%;
-
 }
 
  .bounce {
