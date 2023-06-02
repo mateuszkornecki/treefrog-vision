@@ -1,3 +1,4 @@
+import React from "react";
 import './ThemeSetter.css';
 import ThemeInput from "../ThemeInput";
 
