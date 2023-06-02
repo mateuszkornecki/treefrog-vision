@@ -1,4 +1,5 @@
 import './Pointer.css';
+import React from "react";
 function Pointer({paused,freezeAndCenter, color}) {
   const pointerStyles = {
     animationPlayState: paused ? "paused" : "running",
