@@ -1,3 +1,4 @@
+import React from 'react';
 import './Settings.css';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
@@ -6,6 +7,8 @@ function Settings({isOpen, children, onClose}) {
         visibility: isOpen ? "" : "hidden",
     };
 
+    // There is a CSS property called "visibility"...
+    // @ts-ignore
     return <div className={"settings"} style={settingsStyles}>
         {children}
         <
