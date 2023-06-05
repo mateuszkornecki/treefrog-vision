@@ -1,3 +1,5 @@
+import React from "react";
+
 function ThemeInput({theme, onThemeChange,positionNumber}) {
     return <input
         key={theme.pointer}
