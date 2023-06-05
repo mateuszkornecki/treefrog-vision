@@ -1,6 +1,6 @@
+import React from 'react';
 import './ThemeSetter.css';
 import ThemeInput from "../ThemeInput";
-
 function ThemeSetter({onThemeChange, colorPairs}) {
     function getCorrespondingBackground(pointerColor) {
         let correspondingbackgroundColor = null;
