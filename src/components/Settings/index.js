@@ -2,7 +2,6 @@ import './Settings.css';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 function Settings({isOpen, children, onClose}) {
-
     const settingsStyles = {
         visibility: isOpen ? "" : "hidden",
     };
