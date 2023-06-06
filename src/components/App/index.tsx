@@ -13,7 +13,7 @@ const THEME = [
     {pointer: "hotpink", background: "lightblue"},
     {pointer: "blue", background: "green"},
 ];
-function App() {
+function App(): React.JSX.Element {
     const [isBouncing, setIsBouncing] = useState(true);
     const [isFrozenAndCentered,freezeAndCenter] = useState(false)
     const [isOpenSettings,setIsOpenSettings ] = useState(false);
@@ -45,7 +45,7 @@ const settingsIconStyles = {
     function toggleIsOpenSettings() {
         setIsOpenSettings(!isOpenSettings);
     }
-    function handleClick(event: Event):void {
+    function handleClick(event: React.MouseEvent<HTMLDivElement>):void {
         const SETTINGS_MODAL_CLASS_NAME = "settings";
         const isClickOutsideModal = (event.target as HTMLDivElement).className !== SETTINGS_MODAL_CLASS_NAME;
         if (isOpenSettings && isClickOutsideModal) {
@@ -53,17 +53,13 @@ const settingsIconStyles = {
         }
     }
     return (
-        // Ugly workaround to satisfy TypeScript
-        // @ts-ignore
     <div className="App" onClick={handleClick} style={{backgroundColor: backgroundColor}}>
         <Pointer
             color={pointerColor}
             paused={!isBouncing}
             freezeAndCenter={isFrozenAndCentered}
         />
-            <Settings
-                isOpen={isOpenSettings}
-            >
+            <Settings isOpen={isOpenSettings}>
               <PlayPauseOption
                   isRunning={isBouncing}
                   onClick={toggleBouncing}
