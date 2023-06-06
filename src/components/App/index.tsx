@@ -63,7 +63,6 @@ const settingsIconStyles = {
         />
             <Settings
                 isOpen={isOpenSettings}
-                onClose={toggleIsOpenSettings}
             >
               <PlayPauseOption
                   isRunning={isBouncing}

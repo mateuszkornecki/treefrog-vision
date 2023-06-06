@@ -28,10 +28,6 @@ background: white;
    color: gray;
 }
 
-.settingsIcon--close:hover {
-   color: black !important;
-}
-
 .settingsIcon:hover {
    color: white;
 }
