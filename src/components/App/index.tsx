@@ -13,7 +13,7 @@ const THEME = [
     {pointer: "hotpink", background: "lightblue"},
     {pointer: "blue", background: "green"},
 ];
-function App() {
+function App(): React.JSX.Element {
     const [isBouncing, setIsBouncing] = useState(true);
     const [isFrozenAndCentered,freezeAndCenter] = useState(false)
     const [isOpenSettings,setIsOpenSettings ] = useState(false);
