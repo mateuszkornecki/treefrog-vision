@@ -1,8 +1,7 @@
 import React from 'react';
 import './Settings.css';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
-function Settings({isOpen, children, onClose}) {
+function Settings({isOpen, children}) {
     const settingsStyles = {
         visibility: isOpen ? "" : "hidden",
     };
@@ -11,11 +10,6 @@ function Settings({isOpen, children, onClose}) {
     // @ts-ignore
     return <div className={"settings"} style={settingsStyles}>
         {children}
-        <
-            HighlightOffIcon
-            fontSize={'medium'}
-            className={"settingsIcon--black settingsIcon--close"}
-            onClick={onClose}/>
     </div>
 }
 

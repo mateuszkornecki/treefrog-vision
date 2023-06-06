@@ -45,8 +45,17 @@ const settingsIconStyles = {
     function toggleIsOpenSettings() {
         setIsOpenSettings(!isOpenSettings);
     }
+    function handleClick(event: Event):void {
+        const SETTINGS_MODAL_CLASS_NAME = "settings";
+        const isClickOutsideModal = (event.target as HTMLDivElement).className !== SETTINGS_MODAL_CLASS_NAME;
+        if (isOpenSettings && isClickOutsideModal) {
+         setIsOpenSettings(false);
+        }
+    }
     return (
-    <div className="App" style={{backgroundColor: backgroundColor}}>
+        // Ugly workaround to satisfy TypeScript
+        // @ts-ignore
+    <div className="App" onClick={handleClick} style={{backgroundColor: backgroundColor}}>
         <Pointer
             color={pointerColor}
             paused={!isBouncing}
@@ -54,7 +63,6 @@ const settingsIconStyles = {
         />
             <Settings
                 isOpen={isOpenSettings}
-                onClose={toggleIsOpenSettings}
             >
               <PlayPauseOption
                   isRunning={isBouncing}
