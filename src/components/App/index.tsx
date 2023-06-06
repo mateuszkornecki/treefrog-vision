@@ -45,7 +45,7 @@ const settingsIconStyles = {
     function toggleIsOpenSettings() {
         setIsOpenSettings(!isOpenSettings);
     }
-    function handleClick(event: Event):void {
+    function handleClick(event: React.MouseEvent<HTMLDivElement>):void {
         const SETTINGS_MODAL_CLASS_NAME = "settings";
         const isClickOutsideModal = (event.target as HTMLDivElement).className !== SETTINGS_MODAL_CLASS_NAME;
         if (isOpenSettings && isClickOutsideModal) {
@@ -53,8 +53,6 @@ const settingsIconStyles = {
         }
     }
     return (
-        // Ugly workaround to satisfy TypeScript
-        // @ts-ignore
     <div className="App" onClick={handleClick} style={{backgroundColor: backgroundColor}}>
         <Pointer
             color={pointerColor}
