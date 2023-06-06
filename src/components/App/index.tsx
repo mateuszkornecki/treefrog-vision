@@ -59,9 +59,7 @@ const settingsIconStyles = {
             paused={!isBouncing}
             freezeAndCenter={isFrozenAndCentered}
         />
-            <Settings
-                isOpen={isOpenSettings}
-            >
+            <Settings isOpen={isOpenSettings}>
               <PlayPauseOption
                   isRunning={isBouncing}
                   onClick={toggleBouncing}
