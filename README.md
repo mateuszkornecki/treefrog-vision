@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# Getting Started with tree-frog app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Po co ta aplikacja i o co chodzi z tą żabą, żadnej nigdzie nie widzę?
 
-## Available Scripts
+`19 lipca 2022r.` miałem wypadek podczas treningu jazdy na rowerze "enduro".
+W wyniku wypadku, uszkodziłem (między innymi) swój wzrok a konkretnie zakres zasięgu pola widzenia.
+A ponieważ przed wypadkiem, zawodowo pracowaem jako frontend developer,
+postanowiłem że napisze aplikacje która pomoże mi (i dzięki open-source, może innym?)
+w treningach oczu które i tak codziennie wykonuje.
 
-In the project directory, you can run:
+### OK, a co z tą nazwą? O co chodzi z tą żabą?
 
-### `npm start`
+Kiedyś jak jeszcze chodziłem do szkoły podstawowej, robilimy sobie test na pole widzenia.
+Mój kolega ponieważ był synem okulistki, chciał mieć jak najlepszy wynik. Więc oszukiwał, dzięki czemu,
+wyszło mu że ma kąt pola widzenia, większy od żaby drzewnej.... Niedawno przypomniałem sobię o tej historii,
+i postanowiłem że coś w tym jest, pole widzenia większe niż żaba drzewna, to ciekawa umiejętnność a "żaba drzewna"
+to będzie ciekawa nazwa aplikacji.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Chcę kontrybuować!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Super! to Świetnie! jeśli chcesz pomóc mi w aplikacji i tak się złożyło że jesteś programistą, UX bądź UI a biorąc pod uagę że 
+czytasz to na githubie to jest tego duża szansa :) ),
+napisz do mnie lub po prostu przypisz się do którego-kolwiek zadania a "issues".
 
-### `npm test`
+### Zasady przyjęte w repozytorium
+- KISS
+ "Less is more"
+- "Convential commits" https://www.conventionalcommits.org
+Jeśli masz jakiekolwiek pytania, mialo pytaj!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Pomogli q tworzeniu aplikacji
+- Justyna Stanach (UX, PM)
+- - blacklabel
