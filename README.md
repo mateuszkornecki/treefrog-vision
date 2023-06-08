@@ -1,34 +1,32 @@
 # Getting Started with tree-frog app
 
-## Po co ta aplikacja i o co chodzi z tą żabą, żadnej nigdzie nie widzę?
+## What is this app, and what's with the frog? I can't find any here.
+`This year at 19 july` O had a pretty serious bike accident during training on enduro bike inn the forest.
+As a result my field of view (among others) was damaged. Because before the accident,
+I was working as a frontend developer, I decided to create an app that will help me (and others, since this is and will be publicly available)
+in eye training, that I am doing almost every day.
 
-`19 lipca 2022r.` miałem wypadek podczas treningu jazdy na rowerze "enduro".
-W wyniku wypadku, uszkodziłem (między innymi) swój wzrok a konkretnie zakres zasięgu pola widzenia.
-A ponieważ przed wypadkiem, zawodowo pracowałem jako frontend developer,
-postanowiłem że napisze aplikację, która pomoże mi (i dzięki open-source, może innym?)
-w treningach oczu które i tak codziennie wykonuje.
+## Ok, but why it is called that way? What's with the frog?
 
-### OK, a co z tą nazwą? O co chodzi z tą żabą?
+once when I was in primary school, we were participating in a test to check iur field of view. 
+And since a friend of mine was the son of an ophthalmologist, he wanted to get the highest score. To get it he cheated,
+in a pretty funny way. When we checked the results, we were astonished - he had a better field of view than a tree frog...
+I recently remembered this story, and I thought - that's it! This app will help me to have a similar field of view like him.
+That would be a very interesting skill.
 
-Kiedyś jak jeszcze chodziłem do szkoły podstawowej, robilimy sobie test na pole widzenia.
-Mój kolega ponieważ był synem okulistki, chciał mieć jak najlepszy wynik. Więc oszukiwał, dzięki czemu,
-wyszło mu że ma kąt pola widzenia, większy od żaby drzewnej.... Niedawno przypomniałem sobię o tej historii,
-i postanowiłem że coś w tym jest, pole widzenia większe niż żaba drzewna, to ciekawa umiejętnność a "żaba drzewna"
-to będzie ciekawa nazwa aplikacji.
+## Want to contribute?
 
-### Chcę kontrybuować!
+Great! If you want to participate in this project, and so it happened that you are a developer, UX or UI (a chance for that
+should be pretty big taking into account that you are reading this article on the Github :), just assign yourself to any task you will find
+[here](https://github.com/mateuszkornecki/tree-frog/issues)
 
-Super! To Świetnie! Jeśli chcesz pomóc mi w aplikacji i tak się złożyło że jesteś programistą, UX bądź UI (biorąc pod uwagę, że 
-czytasz to na githubie to jest tego duża szansa :)),
-napisz do mnie lub po prostu przypisz się do którego-kolwiek zadania "issues".
+### S few rules adopted in the repository
+- **KISS** (keep it simple)
+ - **"Less is more"**
+- **conventionalcommits**, you can read more about it [here](https://www.conventionalcommits.org)
 
-### Zasady przyjęte w repozytorium
-- KISS
- "Less is more"
-- [conventionalcommits](https://www.conventionalcommits.org)
+If you hsve sny question, don't hesitate, just ask me! 
 
-Jeśli masz jakiekolwiek pytania, śmiało pytaj!
-
-### Pomogli w tworzeniu aplikacji
-- Justyna Stanach (UX, PM)
-- Black Label
+### 
+helped in the development of the application
+- [Justyna Stanach](https://pl.linkedin.com/in/justyna-stanach-45428814b) (UX designer)
