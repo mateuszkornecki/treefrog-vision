@@ -4,8 +4,8 @@
 
 `19 lipca 2022r.` miałem wypadek podczas treningu jazdy na rowerze "enduro".
 W wyniku wypadku, uszkodziłem (między innymi) swój wzrok a konkretnie zakres zasięgu pola widzenia.
-A ponieważ przed wypadkiem, zawodowo pracowaem jako frontend developer,
-postanowiłem że napisze aplikacje która pomoże mi (i dzięki open-source, może innym?)
+A ponieważ przed wypadkiem, zawodowo pracowałem jako frontend developer,
+postanowiłem że napisze aplikację, która pomoże mi (i dzięki open-source, może innym?)
 w treningach oczu które i tak codziennie wykonuje.
 
 ### OK, a co z tą nazwą? O co chodzi z tą żabą?
@@ -18,16 +18,17 @@ to będzie ciekawa nazwa aplikacji.
 
 ### Chcę kontrybuować!
 
-Super! to Świetnie! jeśli chcesz pomóc mi w aplikacji i tak się złożyło że jesteś programistą, UX bądź UI a biorąc pod uagę że 
-czytasz to na githubie to jest tego duża szansa :) ),
-napisz do mnie lub po prostu przypisz się do którego-kolwiek zadania a "issues".
+Super! To Świetnie! Jeśli chcesz pomóc mi w aplikacji i tak się złożyło że jesteś programistą, UX bądź UI (biorąc pod uwagę, że 
+czytasz to na githubie to jest tego duża szansa :)),
+napisz do mnie lub po prostu przypisz się do którego-kolwiek zadania "issues".
 
 ### Zasady przyjęte w repozytorium
 - KISS
  "Less is more"
-- "Convential commits" https://www.conventionalcommits.org
-Jeśli masz jakiekolwiek pytania, mialo pytaj!
+- [conventionalcommits](https://www.conventionalcommits.org)
 
-### Pomogli q tworzeniu aplikacji
+Jeśli masz jakiekolwiek pytania, śmiało pytaj!
+
+### Pomogli w tworzeniu aplikacji
 - Justyna Stanach (UX, PM)
-- - blacklabel
+- Black Label
