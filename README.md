@@ -8,7 +8,7 @@ in eye training, that I am doing almost every day.
 
 ## Ok, but why it is called that way? What's with the frog?
 
-once when I was in primary school, we were participating in a test to check iur field of view. 
+once I was in primary school, we were participating in a test to check iur field of view. 
 And since a friend of mine was the son of an ophthalmologist, he wanted to get the highest score. To get it he cheated,
 in a pretty funny way. When we checked the results, we were astonished - he had a better field of view than a tree frog...
 I recently remembered this story, and I thought - that's it! This app will help me to have a similar field of view like him.
