@@ -21,7 +21,7 @@ should be pretty big taking into account that you are reading this article on th
 [here](https://github.com/mateuszkornecki/tree-frog/issues)
 
 ### S few rules adopted in the repository
-- **KISS** (keep it simple)
+- **KISS** (keep it simple, stupid)
  - **"Less is more"**
 - **conventionalcommits**, you can read more about it [here](https://www.conventionalcommits.org)
 
