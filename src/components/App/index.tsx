@@ -72,7 +72,7 @@ const settingsIconStyles = {
                 <br/>
                 <ThemeSetter
                     onThemeChange={handleThemeChange}
-                    colorPairs={THEME}
+                    themes={THEME}
                 />
             </Settings>
         <SettingsApplicationsIcon
