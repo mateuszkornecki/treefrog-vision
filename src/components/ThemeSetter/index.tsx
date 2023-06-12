@@ -29,7 +29,7 @@ function ThemeSetter({onThemeChange, themes}:ThemeSetterProps):React.JSX.Element
     }
     return <fieldset  className={"options"}>
         <legend>Theme</legend>
-        {colorPairs.map(
+        {themes.map(
             (colorPair,i) => <ThemeInput
                 key={colorPair.pointer+colorPair.background}
                 theme={colorPair}
