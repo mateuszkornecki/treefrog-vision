@@ -14,9 +14,9 @@ type ThemeSetterProps = {
 function ThemeSetter({onThemeChange, themes}: ThemeSetterProps) {
     function getCorrespondingBackground(pointerColor:string) {
         let correspondingBackgroundColor: string | null = null;
-        themes.forEach(pair => {
-            if (pair.pointer === pointerColor) {
-                correspondingBackgroundColor = pair.background;
+        themes.forEach(theme => {
+            if (theme.pointer === pointerColor) {
+                correspondingBackgroundColor = theme.background;
             }
         })
 
