@@ -6,11 +6,12 @@ type Theme = {
     background: string,
     pointer: string
 }
+
 type ThemeSetterProps = {
+    onThemeChange: (theme: Theme) => void,
     themes: Theme[]
-    onThemeChange: (theme: Theme)=> void
 }
-function ThemeSetter({onThemeChange, themes}:ThemeSetterProps):React.JSX.Element {
+function ThemeSetter({onThemeChange, themes}: ThemeSetterProps) {
     function getCorrespondingBackground(pointerColor:string) {
         let correspondingBackgroundColor: string | null = null;
         themes.forEach(pair => {
