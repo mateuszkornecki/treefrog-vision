@@ -1,7 +1,7 @@
 import React from 'react';
 import './ThemeSetter.css';
 import ThemeInput from "../ThemeInput";
-function ThemeSetter({onThemeChange, colorPairs}) {
+function ThemeSetter({onThemeChange, colorPairs}):React.JSX.Element {
     function getCorrespondingBackground(pointerColor) {
         let correspondingbackgroundColor = null;
         colorPairs.forEach(pair => {
