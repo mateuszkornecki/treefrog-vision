@@ -1,16 +1,25 @@
 import React from 'react';
 import './ThemeSetter.css';
 import ThemeInput from "../ThemeInput";
-function ThemeSetter({onThemeChange, colorPairs}):React.JSX.Element {
-    function getCorrespondingBackground(pointerColor) {
-        let correspondingbackgroundColor = null;
-        colorPairs.forEach(pair => {
+
+type Theme = {
+    background: string,
+    pointer: string
+}
+type ThemeSetterProps = {
+    themes: Theme[]
+    onThemeChange: (theme: Theme)=> void
+}
+function ThemeSetter({onThemeChange, themes}:ThemeSetterProps):React.JSX.Element {
+    function getCorrespondingBackground(pointerColor:string) {
+        let correspondingBackgroundColor: string | null = null;
+        themes.forEach(pair => {
             if (pair.pointer === pointerColor) {
-                correspondingbackgroundColor = pair.background;
+                correspondingBackgroundColor = pair.background;
             }
         })
 
-        return correspondingbackgroundColor || null;
+        return correspondingBackgroundColor || null;
     }
     function handleThemeChange(e) {
         onThemeChange({
