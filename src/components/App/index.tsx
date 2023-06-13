@@ -46,9 +46,10 @@ const settingsIconStyles = {
     function toggleIsOpenSettings() {
         setIsOpenSettings(!isOpenSettings);
     }
-    function handleClick(event: React.MouseEvent<HTMLDivElement>):void {
+    function handleClick(event: React.MouseEvent<HTMLElement>):void {
         const SETTINGS_MODAL_CLASS_NAME = "settings";
-        const isClickOutsideModal = (event.target as HTMLDivElement).className !== SETTINGS_MODAL_CLASS_NAME;
+        //https://www.designcise.com/web/tutorial/how-to-fix-property-does-not-exist-on-type-eventtarget-typescript-error
+        const isClickOutsideModal = (event.target as Element).className !== SETTINGS_MODAL_CLASS_NAME;
         if (isOpenSettings && isClickOutsideModal) {
          setIsOpenSettings(false);
         }
