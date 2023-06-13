@@ -13,7 +13,7 @@ const THEME = [
     {pointer: "hotpink", background: "lightblue"},
     {pointer: "blue", background: "green"},
 ];
-function App(): React.JSX.Element {
+function App() {
     const [isBouncing, setIsBouncing] = useState(true);
     const [isFrozenAndCentered,freezeAndCenter] = useState(false)
     const [isOpenSettings,setIsOpenSettings ] = useState(false);
@@ -72,7 +72,7 @@ const settingsIconStyles = {
                 <br/>
                 <ThemeSetter
                     onThemeChange={handleThemeChange}
-                    colorPairs={THEME}
+                    themes={THEME}
                 />
             </Settings>
         <SettingsApplicationsIcon

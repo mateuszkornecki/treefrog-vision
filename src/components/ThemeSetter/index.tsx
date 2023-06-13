@@ -1,26 +1,36 @@
 import React from 'react';
 import './ThemeSetter.css';
 import ThemeInput from "../ThemeInput";
-function ThemeSetter({onThemeChange, colorPairs}) {
-    function getCorrespondingBackground(pointerColor) {
-        let correspondingbackgroundColor = null;
-        colorPairs.forEach(pair => {
-            if (pair.pointer === pointerColor) {
-                correspondingbackgroundColor = pair.background;
+
+type Theme = {
+    background: string,
+    pointer: string
+}
+
+type ThemeSetterProps = {
+    onThemeChange: (theme: Theme) => void,
+    themes: Theme[]
+}
+function ThemeSetter({onThemeChange, themes}: ThemeSetterProps) {
+    function getCorrespondingBackground(pointerColor:string) {
+        let correspondingBackgroundColor: string | null = null;
+        themes.forEach(theme => {
+            if (theme.pointer === pointerColor) {
+                correspondingBackgroundColor = theme.background;
             }
         })
 
-        return correspondingbackgroundColor || null;
+        return correspondingBackgroundColor || null;
     }
-    function handleThemeChange(e) {
+    function handleThemeChange(event: React.ChangeEvent<HTMLInputElement>) {
         onThemeChange({
-                pointer:e.target.value,
-                background: getCorrespondingBackground(e.target.value)
+                pointer:event.target.value,
+                background: getCorrespondingBackground(event.target.value)
             });
     }
     return <fieldset  className={"options"}>
         <legend>Theme</legend>
-        {colorPairs.map(
+        {themes.map(
             (colorPair,i) => <ThemeInput
                 key={colorPair.pointer+colorPair.background}
                 theme={colorPair}
