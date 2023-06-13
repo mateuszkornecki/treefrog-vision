@@ -7,6 +7,7 @@ import Pointer from "../Pointer";
 import Settings from "../Settings";
 import ThemeSetter from "../ThemeSetter";
 import PlayPauseOption from "../PlayPauseOption";
+import {Theme} from "../ThemeSetter";
 
 const THEME = [
     {pointer: "red", background: "black"},
@@ -19,7 +20,7 @@ function App() {
     const [isOpenSettings,setIsOpenSettings ] = useState(false);
     const [pointerColor, setPointerColor] = useState(()=>THEME[0].pointer);
     const [backgroundColor, setBackgroundColor] = useState(()=>THEME[0].background);
-    function handleThemeChange(newTheme) {
+    function handleThemeChange(newTheme: Theme ) {
         setPointerColor(newTheme.pointer);
         setBackgroundColor(newTheme.background);
     }

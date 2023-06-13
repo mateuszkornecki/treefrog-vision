@@ -40,4 +40,6 @@ function ThemeSetter({onThemeChange, themes}: ThemeSetterProps) {
         )}
     </fieldset>
     }
+
+    export {Theme};
 export default  ThemeSetter;
