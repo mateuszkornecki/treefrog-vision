@@ -22,10 +22,10 @@ function ThemeSetter({onThemeChange, themes}: ThemeSetterProps) {
 
         return correspondingBackgroundColor || null;
     }
-    function handleThemeChange(e) {
+    function handleThemeChange(event: React.ChangeEvent<HTMLInputElement>) {
         onThemeChange({
-                pointer:e.target.value,
-                background: getCorrespondingBackground(e.target.value)
+                pointer:event.target.value,
+                background: getCorrespondingBackground(event.target.value)
             });
     }
     return <fieldset  className={"options"}>
