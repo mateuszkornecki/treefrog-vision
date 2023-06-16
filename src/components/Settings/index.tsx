@@ -1,7 +1,12 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import './Settings.css';
 
-function Settings({isOpen, children}) {
+type SettingsProps = {
+    isOpen: boolean,
+    children?: ReactNode,
+}
+
+function Settings({isOpen, children}: SettingsProps) {
     const settingsStyles = {
         visibility: isOpen ? "" : "hidden",
     };
