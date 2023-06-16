@@ -5,9 +5,8 @@ import tinycolor from "tinycolor2";
 import './App.css';
 import Pointer from "../Pointer";
 import Settings from "../Settings";
-import ThemeSetter from "../ThemeSetter";
+import ThemeSetter, {Theme} from "../ThemeSetter";
 import PlayPauseOption from "../PlayPauseOption";
-import {Theme} from "../ThemeSetter";
 
 const THEME = [
     {pointer: "red", background: "black"},
@@ -47,9 +46,9 @@ const settingsIconStyles = {
         setIsOpenSettings(!isOpenSettings);
     }
     function handleClick(event: React.MouseEvent<HTMLElement>):void {
-        const SETTINGS_MODAL_CLASS_NAME = "settings";
+        const APP_CLASS_NAME = "App";
         //https://www.designcise.com/web/tutorial/how-to-fix-property-does-not-exist-on-type-eventtarget-typescript-error
-        const isClickOutsideModal = (event.target as Element).className !== SETTINGS_MODAL_CLASS_NAME;
+        const isClickOutsideModal = (event.target as Element).className === APP_CLASS_NAME;
         if (isOpenSettings && isClickOutsideModal) {
          setIsOpenSettings(false);
         }
