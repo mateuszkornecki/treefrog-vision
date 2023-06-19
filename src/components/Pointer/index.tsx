@@ -6,9 +6,11 @@ type PointerSize = 'tiny' | 'regular' | 'large';
 type PointerProps = {
   paused: boolean,
   freezeAndCenter: boolean,
-  color: string
+  color: string,
+  size: PointerSize,
 }
-function Pointer({paused,freezeAndCenter, color}: PointerProps) {
+
+function Pointer({paused, freezeAndCenter, color, size}: PointerProps) {
   const pointerStyles = {
     animationPlayState: paused ? "paused" : "running",
     backgroundColor: color,
