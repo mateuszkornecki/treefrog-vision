@@ -15,11 +15,13 @@ const THEME = [
 ];
 function App() {
     const [isBouncing, setIsBouncing] = useState(true);
-    const [isFrozenAndCentered,freezeAndCenter] = useState(false)
-    const [isOpenSettings,setIsOpenSettings ] = useState(false);
-    const [pointerColor, setPointerColor] = useState(()=>THEME[0].pointer);
-    const [backgroundColor, setBackgroundColor] = useState(()=>THEME[0].background);
-    function handleThemeChange(newTheme: Theme ) {
+    const [isFrozenAndCentered, freezeAndCenter] = useState(false)
+    const [isOpenSettings, setIsOpenSettings] = useState(false);
+    const [pointerColor, setPointerColor] = useState(() => THEME[0].pointer);
+    const [backgroundColor, setBackgroundColor] = useState(() => THEME[0].background);
+    const [pointerSize, setPointerSize] = useState<PointerSize>(() => 'large');
+
+    function handleThemeChange(newTheme: Theme) {
         setPointerColor(newTheme.pointer);
         setBackgroundColor(newTheme.background);
     }
