@@ -1,5 +1,8 @@
 import React from 'react';
 import './Pointer.css';
+
+type PointerSize = 'tiny' | 'regular' | 'large';
+
 type PointerProps = {
   paused:boolean,
   freezeAndCenter: boolean,
@@ -17,3 +20,4 @@ function Pointer({paused,freezeAndCenter, color}: PointerProps) {
 }
 
 export default Pointer;
+export {PointerSize}
