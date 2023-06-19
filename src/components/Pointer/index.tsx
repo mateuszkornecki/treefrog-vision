@@ -30,8 +30,7 @@ function Pointer({paused, freezeAndCenter, color, size}: PointerProps) {
     changePointerSize(size);
   }, [size]);
   return <div
-      className={`Pointer ${freezeAndCenter ? "":"animatePointer"}`}
-  style={pointerStyles}
+      className={`Pointer ${freezeAndCenter ? "" : "animatePointer"}`} style={pointerStyles}
   />
 }
 
