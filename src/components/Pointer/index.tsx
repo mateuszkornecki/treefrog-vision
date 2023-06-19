@@ -4,7 +4,7 @@ import './Pointer.css';
 type PointerSize = 'tiny' | 'regular' | 'large';
 
 type PointerProps = {
-  paused:boolean,
+  paused: boolean,
   freezeAndCenter: boolean,
   color: string
 }
