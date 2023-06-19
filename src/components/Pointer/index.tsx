@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './Pointer.css';
 
 type PointerSize = 'tiny' | 'regular' | 'large';
