@@ -56,18 +56,20 @@ function App() {
          setIsOpenSettings(false);
         }
     }
+
     return (
-    <div className="App" onClick={handleClick} style={{backgroundColor: backgroundColor}}>
-        <Pointer
-            color={pointerColor}
-            paused={!isBouncing}
-            freezeAndCenter={isFrozenAndCentered}
-        />
+        <div className="App" onClick={handleClick} style={{backgroundColor: backgroundColor}}>
+            <Pointer
+                color={pointerColor}
+                paused={!isBouncing}
+                size={pointerSize}
+                freezeAndCenter={isFrozenAndCentered}
+            />
             <Settings isOpen={isOpenSettings}>
-              <PlayPauseOption
-                  isRunning={isBouncing}
-                  onClick={toggleBouncing}
-              />
+                <PlayPauseSetting
+                    isRunning={isBouncing}
+                    onClick={toggleBouncing}
+                />
                 <FilterCenterFocus
                     fontSize={'large'}
                     className={"settingsIcon--black"}
@@ -78,14 +80,20 @@ function App() {
                     onThemeChange={handleThemeChange}
                     themes={THEME}
                 />
+                <fieldset className={"options"}>
+                    <legend>Pointer size</legend>
+                    <input value={"tiny"} onClick={() => setPointerSize("tiny")}/>
+                    <input value={"regular"} onClick={() => setPointerSize("regular")}/>
+                    <input value={"large"} onClick={() => setPointerSize("large")}/>
+                </fieldset>
             </Settings>
-        <SettingsApplicationsIcon
-            fontSize={'large'}
-            className={"settingsIcon"}
-            style={settingsIconStyles}
-            onClick={toggleIsOpenSettings}
-        />
-    </div>
+            <SettingsApplicationsIcon
+                fontSize={'large'}
+                className={"settingsIcon"}
+                style={settingsIconStyles}
+                onClick={toggleIsOpenSettings}
+            />
+        </div>
   );
 }
 export default  App;
