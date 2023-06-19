@@ -27,9 +27,10 @@ function App() {
     }
 
     const isBackgroundDark = tinycolor(backgroundColor).isDark();
-const settingsIconStyles = {
-    color: isBackgroundDark ? "white" : "black",
-};
+    const settingsIconStyles = {
+        color: isBackgroundDark ? "white" : "black",
+    };
+
     function toggleBouncing() {
         setIsBouncing(!isBouncing);
 
