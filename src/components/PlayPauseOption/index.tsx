@@ -6,7 +6,7 @@ type PlayPauseOptionProps = {
     isRunning:boolean,
     onClick: ()=>void
 }
-function PlayPauseOption({isRunning, onClick}: PlayPauseOptionProps) {
+function PlayPauseSetting({isRunning, onClick}: PlayPauseOptionProps) {
     return isRunning ?
         <PauseCircleOutline
             onClick={onClick}
@@ -19,4 +19,5 @@ function PlayPauseOption({isRunning, onClick}: PlayPauseOptionProps) {
             className={"settingsIcon--black"}
         />
 }
-export default PlayPauseOption;
+
+export default PlayPauseSetting;

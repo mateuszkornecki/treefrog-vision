@@ -6,7 +6,7 @@ import './App.css';
 import Pointer, {PointerSize} from "../Pointer";
 import Settings from "../Settings";
 import ThemeSetter, {Theme} from "../ThemeSetter";
-import PlayPauseOption from "../PlayPauseOption";
+import PlayPauseSetting from "../PlayPauseOption";
 
 const THEME = [
     {pointer: "red", background: "black"},
