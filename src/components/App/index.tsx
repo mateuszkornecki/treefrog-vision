@@ -22,7 +22,7 @@ function App() {
     const [isOpenSettings, setIsOpenSettings] = useState(false);
     const [pointerColor, setPointerColor] = useState(() => THEME[0].pointer);
     const [backgroundColor, setBackgroundColor] = useState(() => THEME[0].background);
-    const [pointerSize, setPointerSize] = useState<PointerSize>(() => 'large');
+    const [pointerSize, setPointerSize] = useState<PointerSize>(() => 'regular');
 
     function handleThemeChange(newTheme: Theme) {
         setPointerColor(newTheme.pointer);

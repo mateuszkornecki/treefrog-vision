@@ -1,4 +1,5 @@
 import React from "react";
+import './PointerSizeSetter.css';
 
 type PointerSizeSetterProps = {
     onSizeClick: (newSize) => void
@@ -7,9 +8,12 @@ const PointerSizeSetter = ({onSizeClick}: PointerSizeSetterProps) => {
 
     return <fieldset className={"options"}>
         <legend>Pointer size</legend>
-        <input value={"tiny"} onClick={() => onSizeClick("tiny")}/>
-        <input value={"regular"} onClick={() => onSizeClick("regular")}/>
-        <input value={"large"} onClick={() => onSizeClick("large")}/>
+        <input className={"pointerSizeInput"} type="radio" value="tiny" name="pointerSize"
+               onChange={() => onSizeClick("tiny")}/>
+        <input className={"pointerSizeInput"} type="radio" value="regular" name="pointerSize" defaultChecked={true}
+               onChange={() => onSizeClick("regular")}/>
+        <input className={"pointerSizeInput"} type="radio" value="large" name="pointerSize"
+               onChange={() => onSizeClick("large")}/>
     </fieldset>
 }
 
