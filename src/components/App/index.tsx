@@ -3,16 +3,19 @@ import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import FilterCenterFocus from '@mui/icons-material/FilterCenterFocus';
 import tinycolor from "tinycolor2";
 import './App.css';
+
 import Pointer, {PointerSize} from "../Pointer";
 import Settings from "../Settings";
 import ThemeSetter, {Theme} from "../ThemeSetter";
 import PlayPauseSetting from "../PlayPauseOption";
+import PointerSizesetter from "../PointerSizeSeter";
 
 const THEME = [
     {pointer: "red", background: "black"},
     {pointer: "hotpink", background: "lightblue"},
     {pointer: "blue", background: "green"},
 ];
+
 function App() {
     const [isBouncing, setIsBouncing] = useState(true);
     const [isFrozenAndCentered, freezeAndCenter] = useState(false)
@@ -80,12 +83,7 @@ function App() {
                     onThemeChange={handleThemeChange}
                     themes={THEME}
                 />
-                <fieldset className={"options"}>
-                    <legend>Pointer size</legend>
-                    <input value={"tiny"} onClick={() => setPointerSize("tiny")}/>
-                    <input value={"regular"} onClick={() => setPointerSize("regular")}/>
-                    <input value={"large"} onClick={() => setPointerSize("large")}/>
-                </fieldset>
+                <PointerSizesetter onSizeClick={setPointerSize}/>
             </Settings>
             <SettingsApplicationsIcon
                 fontSize={'large'}
