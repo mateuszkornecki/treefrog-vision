@@ -27,6 +27,8 @@ function App() {
     function handleThemeChange(newTheme: Theme) {
         setPointerColor(newTheme.pointer);
         setBackgroundColor(newTheme.background);
+        document.documentElement.style.setProperty('--pointer-color', newTheme.pointer);
+
     }
 
     const isBackgroundDark = tinycolor(backgroundColor).isDark();
