@@ -1,7 +1,7 @@
 # Getting Started with tree-frog app
 
 ## What is this app, and what's with the frog? I can't find any here.
-`This year at 19 july` O had a pretty serious bike accident during training on enduro bike in the forest.
+`This year at 19 july` I had a pretty serious bike accident during training on enduro bike in the forest.
 As a result my field of view (among others) was damaged. Because before the accident,
 I was working as a frontend developer, I decided to create an app that will help me (and others, since this is and will be publicly available)
 in eye training, that I am doing almost every day.
