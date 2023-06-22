@@ -7,13 +7,15 @@ type PointerSizeSetterProps = {
 const PointerSizeSetter = ({onSizeClick}: PointerSizeSetterProps) => {
 
     return <fieldset className={"options"}>
-        <legend>Pointer size</legend>
-        <input className={"pointerSizeInput"} type="radio" value="tiny" name="pointerSize"
+        <legend className={"pointerSizeInput__legend"}>Pointer size</legend>
+        <input className={"pointerSizeInput pointerSizeInput--tiny"} type="radio" value="tiny" name="pointerSize"
                onChange={() => onSizeClick("tiny")}/>
-        <input className={"pointerSizeInput"} type="radio" value="regular" name="pointerSize" defaultChecked={true}
+        <input className={"pointerSizeInput pointerSizeInput--regular"} type="radio" value="regular" name="pointerSize"
+               defaultChecked={true}
                onChange={() => onSizeClick("regular")}/>
-        <input className={"pointerSizeInput"} type="radio" value="large" name="pointerSize"
-               onChange={() => onSizeClick("large")}/>
+        <input className={"pointerSizeInput pointerSizeInput--large"} type="radio" value="large" name="pointerSize"
+               onChange={() => onSizeClick("large")}
+        />
     </fieldset>
 }
 

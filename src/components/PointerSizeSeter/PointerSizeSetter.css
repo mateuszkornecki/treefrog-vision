@@ -1,3 +1,50 @@
-.pointerSizeInput {
-    accent-color: crimson;
+:root {
+    --pointer-color: crimson;
 }
+
+.pointerSizeInput {
+    appearance: none;
+    padding: 10px;
+    background-color: var(--pointer-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.pointerSizeInput--tiny {
+    -ms-transform: scale(0.75); /* IE 9 */
+    -webkit-transform: scale(0.75); /* Chrome, Safari, Opera */
+    transform: scale(0.75);
+}
+
+.pointerSizeInput--regular {
+    -ms-transform: scale(1.25); /* IE 9 */
+    -webkit-transform: scale(1.25); /* Chrome, Safari, Opera */
+    transform: scale(1.25);
+    margin-left: 1rem;
+}
+
+.pointerSizeInput--large {
+    -ms-transform: scale(2); /* IE 9 */
+    -webkit-transform: scale(2); /* Chrome, Safari, Opera */
+    transform: scale(2);
+    margin-left: 1.5rem;
+}
+
+.pointerSizeInput--tiny:checked {
+    outline: 0.45rem solid yellow;
+}
+
+.pointerSizeInput--regular:checked {
+    outline: 0.3rem solid yellow;
+}
+
+.pointerSizeInput--large:checked {
+    outline: 0.2rem solid yellow;
+}
+
+pointerSizeInput__legend {
+    margin-bottom: 2rem;
+}
+
+
+
