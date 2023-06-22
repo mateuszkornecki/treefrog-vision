@@ -3,31 +3,39 @@ import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import FilterCenterFocus from '@mui/icons-material/FilterCenterFocus';
 import tinycolor from "tinycolor2";
 import './App.css';
-import Pointer from "../Pointer";
+
+import Pointer, {PointerSize} from "../Pointer";
 import Settings from "../Settings";
 import ThemeSetter, {Theme} from "../ThemeSetter";
-import PlayPauseOption from "../PlayPauseOption";
+import PlayPauseSetting from "../PlayPauseOption";
+import PointerSizesetter from "../PointerSizeSeter";
 
 const THEME = [
     {pointer: "red", background: "black"},
     {pointer: "hotpink", background: "lightblue"},
     {pointer: "blue", background: "green"},
 ];
+
 function App() {
     const [isBouncing, setIsBouncing] = useState(true);
-    const [isFrozenAndCentered,freezeAndCenter] = useState(false)
-    const [isOpenSettings,setIsOpenSettings ] = useState(false);
-    const [pointerColor, setPointerColor] = useState(()=>THEME[0].pointer);
-    const [backgroundColor, setBackgroundColor] = useState(()=>THEME[0].background);
-    function handleThemeChange(newTheme: Theme ) {
+    const [isFrozenAndCentered, freezeAndCenter] = useState(false)
+    const [isOpenSettings, setIsOpenSettings] = useState(false);
+    const [pointerColor, setPointerColor] = useState(() => THEME[0].pointer);
+    const [backgroundColor, setBackgroundColor] = useState(() => THEME[0].background);
+    const [pointerSize, setPointerSize] = useState<PointerSize>(() => 'regular');
+
+    function handleThemeChange(newTheme: Theme) {
         setPointerColor(newTheme.pointer);
         setBackgroundColor(newTheme.background);
+        document.documentElement.style.setProperty('--pointer-color', newTheme.pointer);
+
     }
 
     const isBackgroundDark = tinycolor(backgroundColor).isDark();
-const settingsIconStyles = {
-    color: isBackgroundDark ? "white" : "black",
-};
+    const settingsIconStyles = {
+        color: isBackgroundDark ? "white" : "black",
+    };
+
     function toggleBouncing() {
         setIsBouncing(!isBouncing);
 
@@ -53,18 +61,20 @@ const settingsIconStyles = {
          setIsOpenSettings(false);
         }
     }
+
     return (
-    <div className="App" onClick={handleClick} style={{backgroundColor: backgroundColor}}>
-        <Pointer
-            color={pointerColor}
-            paused={!isBouncing}
-            freezeAndCenter={isFrozenAndCentered}
-        />
+        <div className="App" onClick={handleClick} style={{backgroundColor: backgroundColor}}>
+            <Pointer
+                color={pointerColor}
+                paused={!isBouncing}
+                size={pointerSize}
+                freezeAndCenter={isFrozenAndCentered}
+            />
             <Settings isOpen={isOpenSettings}>
-              <PlayPauseOption
-                  isRunning={isBouncing}
-                  onClick={toggleBouncing}
-              />
+                <PlayPauseSetting
+                    isRunning={isBouncing}
+                    onClick={toggleBouncing}
+                />
                 <FilterCenterFocus
                     fontSize={'large'}
                     className={"settingsIcon--black"}
@@ -75,14 +85,15 @@ const settingsIconStyles = {
                     onThemeChange={handleThemeChange}
                     themes={THEME}
                 />
+                <PointerSizesetter onSizeClick={setPointerSize}/>
             </Settings>
-        <SettingsApplicationsIcon
-            fontSize={'large'}
-            className={"settingsIcon"}
-            style={settingsIconStyles}
-            onClick={toggleIsOpenSettings}
-        />
-    </div>
+            <SettingsApplicationsIcon
+                fontSize={'large'}
+                className={"settingsIcon"}
+                style={settingsIconStyles}
+                onClick={toggleIsOpenSettings}
+            />
+        </div>
   );
 }
 export default  App;
