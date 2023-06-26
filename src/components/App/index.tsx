@@ -11,7 +11,6 @@ import PointerSizesetter from "../PointerSizeSeter";
 import useThemes from "../../hooks/useThemes";
 
 function App() {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const {themes} = useThemes();
     const defaultTheme = themes[0];
     const [isBouncing, setIsBouncing] = useState(true);
