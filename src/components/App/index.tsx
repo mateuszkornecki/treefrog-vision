@@ -3,25 +3,21 @@ import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import FilterCenterFocus from '@mui/icons-material/FilterCenterFocus';
 import tinycolor from "tinycolor2";
 import './App.css';
-
 import Pointer, {PointerSize} from "../Pointer";
 import Settings from "../Settings";
 import ThemeSetter, {Theme} from "../ThemeSetter";
 import PlayPauseSetting from "../PlayPauseOption";
 import PointerSizesetter from "../PointerSizeSeter";
-
-const THEME = [
-    {pointer: "red", background: "black"},
-    {pointer: "hotpink", background: "lightblue"},
-    {pointer: "blue", background: "green"},
-];
+import useThemes from "../../hooks/useThemes";
 
 function App() {
+    const {themes} = useThemes();
+    const defaultTheme = themes[0];
     const [isBouncing, setIsBouncing] = useState(true);
     const [isFrozenAndCentered, freezeAndCenter] = useState(false)
     const [isOpenSettings, setIsOpenSettings] = useState(false);
-    const [pointerColor, setPointerColor] = useState(() => THEME[0].pointer);
-    const [backgroundColor, setBackgroundColor] = useState(() => THEME[0].background);
+    const [pointerColor, setPointerColor] = useState(() => defaultTheme.pointer);
+    const [backgroundColor, setBackgroundColor] = useState(() => defaultTheme.background);
     const [pointerSize, setPointerSize] = useState<PointerSize>(() => 'regular');
 
     function handleThemeChange(newTheme: Theme) {
@@ -83,7 +79,7 @@ function App() {
                 <br/>
                 <ThemeSetter
                     onThemeChange={handleThemeChange}
-                    themes={THEME}
+                    themes={themes}
                 />
                 <PointerSizesetter onSizeClick={setPointerSize}/>
             </Settings>
