@@ -25,7 +25,7 @@ should be pretty big taking into account that you are reading this article on th
  - **"Less is more"**
 - **conventionalcommits**, you can read more about it [here](https://www.conventionalcommits.org)
 
-If you hsve sny question, don't hesitate, just ask me! 
+If you hshaveve any question, don't hesitate, just ask me! 
 
 ### 
 helped in the development of the application
