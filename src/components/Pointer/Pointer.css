@@ -4,13 +4,23 @@
 }
 
 @keyframes bounce {
-    0%{
+    0% {
         margin-left: calc(100% - var(--pointer-size))
     }
-    100%{
+    100% {
         margin-left: calc(-100% + var(--pointer-size))
     }
 }
+
+@keyframes justLeft {
+    0% {
+        margin-left: 0;
+    }
+    100% {
+        margin-left: calc(-100% + var(--pointer-size));
+    }
+}
+
 .Pointer {
   height:var(--pointer-size);
     width:var(--pointer-size);
