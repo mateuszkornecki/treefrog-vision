@@ -1,22 +1,25 @@
 import React, {useEffect} from 'react';
 import './Pointer.css';
 
-type PointerSize = 'tiny' | 'regular' | 'large';
+type TPointerSize = 'tiny' | 'regular' | 'large';
+type TDirection = 'both' | 'left' | 'right';
 
-type PointerProps = {
+type PTPointerProps = {
   paused: boolean,
   freezeAndCenter: boolean,
   color: string,
-  size: PointerSize,
+  size: TPointerSize,
+  direction: TDirection,
 }
 
-function Pointer({paused, freezeAndCenter, color, size}: PointerProps) {
+function Pointer({paused, freezeAndCenter, color, size, direction}: PTPointerProps) {
   const pointerStyles = {
+    animationName: direction,
     animationPlayState: paused ? "paused" : "running",
     backgroundColor: color,
   }
 
-  function changePointerSize(newSize: PointerSize): void {
+  function changePointerSize(newSize: TPointerSize): void {
     if (newSize === 'tiny') {
       document.documentElement.style.setProperty('--pointer-size', `75px`);
     } else if (newSize === 'large') {
@@ -35,4 +38,4 @@ function Pointer({paused, freezeAndCenter, color, size}: PointerProps) {
 }
 
 export default Pointer;
-export {PointerSize}
+export {TPointerSize, TDirection}

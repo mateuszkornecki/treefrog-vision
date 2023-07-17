@@ -1,9 +1,9 @@
 :root {
     --pointer-size: 175px;
-    --animation-duration: 30s;
+    --animation-duration: 15s;
 }
 
-@keyframes bounce {
+@keyframes both {
     0% {
         margin-left: calc(100% - var(--pointer-size))
     }
@@ -12,7 +12,7 @@
     }
 }
 
-@keyframes justLeft {
+@keyframes left {
     0% {
         margin-left: 0;
     }
@@ -21,20 +21,29 @@
     }
 }
 
+@keyframes right {
+    0% {
+        margin-left: 0;
+    }
+    100% {
+        margin-left: calc(100% - var(--pointer-size));
+    }
+}
+
 .Pointer {
-  height:var(--pointer-size);
-    width:var(--pointer-size);
-  border-radius:50%;
-  -moz-border-radius:50%;
-  -webkit-border-radius:50%;
+    height: var(--pointer-size);
+    width: var(--pointer-size);
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
 }
 
 .animatePointer {
-    animation-name: bounce;
+    /*animation-name: justLeft;*/
     animation-play-state: running;
     animation-iteration-count: infinite;
-    animation-timing-function:ease-in-out;
-    animation-direction: alternate-reverse;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
     animation-duration: var(--animation-duration);
     animation-delay: calc(-1 * var(--animation-duration) / 2);
 }

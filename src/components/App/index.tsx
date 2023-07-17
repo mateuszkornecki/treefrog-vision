@@ -3,12 +3,15 @@ import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import FilterCenterFocus from '@mui/icons-material/FilterCenterFocus';
 import tinycolor from "tinycolor2";
 import './App.css';
-import Pointer, {PointerSize} from "../Pointer";
+import Pointer, {TDirection, TPointerSize} from "../Pointer";
 import Settings from "../Settings";
 import ThemeSetter, {Theme} from "../ThemeSetter";
 import PlayPauseSetting from "../PlayPauseOption";
 import PointerSizesetter from "../PointerSizeSeter";
 import useThemes from "../../hooks/useThemes";
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
+import SwapHorizontalCircleIcon from '@mui/icons-material/SwapHorizontalCircle';
 
 function App() {
     const {themes} = useThemes();
@@ -18,7 +21,8 @@ function App() {
     const [isOpenSettings, setIsOpenSettings] = useState(false);
     const [pointerColor, setPointerColor] = useState(() => defaultTheme.pointer);
     const [backgroundColor, setBackgroundColor] = useState(() => defaultTheme.background);
-    const [pointerSize, setPointerSize] = useState<PointerSize>(() => 'regular');
+    const [pointerSize, setPointerSize] = useState<TPointerSize>(() => 'regular');
+    const [direction, setDirection] = useState<TDirection>((): TDirection => 'left');
 
     function handleThemeChange(newTheme: Theme) {
         setPointerColor(newTheme.pointer);
@@ -61,12 +65,32 @@ function App() {
     return (
         <div className="App" onClick={handleClick} style={{backgroundColor: backgroundColor}}>
             <Pointer
+                direction={direction}
                 color={pointerColor}
                 paused={!isBouncing}
                 size={pointerSize}
                 freezeAndCenter={isFrozenAndCentered}
             />
             <Settings isOpen={isOpenSettings}>
+                <fieldset className={"options"}>
+                    <legend>Direction</legend>
+                    <ArrowCircleLeftIcon
+                        className={"settingsIcon--black"}
+                        onClick={() => setDirection('left')}
+                        fontSize={'large'}
+                    />
+                    <SwapHorizontalCircleIcon
+                        className={"settingsIcon--black"}
+
+                        onClick={() => setDirection('both')}
+                        fontSize={'large'}
+                    />
+                    <ArrowCircleRightIcon
+                        className={"settingsIcon--black"}
+                        onClick={() => setDirection('right')}
+                        fontSize={'large'}
+                    />
+                </fieldset>
                 <PlayPauseSetting
                     isRunning={isBouncing}
                     onClick={toggleBouncing}
@@ -76,7 +100,7 @@ function App() {
                     className={"settingsIcon--black"}
                     onClick={stopAndFreezePointer}
                 />
-                <br/>
+
                 <ThemeSetter
                     onThemeChange={handleThemeChange}
                     themes={themes}
