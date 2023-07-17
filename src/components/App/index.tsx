@@ -22,7 +22,7 @@ function App() {
     const [pointerColor, setPointerColor] = useState(() => defaultTheme.pointer);
     const [backgroundColor, setBackgroundColor] = useState(() => defaultTheme.background);
     const [pointerSize, setPointerSize] = useState<TPointerSize>(() => 'regular');
-    const [direction, setDirection] = useState<TDirection>((): TDirection => 'left');
+    const [direction, setDirection] = useState<TDirection>((): TDirection => 'both');
 
     function handleThemeChange(newTheme: Theme) {
         setPointerColor(newTheme.pointer);
