@@ -1,0 +1,14 @@
+[
+  {
+    "pointer": "red",
+    "background": "black"
+  },
+  {
+    "pointer": "hotpink",
+    "background": "lightblue"
+  },
+  {
+    "pointer": "blue",
+    "background": "green"
+  }
+]
