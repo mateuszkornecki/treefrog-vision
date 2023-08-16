@@ -90,4 +90,4 @@ function Pointer({paused, freezeAndCenter, color, size, directionMode}: TPointer
 }
 
 export default Pointer;
-export {TPointerSize, TDirection, TDirectionMode}
+export {TPointerSize, TDirectionMode}
