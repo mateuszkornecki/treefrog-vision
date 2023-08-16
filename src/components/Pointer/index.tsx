@@ -2,7 +2,6 @@ import React, {AnimationEvent, useEffect, useState} from 'react';
 import './Pointer.css';
 
 type TPointerSize = 'tiny' | 'regular' | 'large';
-type TDirection = 'both' | 'left' | 'right';
 type TDirectionMode = 'modeLeft' | 'modeLeftReturn' | 'modeRight' | 'modeRightReturn' | 'modeBoth';
 type TAnimationIterationCount = 'infinite' | 1;
 type TAnimationDuration = '30s' | '5s' | '2s'
