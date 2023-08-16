@@ -1,36 +1,54 @@
 :root {
     --pointer-size: 175px;
-    --animation-duration: 15s;
 }
 
-@keyframes both {
-    0% {
+@keyframes modeBoth {
+    from {
         margin-left: calc(100% - var(--pointer-size))
     }
-    100% {
+    to {
         margin-left: calc(-100% + var(--pointer-size))
     }
 }
 
-@keyframes left {
-    0% {
-        margin-left: 0;
+@keyframes modeLeft {
+    from {
+        right: 0;
     }
-    100% {
-        margin-left: calc(-100% + var(--pointer-size));
+    to {
+        right: calc(100% - var(--pointer-size));
     }
 }
 
-@keyframes right {
-    0% {
-        margin-left: 0;
+@keyframes modeLeftReturn {
+    from {
+        left: 0
     }
-    100% {
-        margin-left: calc(100% - var(--pointer-size));
+    to {
+        left: calc(100% - var(--pointer-size));
+    }
+}
+
+@keyframes modeRight {
+    from {
+        left: 0;
+    }
+    to {
+        left: calc(100% - var(--pointer-size));
+    }
+}
+
+@keyframes modeRightReturn {
+    from {
+        right: 0
+    }
+    to {
+        right: calc(100% - var(--pointer-size));
     }
 }
 
 .Pointer {
+    position: absolute;
     height: var(--pointer-size);
     width: var(--pointer-size);
     border-radius: 50%;
@@ -39,9 +57,7 @@
 }
 
 .animatePointer {
-    animation-iteration-count: infinite;
+    animation-fill-mode: both;
     animation-timing-function: ease-in-out;
     animation-direction: alternate;
-    animation-duration: var(--animation-duration);
-    animation-delay: calc(-1 * var(--animation-duration) / 2);
 }
