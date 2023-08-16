@@ -37,7 +37,6 @@ function Pointer({paused, freezeAndCenter, color, size, directionMode}: TPointer
       document.documentElement.style.setProperty('--pointer-size', `175px`);
     }
   }
-
   useEffect(() => {
     // we need to set it when for example 'modeBoth' button is clicked
     if (mode === 'modeBoth') {
@@ -78,7 +77,7 @@ function Pointer({paused, freezeAndCenter, color, size, directionMode}: TPointer
     } else {
       setAnimationIterationCount('infinite');
     }
-  }, [directionMode]);
+  }, [mode]);
 
   useEffect(() => {
     changePointerSize(size);
