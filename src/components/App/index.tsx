@@ -3,7 +3,7 @@ import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import FilterCenterFocus from '@mui/icons-material/FilterCenterFocus';
 import tinycolor from "tinycolor2";
 import './App.css';
-import Pointer, {TDirection, TPointerSize} from "../Pointer";
+import Pointer, {TDirectionMode, TPointerSize} from "../Pointer";
 import Settings from "../Settings";
 import ThemeSetter, {Theme} from "../ThemeSetter";
 import PlayPauseSetting from "../PlayPauseOption";
@@ -22,7 +22,7 @@ function App() {
     const [pointerColor, setPointerColor] = useState(() => defaultTheme.pointer);
     const [backgroundColor, setBackgroundColor] = useState(() => defaultTheme.background);
     const [pointerSize, setPointerSize] = useState<TPointerSize>(() => 'regular');
-    const [direction, setDirection] = useState<TDirection>((): TDirection => 'both');
+    const [directionMode, setDirectionMode] = useState<TDirectionMode>('modeBoth');
 
     function handleThemeChange(newTheme: Theme) {
         setPointerColor(newTheme.pointer);
@@ -62,10 +62,22 @@ function App() {
         }
     }
 
+    function handleRightModeClick(): void {
+        setDirectionMode('modeRight');
+    }
+
+    function handleLeftModeClick(): void {
+        setDirectionMode('modeLeft');
+    }
+
+    function handleBothModeClick(): void {
+        setDirectionMode('modeBoth');
+    }
+
     return (
         <div className="App" onClick={handleClick} style={{backgroundColor: backgroundColor}}>
             <Pointer
-                direction={direction}
+                directionMode={directionMode}
                 color={pointerColor}
                 paused={!isBouncing}
                 size={pointerSize}
@@ -76,18 +88,17 @@ function App() {
                     <legend>Direction</legend>
                     <ArrowCircleLeftIcon
                         className={"settingsIcon--black"}
-                        onClick={() => setDirection('left')}
+                        onClick={handleLeftModeClick}
                         fontSize={'large'}
                     />
                     <SwapHorizontalCircleIcon
                         className={"settingsIcon--black"}
-
-                        onClick={() => setDirection('both')}
+                        onClick={handleBothModeClick}
                         fontSize={'large'}
                     />
                     <ArrowCircleRightIcon
                         className={"settingsIcon--black"}
-                        onClick={() => setDirection('right')}
+                        onClick={handleRightModeClick}
                         fontSize={'large'}
                     />
                 </fieldset>
