@@ -7,7 +7,7 @@ import Pointer, {TDirectionMode, TPointerSize} from "../Pointer";
 import Settings from "../Settings";
 import ThemeSetter, {Theme} from "../ThemeSetter";
 import PlayPauseSetting from "../PlayPauseOption";
-import PointerSizesetter from "../PointerSizeSeter";
+import PointerSizesetter from "../PointerSizeSetter";
 import useThemes from "../../hooks/useThemes";
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
