@@ -5,7 +5,7 @@ import tinycolor from "tinycolor2";
 import './App.css';
 import Pointer, {TDirectionMode, TPointerSize} from "../Pointer";
 import Settings from "../Settings";
-import ThemeSetter, {Theme} from "../ThemeSetter";
+import ThemeSetter, {TTheme} from "../ThemeSetter";
 import PlayPauseSetting from "../PlayPauseOption";
 import PointerSizesetter from "../PointerSizeSetter";
 import useThemes from "../../hooks/useThemes";
@@ -24,7 +24,7 @@ function App() {
     const [pointerSize, setPointerSize] = useState<TPointerSize>(() => 'regular');
     const [directionMode, setDirectionMode] = useState<TDirectionMode>('modeBoth');
 
-    function handleThemeChange(newTheme: Theme) {
+    function handleThemeChange(newTheme: TTheme) {
         setPointerColor(newTheme.pointer);
         setBackgroundColor(newTheme.background);
         document.documentElement.style.setProperty('--pointer-color', newTheme.pointer);

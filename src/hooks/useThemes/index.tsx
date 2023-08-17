@@ -1,7 +1,7 @@
 import {useState} from "react";
-import {Theme} from "../../components/ThemeSetter";
+import {TTheme} from "../../components/ThemeSetter";
 
-const initialThemes: Theme[] = [
+const initialThemes: TTheme[] = [
     {pointer: "red", background: "black"},
     {pointer: "hotpink", background: "lightblue"},
     {pointer: "blue", background: "green"},
