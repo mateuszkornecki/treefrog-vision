@@ -5,9 +5,8 @@ import tinycolor from "tinycolor2";
 import './App.css';
 import Pointer, {TDirectionMode, TPointerSize} from "../Pointer";
 import Settings from "../Settings";
-import ThemeSetter, {TTheme} from "../ThemeSetter";
 import PlayPauseSetting from "../PlayPauseOption";
-import PointerSizesetter from "../PointerSizeSetter";
+import PointerSizesetter from "../PointerSizeSeter";
 import useThemes from "../../hooks/useThemes";
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
@@ -24,12 +23,6 @@ function App() {
     const [pointerSize, setPointerSize] = useState<TPointerSize>(() => 'regular');
     const [directionMode, setDirectionMode] = useState<TDirectionMode>('modeBoth');
 
-    function handleThemeChange(newTheme: TTheme) {
-        setPointerColor(newTheme.pointer);
-        setBackgroundColor(newTheme.background);
-        document.documentElement.style.setProperty('--pointer-color', newTheme.pointer);
-
-    }
 
     const isBackgroundDark = tinycolor(backgroundColor).isDark();
     const settingsIconStyles = {
@@ -110,11 +103,6 @@ function App() {
                     fontSize={'large'}
                     className={"settingsIcon--black"}
                     onClick={stopAndFreezePointer}
-                />
-
-                <ThemeSetter
-                    onThemeChange={handleThemeChange}
-                    themes={themes}
                 />
                 <PointerSizesetter onSizeClick={setPointerSize}/>
             </Settings>

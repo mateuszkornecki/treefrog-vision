@@ -2,17 +2,16 @@ import React from 'react';
 import './ThemeSetter.css';
 import ThemeInput from "../ThemeInput";
 
-type TTheme = {
+type Theme = {
     background: string,
     pointer: string
 }
 
-type TThemeSetterProps = {
-    onThemeChange: (theme: TTheme) => void,
-    themes: TTheme[]
+type ThemeSetterProps = {
+    onThemeChange: (theme: Theme) => void,
+    themes: Theme[]
 }
-
-function ThemeSetter({onThemeChange, themes}: TThemeSetterProps) {
+function ThemeSetter({onThemeChange, themes}: ThemeSetterProps) {
     function getCorrespondingBackground(pointerColor:string) {
         let correspondingBackgroundColor: string | null = null;
         themes.forEach(theme => {
@@ -42,5 +41,5 @@ function ThemeSetter({onThemeChange, themes}: TThemeSetterProps) {
     </fieldset>
     }
 
-export {TTheme};
+    export {Theme};
 export default  ThemeSetter;

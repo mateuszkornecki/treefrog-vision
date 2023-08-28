@@ -1,10 +1,13 @@
 import {useState} from "react";
-import {TTheme} from "../../components/ThemeSetter";
-import data from "../../themes.json"
 
+const initialThemes = [
+    {pointer: "red", background: "black"},
+    {pointer: "hotpink", background: "lightblue"},
+    {pointer: "blue", background: "green"},
+];
 
 function useThemes() {
-    const [themes, setThemes] = useState<TTheme[]>(data);
+    const [themes, setThemes] = useState(initialThemes);
 
     return {themes, setThemes};
 }
