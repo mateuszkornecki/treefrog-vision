@@ -28,5 +28,6 @@ should be pretty big taking into account that you are reading this article on th
 If you have any question, don't hesitate, just ask me!
 
 ### 
-helped in the development of the application
+helped in the process of building the application
 - [Justyna Stanach](https://pl.linkedin.com/in/justyna-stanach-45428814b) (UX designer)
+- Katarzyna Kasprzyk (vision therapist, consultant)
