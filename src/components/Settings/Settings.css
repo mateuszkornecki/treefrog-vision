@@ -25,7 +25,7 @@ background: white;
    position: absolute;
    top: 1rem;
    right: 1rem;
-   color: gray;
+   color: grey;
 }
 
 .settingsIcon:hover {
@@ -34,5 +34,5 @@ background: white;
 
 .settingsIcon--black:hover {
    cursor: pointer;
-   color: gray;
+   color: grey;
 }
