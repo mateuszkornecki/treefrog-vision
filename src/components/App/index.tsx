@@ -6,7 +6,6 @@ import './App.css';
 import Pointer, {TDirectionMode, TPointerSize} from "../Pointer";
 import Settings from "../Settings";
 import PlayPauseSetting from "../PlayPauseOption";
-import PointerSizesetter from "../PointerSizeSeter";
 import useThemes from "../../hooks/useThemes";
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
@@ -104,7 +103,6 @@ function App() {
                     className={"settingsIcon--black"}
                     onClick={stopAndFreezePointer}
                 />
-                <PointerSizesetter onSizeClick={setPointerSize}/>
             </Settings>
             <SettingsApplicationsIcon
                 fontSize={'large'}
