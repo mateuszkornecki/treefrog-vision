@@ -4,7 +4,7 @@ import Pointer from "../Pointer";
 import useTheme from "../../hooks/useTheme";
 
 function App() {
-    const {themes, theme} = useTheme();
+    const {theme} = useTheme();
 
 
     return (
