@@ -3,7 +3,6 @@ import './Pointer.css';
 
 type TPointerSize = 'tiny' | 'regular' | 'large';
 type TDirectionMode = 'modeCL' | 'modeLC' | 'modeCR'| 'modeRC';
-type TAnimationDuration = '30s'
 
 type TPointerProps = {
   paused: boolean,
@@ -39,7 +38,7 @@ function Pointer({ color, directionMode}: TPointerProps) {
     } else if (event.animationName === 'modeCR') {
     setMode('modeRC');
   }
-  };
+  }
 
   return <div
       className={"Pointer animatePointer"}
