@@ -1,15 +1,15 @@
 import {useState} from "react";
 
-const initialThemes = [
-    {pointer: "red", background: "black"},
+const themes = [
+    {pointer: "black", background: "#f1c421"},
     {pointer: "hotpink", background: "lightblue"},
     {pointer: "blue", background: "green"},
 ];
 
 function useThemes() {
-    const [themes, setThemes] = useState(initialThemes);
+    const [theme, setTheme] = useState(themes[0]);
 
-    return {themes, setThemes};
+    return {theme, setTheme, themes, changeTheme: setTheme};
 }
 
 export default useThemes;

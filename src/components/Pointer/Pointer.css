@@ -2,48 +2,40 @@
     --pointer-size: 175px;
 }
 
-@keyframes modeBoth {
+@keyframes modeCL {
     from {
-        margin-left: calc(100% - var(--pointer-size))
+        left: calc(50% - var(--pointer-size));;
     }
     to {
-        margin-left: calc(-100% + var(--pointer-size))
+        left: 0;
     }
 }
 
-@keyframes modeLeft {
+@keyframes modeCR {
     from {
+        right: calc(50% - var(--pointer-size));;
+    }
+    to {
         right: 0;
     }
-    to {
-        right: calc(100% - var(--pointer-size));
-    }
 }
 
-@keyframes modeLeftReturn {
+@keyframes modeLC {
     from {
         left: 0
     }
     to {
-        left: calc(100% - var(--pointer-size));
+        left: 50%
     }
 }
 
-@keyframes modeRight {
-    from {
-        left: 0;
-    }
-    to {
-        left: calc(100% - var(--pointer-size));
-    }
-}
 
-@keyframes modeRightReturn {
+@keyframes modeRC {
     from {
-        right: 0
+        right: 0;
     }
     to {
-        right: calc(100% - var(--pointer-size));
+        right: 50%;
     }
 }
 

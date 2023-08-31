@@ -1,8 +1,7 @@
 import React from "react";
-import {Theme} from "../ThemeSetter";
 
 type ThemeInputProps = {
-    theme: Theme,
+    theme: any,
     onThemeChange: (event: React.ChangeEvent<HTMLInputElement>) => void,
     positionNumber: number
 }
