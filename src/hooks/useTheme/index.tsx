@@ -9,7 +9,7 @@ const themes = [
 function useThemes() {
     const [theme, setTheme] = useState(themes[0]);
 
-    return {theme, setTheme, themes};
+    return {theme, setTheme, themes, changeTheme: setTheme};
 }
 
 export default useThemes;
