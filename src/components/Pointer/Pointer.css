@@ -1,0 +1,55 @@
+:root {
+    --pointer-size: 175px;
+}
+
+@keyframes modeCL {
+    from {
+        left: calc(50% - var(--pointer-size));;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes modeCR {
+    from {
+        right: calc(50% - var(--pointer-size));;
+    }
+    to {
+        right: 0;
+    }
+}
+
+@keyframes modeLC {
+    from {
+        left: 0
+    }
+    to {
+        left: 50%
+    }
+}
+
+
+@keyframes modeRC {
+    from {
+        right: 0;
+    }
+    to {
+        right: 50%;
+    }
+}
+
+.Pointer {
+    position: absolute;
+    height: var(--pointer-size);
+    width: var(--pointer-size);
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+.animatePointer {
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}

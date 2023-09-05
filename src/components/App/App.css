@@ -1,0 +1,19 @@
+body {
+  margin: 0 !important;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.pause {
+  animation-play-state: paused;
+}
+
+.running {
+  animation-play-state: running;
+}
