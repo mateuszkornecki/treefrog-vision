@@ -44,8 +44,8 @@
     height: var(--pointer-size);
     width: var(--pointer-size);
     border-radius: 50%;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
+    transition: background 5s ease;
+
 }
 
 .Pointer:hover{
