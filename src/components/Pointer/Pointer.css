@@ -48,6 +48,9 @@
     -webkit-border-radius: 50%;
 }
 
+.Pointer:hover{
+    cursor: pointer;
+}
 .animatePointer {
     animation-fill-mode: both;
     animation-timing-function: ease-in-out;
