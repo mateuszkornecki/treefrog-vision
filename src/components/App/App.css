@@ -9,11 +9,3 @@ body {
   justify-content: center;
   height: 100vh;
 }
-
-.pause {
-  animation-play-state: paused;
-}
-
-.running {
-  animation-play-state: running;
-}
