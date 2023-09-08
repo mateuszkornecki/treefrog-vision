@@ -1,7 +1,7 @@
 'use client'
 
 import {useState} from "react";
-import themes from "../../THEMES.json"
+import themes from "../../../public/THEMES.json";
 
 function useThemes() {
     const [theme, setTheme] = useState(themes[0]);
