@@ -3,7 +3,7 @@
 import React from "react";
 import Pointer from "../components/Pointer";
 import useTheme from "../hooks/useTheme";
-import './page.css';
+import '../styles/homePage.css';
 
 function App() {
   const {theme,changeToRandomTheme} = useTheme();
