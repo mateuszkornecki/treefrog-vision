@@ -1,7 +1,7 @@
 'use client'
 
 import React, {AnimationEvent, useEffect, useState} from 'react';
-import '../../styles/Pointer.css';
+import '../styles/Pointer.css';
 
 type TPointerSize = 'tiny' | 'regular' | 'large';
 type TDirectionMode = 'modeCL' | 'modeLC' | 'modeCR'| 'modeRC';
