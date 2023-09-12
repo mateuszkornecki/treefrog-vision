@@ -1,10 +1,10 @@
 'use client'
 
 import React, {AnimationEvent, useEffect, useState} from 'react';
-import './Pointer.css'
 
 type TPointerSize = 'tiny' | 'regular' | 'large';
 type TDirectionMode = 'modeCL' | 'modeLC' | 'modeCR'| 'modeRC';
+
 
 type TPointerProps = {
   onClick?: () => void
@@ -16,39 +16,89 @@ type TPointerProps = {
 }
 
 function Pointer({ color, directionMode, onClick}: TPointerProps) {
-  const [mode, setMode] = useState<TDirectionMode>(directionMode);
+  const [stateDirectionMode, setStateDirectionMode ] = useState<TDirectionMode>(directionMode);
+  const [pointerSize,setPointerSize] = useState('175px');
 
-  const pointerStyles = {
-    animationName: mode,
-    backgroundColor: color,
-    animationDuration: '30s',
-    animationIterationCount: 1,
-    animationDelay: '5s'
-  }
   // We need to set it everytime the props changes,
   // mode is just an element of the internal state
   useEffect(() => {
-    setMode(directionMode);
+    setStateDirectionMode(directionMode);
   }, [directionMode]);
 
   function handleAnimationEnd(event: AnimationEvent<HTMLDivElement>): void {
     if (event.animationName === 'modeCL') {
-      setMode('modeLC');
+      setStateDirectionMode('modeLC');
     } else if (event.animationName === 'modeLC') {
-      setMode('modeCR');
+      setStateDirectionMode('modeCR');
     } else if (event.animationName === 'modeRC') {
-      setMode('modeCL');
+      setStateDirectionMode('modeCL');
     } else if (event.animationName === 'modeCR') {
-    setMode('modeRC');
-  }
+      setStateDirectionMode('modeRC');
+    }
   }
 
-  return <div
+
+
+  return <>
+  <div
       className={"Pointer animatePointer"}
-      style={pointerStyles}
       onAnimationEnd={handleAnimationEnd}
       onClick={onClick}
   />
+    <style jsx>{`
+      .Pointer {
+        position: absolute;
+        height: ${pointerSize};
+        width: ${pointerSize};
+        border-radius: 50%;
+        transition: background 5s ease;
+        animation-duration: 30s;
+        -moz-animation-iteration-count: 1;
+        animation-delay: 5s;
+        background-color: ${color};
+        animation-name: ${stateDirectionMode};
+        animation-fill-mode: both;
+        animation-timing-function: ease-in-out;
+        animation-direction: alternate;
+      }
+      .Pointer:hover{
+        cursor: pointer;
+      }
+      @keyframes modeRC {
+        from {
+          right: 0;
+        }
+        to {
+          right: 50%;
+        }
+      }
+      @keyframes modeLC {
+        from {
+          left: 0
+        }
+        to {
+          left: 50%
+        }
+      }
+      @keyframes modeCR {
+        from {
+          right: calc(50% - ${pointerSize});;
+        }
+        to {
+          right: 0;
+        }
+      }
+      @keyframes modeCL {
+        from {
+          left: calc(50% - ${pointerSize});;
+        }
+        to {
+          left: 0;
+        }
+      }
+      
+    `}</style>
+  </>
 }
 
 export default Pointer;
