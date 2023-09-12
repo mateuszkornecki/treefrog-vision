@@ -9,7 +9,7 @@ function App() {
 
 
   return (
-      <div className="App" style={{backgroundColor: theme.background}}>
+      <div className="App">
           <>
             <Pointer
                 directionMode={'modeCL'}
@@ -33,6 +33,7 @@ function App() {
                           justify-content: center;
                           height: 100vh;
                           transition: background 5s ease;
+                          background-color: ${theme.background};
                         }
                       `
                   }
