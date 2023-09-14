@@ -1,3 +1,5 @@
+import './layout.css'
+
 export const metadata = {
   title: 'Tree-frog',
   description: 'ave a better field of view that a tree frog..',

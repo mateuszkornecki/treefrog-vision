@@ -23,7 +23,6 @@ function App() {
                   {
                       `
                         body {
-                          margin: 0 !important;
                         }
 
                         .App {
