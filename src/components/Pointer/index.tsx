@@ -41,7 +41,7 @@ function Pointer({ color, directionMode, onClick}: TPointerProps) {
 
   return <>
   <div
-      className={"Pointer animatePointer"}
+      className={"Pointer"}
       onAnimationEnd={handleAnimationEnd}
       onClick={onClick}
   />
