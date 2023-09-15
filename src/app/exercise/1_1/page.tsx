@@ -13,7 +13,7 @@ function App() {
                 <Pointer
                     directionMode={'modeCL'}
                     color={theme.pointer}
-                    paused={true}
+                    paused={false}
                     onClick={changeToRandomTheme}
                 />
                 <style jsx global>
