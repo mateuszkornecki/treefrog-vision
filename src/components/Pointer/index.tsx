@@ -8,14 +8,12 @@ type TDirectionMode = 'modeCL' | 'modeLC' | 'modeCR'| 'modeRC';
 
 type TPointerProps = {
   onClick?: () => void
-  paused: boolean,
-  freezeAndCenter: boolean,
+  paused?: boolean,
   color: string,
-  size: TPointerSize,
   directionMode: TDirectionMode,
 }
 
-function Pointer({ color, directionMode, onClick}: TPointerProps) {
+function Pointer({ color, directionMode, onClick, paused}: TPointerProps) {
   const [stateDirectionMode, setStateDirectionMode ] = useState<TDirectionMode>(directionMode);
   const [pointerSize,setPointerSize] = useState('175px');
 
@@ -60,6 +58,7 @@ function Pointer({ color, directionMode, onClick}: TPointerProps) {
         animation-fill-mode: both;
         animation-timing-function: ease-in-out;
         animation-direction: alternate;
+        animation-play-state: ${paused ? 'paused' : 'running'};
       }
       .Pointer:hover{
         cursor: pointer;
@@ -69,7 +68,7 @@ function Pointer({ color, directionMode, onClick}: TPointerProps) {
           right: 0;
         }
         to {
-          right: 50%;
+          left: calc(50% - (${pointerSize} / 2));;
         }
       }
       @keyframes modeLC {
@@ -77,12 +76,12 @@ function Pointer({ color, directionMode, onClick}: TPointerProps) {
           left: 0
         }
         to {
-          left: 50%
+          left: calc(50% - (${pointerSize} / 2));;
         }
       }
       @keyframes modeCR {
         from {
-          right: calc(50% - ${pointerSize});;
+          left: calc(50% - (${pointerSize} / 2));;
         }
         to {
           right: 0;
@@ -90,7 +89,7 @@ function Pointer({ color, directionMode, onClick}: TPointerProps) {
       }
       @keyframes modeCL {
         from {
-          left: calc(50% - ${pointerSize});;
+          left: calc(50% - (${pointerSize} / 2));;
         }
         to {
           left: 0;
