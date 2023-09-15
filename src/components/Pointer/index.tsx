@@ -8,14 +8,12 @@ type TDirectionMode = 'modeCL' | 'modeLC' | 'modeCR'| 'modeRC';
 
 type TPointerProps = {
   onClick?: () => void
-  paused: boolean,
-  freezeAndCenter: boolean,
+  paused?: boolean,
   color: string,
-  size: TPointerSize,
   directionMode: TDirectionMode,
 }
 
-function Pointer({ color, directionMode, onClick}: TPointerProps) {
+function Pointer({ color, directionMode, onClick, paused}: TPointerProps) {
   const [stateDirectionMode, setStateDirectionMode ] = useState<TDirectionMode>(directionMode);
   const [pointerSize,setPointerSize] = useState('175px');
 

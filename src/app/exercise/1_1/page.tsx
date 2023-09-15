@@ -13,17 +13,12 @@ function App() {
                 <Pointer
                     directionMode={'modeCL'}
                     color={theme.pointer}
-                    paused={false}
-                    size={'tiny'}
-                    freezeAndCenter={false}
+                    paused={true}
                     onClick={changeToRandomTheme}
                 />
                 <style jsx global>
                     {
                         `
-                        body {
-                        }
-
                         .App {
                           text-align: center;
                           display: flex;
