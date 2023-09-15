@@ -58,6 +58,7 @@ function Pointer({ color, directionMode, onClick, paused}: TPointerProps) {
         animation-fill-mode: both;
         animation-timing-function: ease-in-out;
         animation-direction: alternate;
+        animation-play-state: ${paused ? 'paused' : 'running'};
       }
       .Pointer:hover{
         cursor: pointer;
