@@ -65,10 +65,10 @@ function Pointer({ color, directionMode, onClick, paused}: TPointerProps) {
       }
       @keyframes modeRC {
         from {
-          right: 0;
+          left:calc(100% - (${pointerSize}));
         }
         to {
-          left: calc(50% - (${pointerSize} / 2));;
+          left: calc(50% - (${pointerSize} / 2));
         }
       }
       @keyframes modeLC {
@@ -76,20 +76,20 @@ function Pointer({ color, directionMode, onClick, paused}: TPointerProps) {
           left: 0
         }
         to {
-          left: calc(50% - (${pointerSize} / 2));;
+          left: calc(50% - (${pointerSize} / 2));
         }
       }
       @keyframes modeCR {
         from {
-          left: calc(50% - (${pointerSize} / 2));;
+          left: calc(50% - (${pointerSize} / 2));
         }
         to {
-          right: 0;
+          left:calc(100% - (${pointerSize}));
         }
       }
       @keyframes modeCL {
         from {
-          left: calc(50% - (${pointerSize} / 2));;
+          left: calc(50% - (${pointerSize} / 2));
         }
         to {
           left: 0;
