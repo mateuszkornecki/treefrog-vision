@@ -6,7 +6,10 @@ import {useSearchParams} from "next/navigation";
 import './page.css';
 function App() {
     const {theme,changeToRandomTheme} = useTheme();
+    const searchParams = useSearchParams();
+    const exerciseNumber = searchParams.get("exercise");
 
+    if(exerciseNumber === "1_1") {
 
         return (
             <div className="App">
