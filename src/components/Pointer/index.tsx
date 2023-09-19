@@ -16,9 +16,9 @@ type TPointerProps = {
 }
 
 function Pointer({ color, directionMode, onClick, paused}: TPointerProps) {
-  const [stateDirectionMode, setStateDirectionMode ] = useState<TDirectionMode>(directionMode);
-  const [pointerSize,setPointerSize] = useState('175px');
   const {theme} = useTheme();
+  const [stateDirectionMode, setStateDirectionMode ] = useState<TDirectionMode>(directionMode);
+  const [pointerSize,setPointerSize] = useState(theme.pointerSize);
 const searchParams = useSearchParams();
   const iterationTime = searchParams.get("iterationTime") || theme.iterationTime;
   const delay = searchParams.get("delay") || theme.delay;

@@ -3,10 +3,14 @@
   "pointer": "black",
   "background": "#f1c421",
   "iterationTime": "30s",
-  "delay": "5s"
+  "delay": "5s",
+  "pointerSize": "175px"
 },
 {"name": "bw",
   "pointer": "white",
-  "background": "black"
+  "background": "black",
+  "iterationTime": "30s",
+  "delay": "5s",
+  "pointerSize": "175px"
 }
 ]
