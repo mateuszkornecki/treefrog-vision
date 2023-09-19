@@ -1,6 +1,8 @@
 'use client'
 
 import React, {AnimationEvent, useEffect, useState} from 'react';
+import {useSearchParams} from "next/navigation";
+import useTheme from "@/hooks/useTheme";
 
 type TPointerSize = 'tiny' | 'regular' | 'large';
 type TDirectionMode = 'modeCL' | 'modeLC' | 'modeCR'| 'modeRC';
@@ -16,6 +18,10 @@ type TPointerProps = {
 function Pointer({ color, directionMode, onClick, paused}: TPointerProps) {
   const [stateDirectionMode, setStateDirectionMode ] = useState<TDirectionMode>(directionMode);
   const [pointerSize,setPointerSize] = useState('175px');
+  const {theme} = useTheme();
+const searchParams = useSearchParams();
+  const iterationTime = searchParams.get("iterationTime") || theme.iterationTime;
+  const delay = searchParams.get("delay") || theme.delay;
 
   // We need to set it everytime the props changes,
   // mode is just an element of the internal state
@@ -49,10 +55,10 @@ function Pointer({ color, directionMode, onClick, paused}: TPointerProps) {
         height: ${pointerSize};
         width: ${pointerSize};
         border-radius: 50%;
-        transition: background 5s ease;
-        animation-duration: 30s;
+        transition: background ${delay} ease;
+        animation-duration: ${iterationTime};
         -moz-animation-iteration-count: 1;
-        animation-delay: 5s;
+        animation-delay: ${delay};
         background-color: ${color};
         animation-name: ${stateDirectionMode};
         animation-fill-mode: both;

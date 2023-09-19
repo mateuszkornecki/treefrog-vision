@@ -1,3 +1,12 @@
-[{"name": "default","pointer": "black", "background": "#f1c421"},
-{"name": "bw","pointer": "white", "background": "black"}
+[{
+  "name": "default",
+  "pointer": "black",
+  "background": "#f1c421",
+  "iterationTime": "30s",
+  "delay": "5s"
+},
+{"name": "bw",
+  "pointer": "white",
+  "background": "black"
+}
 ]
