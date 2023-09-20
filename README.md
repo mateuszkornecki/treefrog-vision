@@ -29,5 +29,6 @@ If you have any question, don't hesitate, just ask me!
 
 ### 
 helped in the process of building the application
-- [Justyna Stanach](https://pl.linkedin.com/in/justyna-stanach-45428814b) (UX designer)
+- [Justyna Stanach](https://pl.linkedin.com/in/justyna-stanach-45428814b) (PO,UX/UI designer)
+- [Magdalena Iszczuk](https://www.linkedin.com/in/magdaiszczuk/?originalSubdomain=pl) (UX/UI designer)
 - Katarzyna Kasprzyk (vision therapist, consultant)
