@@ -4,7 +4,6 @@ import Pointer from '@/components/Pointer';
 import useTheme from "@/hooks/useTheme";
 import {useSearchParams} from "next/navigation";
 import './page.css';
-import {processEnv} from "@next/env";
 function App() {
     const {theme,changeToRandomTheme} = useTheme();
     const searchParams = useSearchParams();
