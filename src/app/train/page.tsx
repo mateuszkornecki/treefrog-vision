@@ -34,7 +34,10 @@ function App() {
             </div>
         );
     } else {
-        return <p>Oops! incorrect exercise number!</p>
+        return <center>
+            <h1>404 Error</h1>
+            <h2>Sorry, we can’t seem to find what you’re looking for.</h2>
+        </center>
     }
 }
 export default  App;
