@@ -60,20 +60,11 @@ return <center>
                 </>
             </div>
         );
-    }
-    else {
-        return <>
-            <p>Oops! incorrect exercise number!</p>
-            <style jsx global>
-                {
-                    `
-                      body {
-                        background-color: ${theme.background};
-                      }
-                            `
-                }
-            </style>
-        </>
+    } else {
+        return <center>
+            <h1>404 Error</h1>
+            <h2>Sorry, we can’t seem to find what you’re looking for.</h2>
+        </center>
     }
 }
 export default  App;
