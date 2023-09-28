@@ -41,7 +41,6 @@ return <center>
 
         return (
             <div className="App">
-                <>
                     <Pointer
                         directionMode={'modeCL'}
                         color={theme.pointer}
@@ -57,7 +56,6 @@ return <center>
                             `
                         }
                     </style>
-                </>
             </div>
         );
     } else {
