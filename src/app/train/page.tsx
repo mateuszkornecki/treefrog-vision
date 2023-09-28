@@ -37,7 +37,7 @@ return <center>
         }
     </style>
 </center>
-    }else if (exerciseNumber === "1_1") {
+    }else if (exerciseNumber === "O1") {
 
         return (
             <div className="App">
