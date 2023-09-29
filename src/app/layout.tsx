@@ -3,7 +3,7 @@ import './layout.css'
 
 export const metadata = {
   title: 'Tree-frog',
-  description: 'Have a better field of view that a tree frog..',
+  description: 'Have a better field of view than a tree frog..',
 }
 
 export default function RootLayout({
