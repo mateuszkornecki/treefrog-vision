@@ -3,7 +3,7 @@ module.exports = {
         return [
             {
                 source: '/',
-                destination: '/train?exercise=1_1',
+                destination: '/',
                 permanent: true,
             },
             {
