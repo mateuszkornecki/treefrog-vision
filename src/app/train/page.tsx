@@ -14,7 +14,7 @@ function App() {
     if(env === 'production') {
 return <center>
     <h1>tree-frog app</h1>
-    <h2>Have a better field of view that a tree frog...</h2>
+    <h2>Have a better field of view than a tree frog...</h2>
     <article className={"container"}>{WIPMessage}</article>
     <style jsx global>
         {
