@@ -21,6 +21,7 @@ function Pointer({ color, directionMode, onClick, paused}: TPointerProps) {
   const [pointerSize,setPointerSize] = useState(theme.pointerSize);
 const searchParams = useSearchParams();
   const iterationTime = searchParams.get("iterationTime") || theme.iterationTime;
+  const exerciseNumber = searchParams.get("exercise");
   const delay = searchParams.get("delay") || theme.delay;
 
   // We need to set it everytime the props changes,
@@ -30,14 +31,19 @@ const searchParams = useSearchParams();
   }, [directionMode]);
 
   function handleAnimationEnd(event: AnimationEvent<HTMLDivElement>): void {
-    if (event.animationName === 'modeCL') {
-      setStateDirectionMode('modeLC');
-    } else if (event.animationName === 'modeLC') {
-      setStateDirectionMode('modeCR');
-    } else if (event.animationName === 'modeRC') {
-      setStateDirectionMode('modeCL');
-    } else if (event.animationName === 'modeCR') {
-      setStateDirectionMode('modeRC');
+    function exercise1(){
+      if (event.animationName === 'modeCL') {
+        setStateDirectionMode('modeLC');
+      } else if (event.animationName === 'modeLC') {
+        setStateDirectionMode('modeCR');
+      } else if (event.animationName === 'modeRC') {
+        setStateDirectionMode('modeCL');
+      } else if (event.animationName === 'modeCR') {
+        setStateDirectionMode('modeRC');
+      } else {
+        // The default animation mode.
+        setStateDirectionMode('modeCL')
+      }
     }
   }
 
