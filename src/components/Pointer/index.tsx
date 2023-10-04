@@ -5,7 +5,7 @@ import {useSearchParams} from "next/navigation";
 import useTheme from "@/hooks/useTheme";
 
 type TPointerSize = 'tiny' | 'regular' | 'large';
-type TDirectionMode = 'modeCL' | 'modeLC' | 'modeCR'| 'modeRC';
+type TDirectionMode = 'modeCL' | 'modeLC' | 'modeCR'| 'modeRC'| 'modeLR' | 'modeRL';
 
 
 type TPointerProps = {
@@ -44,6 +44,23 @@ const searchParams = useSearchParams();
         // The default animation mode.
         setStateDirectionMode('modeCL')
       }
+    }
+    function exercise2(){
+      if (event.animationName === 'modeCL') {
+        setStateDirectionMode('modeLR');
+      } else if (event.animationName === 'modeLR') {
+        setStateDirectionMode('modeRL');
+      }else if (event.animationName === 'modeRL'){
+        setStateDirectionMode('modeLR')
+      }
+    }
+    switch (exerciseNumber) {
+      case 'O1':
+        exercise1();
+      break;
+      case 'O2':
+        exercise2();
+      break;
     }
   }
 
@@ -102,6 +119,22 @@ const searchParams = useSearchParams();
       @keyframes modeCL {
         from {
           left: calc(50% - (${pointerSize} / 2));
+        }
+        to {
+          left: 0;
+        }
+      }
+      @keyframes modeLR {
+        from {
+          left: 0;
+        }
+        to {
+          left: calc(100% - (${pointerSize}))
+        }
+      }
+      @keyframes modeRL {
+        from {
+          left: calc(100% - (${pointerSize}));
         }
         to {
           left: 0;
