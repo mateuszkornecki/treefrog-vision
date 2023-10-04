@@ -5,7 +5,7 @@ import {useSearchParams} from "next/navigation";
 import useTheme from "@/hooks/useTheme";
 
 type TPointerSize = 'tiny' | 'regular' | 'large';
-type TDirectionMode = 'modeCL' | 'modeLC' | 'modeCR'| 'modeRC';
+type TDirectionMode = 'modeCL' | 'modeLC' | 'modeCR'| 'modeRC'| 'modeLR' | 'modeRL';
 
 
 type TPointerProps = {
@@ -21,6 +21,7 @@ function Pointer({ color, directionMode, onClick, paused}: TPointerProps) {
   const [pointerSize,setPointerSize] = useState(theme.pointerSize);
 const searchParams = useSearchParams();
   const iterationTime = searchParams.get("iterationTime") || theme.iterationTime;
+  const exerciseNumber = searchParams.get("exercise");
   const delay = searchParams.get("delay") || theme.delay;
 
   // We need to set it everytime the props changes,
@@ -30,14 +31,36 @@ const searchParams = useSearchParams();
   }, [directionMode]);
 
   function handleAnimationEnd(event: AnimationEvent<HTMLDivElement>): void {
-    if (event.animationName === 'modeCL') {
-      setStateDirectionMode('modeLC');
-    } else if (event.animationName === 'modeLC') {
-      setStateDirectionMode('modeCR');
-    } else if (event.animationName === 'modeRC') {
-      setStateDirectionMode('modeCL');
-    } else if (event.animationName === 'modeCR') {
-      setStateDirectionMode('modeRC');
+    function exercise1(){
+      if (event.animationName === 'modeCL') {
+        setStateDirectionMode('modeLC');
+      } else if (event.animationName === 'modeLC') {
+        setStateDirectionMode('modeCR');
+      } else if (event.animationName === 'modeRC') {
+        setStateDirectionMode('modeCL');
+      } else if (event.animationName === 'modeCR') {
+        setStateDirectionMode('modeRC');
+      } else {
+        // The default animation mode.
+        setStateDirectionMode('modeCL')
+      }
+    }
+    function exercise2(){
+      if (event.animationName === 'modeCL') {
+        setStateDirectionMode('modeLR');
+      } else if (event.animationName === 'modeLR') {
+        setStateDirectionMode('modeRL');
+      }else if (event.animationName === 'modeRL'){
+        setStateDirectionMode('modeLR')
+      }
+    }
+    switch (exerciseNumber) {
+      case 'O1':
+        exercise1();
+      break;
+      case 'O2':
+        exercise2();
+      break;
     }
   }
 
@@ -96,6 +119,22 @@ const searchParams = useSearchParams();
       @keyframes modeCL {
         from {
           left: calc(50% - (${pointerSize} / 2));
+        }
+        to {
+          left: 0;
+        }
+      }
+      @keyframes modeLR {
+        from {
+          left: 0;
+        }
+        to {
+          left: calc(100% - (${pointerSize}))
+        }
+      }
+      @keyframes modeRL {
+        from {
+          left: calc(100% - (${pointerSize}));
         }
         to {
           left: 0;

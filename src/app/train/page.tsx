@@ -4,6 +4,7 @@ import Pointer from '@/components/Pointer';
 import useTheme from "@/hooks/useTheme";
 import {useSearchParams} from "next/navigation";
 import './page.css';
+
 function App() {
     const {theme,changeToRandomTheme} = useTheme();
     const searchParams = useSearchParams();
@@ -37,8 +38,7 @@ return <center>
         }
     </style>
 </center>
-    }else if (exerciseNumber === "O1") {
-
+    }else if (exerciseNumber === "O1" || "O2") {
         return (
             <div className="App">
                     <Pointer
