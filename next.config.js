@@ -1,4 +1,7 @@
 module.exports = {
+    env: {
+        TEST_PASSWORD: 'dixJu7-fetfug-bacqyx'
+    },
     async redirects() {
         return [
             {
