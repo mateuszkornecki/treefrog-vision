@@ -19,7 +19,7 @@ function App() {
     useEffect(() => {
         console.log(isValidTestPassword, testPassword, process.env.NEXT_PUBLIC_TEST_PASSWORD)
     }, []);
-    if(env === 'production' || !isValidTestPassword) {
+    if(env === 'production' || isValidTestPassword) {
 return <center>
     <h1>tree-frog app</h1>
     <h2>Have a better field of view than a tree frog...</h2>
