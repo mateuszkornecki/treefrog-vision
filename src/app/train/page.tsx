@@ -9,10 +9,12 @@ function App() {
     const {theme,changeToRandomTheme} = useTheme();
     const searchParams = useSearchParams();
     const exerciseNumber = searchParams.get("exercise");
+    const testPassword = searchParams.get("password");
     const env = process.env.NODE_ENV;
+    const isValidTestPassword = process.env.TEST_PASSWORD === testPassword;
     const WIPMessage = "Hi! We are very pleased that you visited us! In the future, you will find here a great (or at least we hope so) tool that will help you work on your field of vision. At the moment, we are still working on the application, we are doing everything we can to make it good and, most importantly, helpful. See you soon, and we'll get back to work on the app..."
 
-    if(env === 'production') {
+    if(env === 'production' || !isValidTestPassword) {
 return <center>
     <h1>tree-frog app</h1>
     <h2>Have a better field of view than a tree frog...</h2>
