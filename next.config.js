@@ -6,7 +6,7 @@ module.exports = {
         return [
             {
                 source: '/',
-                destination: '/train',
+                destination: '/train?exercise=O1&iterationTime=30s&delay=5s',
                 permanent: true,
             },
             {
