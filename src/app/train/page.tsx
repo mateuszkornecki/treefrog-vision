@@ -4,24 +4,51 @@ import Pointer from '@/components/Pointer';
 import useTheme from "@/hooks/useTheme";
 import {useSearchParams} from "next/navigation";
 import './page.css';
-
 function App() {
     const {theme,changeToRandomTheme} = useTheme();
     const searchParams = useSearchParams();
     const exerciseNumber = searchParams.get("exercise");
     const testPassword = searchParams.get("password");
     const env = process.env.NODE_ENV;
-    const isValidTestPassword = process.env.TEST_PASSWORD === testPassword;
+    const isProduction = env === "production";
+    const isValidTestPassword = process.env.NEXT_PUBLIC_TEST_PASSWORD === testPassword;
     const WIPMessage = "Hi! We are very pleased that you visited us! In the future, you will find here a great (or at least we hope so) tool that will help you work on your field of vision. At the moment, we are still working on the application, we are doing everything we can to make it good and, most importantly, helpful. See you soon, and we'll get back to work on the app..."
+const valisExerciseNumbers = ['O1', 'O2'];
 
-    if(env === 'production' || !isValidTestPassword) {
-return <center>
-    <h1>tree-frog app</h1>
-    <h2>Have a better field of view than a tree frog...</h2>
-    <article className={"container"}>{WIPMessage}</article>
-    <style jsx global>
-        {
-            `
+    const Exercise = () => (<div className="App">
+        <Pointer
+            directionMode={'modeCL'}
+            color={theme.pointer}
+            paused={false}
+            onClick={changeToRandomTheme}
+        />
+        <style jsx global>
+            {
+                `
+                              body {
+                                background-color: ${theme.background};
+                              }
+                            `
+            }
+        </style>
+    </div>
+    );
+
+    const checkIfValid = (currentValue: string) => currentValue === exerciseNumber;
+    const isValidEexerciseNumber = Boolean(valisExerciseNumbers.find(checkIfValid));
+
+    if(isValidEexerciseNumber){
+        if (isProduction) {
+            if(isValidTestPassword) {
+                return <Exercise/>;
+            } else {
+                return <center>
+                    <h1>tree-frog app</h1>
+                    <h2>Have a better field of view than a tree frog...</h2>
+                    <article className={"container"}>{WIPMessage}</article>
+                    <style jsx global>
+                        {
+                            `
                               body {
                                 background-color: ${theme.background};
                                 display: flex;
@@ -37,29 +64,13 @@ return <center>
                                 }
                               }
                             `
-        }
-    </style>
-</center>
-    }else if (exerciseNumber === "O1" || "O2") {
-        return (
-            <div className="App">
-                    <Pointer
-                        directionMode={'modeCL'}
-                        color={theme.pointer}
-                        paused={false}
-                        onClick={changeToRandomTheme}
-                    />
-                    <style jsx global>
-                        {
-                            `
-                              body {
-                                background-color: ${theme.background};
-                              }
-                            `
                         }
                     </style>
-            </div>
-        );
+                </center>
+            }
+        } else {
+        return <Exercise/>;
+        }
     } else {
         return <center>
             <h1>404 Error</h1>
