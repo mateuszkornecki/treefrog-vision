@@ -86,6 +86,9 @@ function changeThemeTo(themeName: TThemeName|"random") {
                           background-color: ${THEMES[themeName].backgroundColor};
                           transition: background-color 5s ease;
                         }
+                        h3 {
+                          max-width: 700px;
+                        }
                     `}
                 </style>
 
