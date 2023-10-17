@@ -4,9 +4,7 @@ import Pointer from '@/components/Pointer';
 import {useSearchParams} from "next/navigation";
 import ThemeNameContext, {TThemeName} from "@/context/ThemeNameContext";
 import THEMES from '@/THEMES.json';
-import {createContext, useContext, useEffect, useState} from "react";
-import themeContext from "@/context/ThemeNameContext";
-import themeNameContext from "@/context/ThemeNameContext";
+import {useContext, useState} from "react";
 
 
 type TContentProps = {
