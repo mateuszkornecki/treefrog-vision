@@ -1,8 +1,8 @@
 'use client'
 
-import React, {AnimationEvent, useEffect, useState} from 'react';
+import React, {AnimationEvent, useContext, useEffect, useState} from 'react';
 import {useSearchParams} from "next/navigation";
-import useTheme from "@/hooks/useTheme";
+import settingContext from "@/context/ConfigsContext";
 
 type TPointerSize = 'tiny' | 'regular' | 'large';
 type TDirectionMode = 'modeCL' | 'modeLC' | 'modeCR'| 'modeRC'| 'modeLR' | 'modeRL';
@@ -16,13 +16,13 @@ type TPointerProps = {
 }
 
 function Pointer({ color, directionMode, onClick, paused}: TPointerProps) {
-  const {theme} = useTheme();
   const [stateDirectionMode, setStateDirectionMode ] = useState<TDirectionMode>(directionMode);
-  const [pointerSize,setPointerSize] = useState(theme.pointerSize);
+  const  setting = useContext(settingContext);
+  const [pointerSize,setPointerSize] = useState(setting.pointerSize);
 const searchParams = useSearchParams();
-  const iterationTime = searchParams.get("iterationTime") || theme.iterationTime;
+  const iterationTime = searchParams.get("iterationTime") || setting.iterationTime;
   const exerciseNumber = searchParams.get("exercise");
-  const delay = searchParams.get("delay") || theme.delay;
+  const delay = searchParams.get("delay") || setting.delay;
 
   // We need to set it everytime the props changes,
   // mode is just an element of the internal state
