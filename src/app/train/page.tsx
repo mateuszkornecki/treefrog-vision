@@ -13,7 +13,6 @@ type TContentProps = {
 function Content({onClick}:TContentProps) {
     const isProduction = process.env.NODE_ENV === "production";
     const searchParams = useSearchParams();
-    const exerciseNumber = searchParams.get("exercise");
     const alfaTestPassword = searchParams.get("password");
     const isValidAlfaTestPassword = process.env.NEXT_PUBLIC_TEST_PASSWORD === alfaTestPassword;
 
