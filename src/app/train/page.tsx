@@ -28,10 +28,16 @@ function Content({onClick}:TContentProps) {
             </>
         );
     } else if (isProduction) {
-        const WIPMessage = "Hi! We are very pleased that you visited us! In the future, you will find here a great (or at least we hope so) tool that will help you work on your field of vision. At the moment, we are still working on the application, we are doing everything we can to make it good and, most importantly, helpful. See you soon, and we'll get back to work on the app...";
         return (
             <center>
-                <h2>{WIPMessage}</h2>
+                <h3>
+                    Hi, We are very pleased that you visited us!
+
+                    In the future, you will find here a great (or at least we hope so) tool that will help you work on your field of vision.
+                    At the moment, we are still working on the application, we are doing everything we can to make it good and, most importantly, helpful.
+
+                    See you soon, and we will get back to work on the app...
+                </h3>
             </center>
         )
     } else {
