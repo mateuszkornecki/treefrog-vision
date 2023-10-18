@@ -77,9 +77,6 @@ const searchParams = useSearchParams();
           break;
       }
   }
-
-
-
   return <>
   <div
       className={"Pointer"}
