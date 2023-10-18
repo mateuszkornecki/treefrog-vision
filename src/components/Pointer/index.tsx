@@ -32,7 +32,7 @@ const searchParams = useSearchParams();
   }, [exerciseNumber]);
 
   function handleAnimationEnd(event: AnimationEvent<HTMLDivElement>): void {
-    function exercise1(){
+    function exercise1(): void {
       if (event.animationName === 'modeCL') {
         setDirectionMode('modeLC');
       } else if (event.animationName === 'modeLC') {
@@ -46,7 +46,8 @@ const searchParams = useSearchParams();
         setDirectionMode('modeCL')
       }
     }
-    function exercise2(){
+
+    function exercise2(): void {
       if (event.animationName === 'modeCL') {
         setDirectionMode('modeLR');
       } else if (event.animationName === 'modeLR') {
