@@ -11,12 +11,10 @@ type TDirectionMode = 'modeCL' | 'modeLC' | 'modeCR'| 'modeRC'| 'modeLR' | 'mode
 type TPointerProps = {
   onClick?: () => void
   paused?: boolean,
-  color: string,
-  directionMode: TDirectionMode,
+  color: string
 }
 
-function Pointer({ color, directionMode, onClick, paused}: TPointerProps) {
-  const [stateDirectionMode, setStateDirectionMode ] = useState<TDirectionMode>(directionMode);
+function Pointer({ color, onClick, paused}: TPointerProps) {
   const  setting = useContext(settingContext);
   const [pointerSize,setPointerSize] = useState(setting.pointerSize);
 const searchParams = useSearchParams();
@@ -24,44 +22,59 @@ const searchParams = useSearchParams();
   const exerciseNumber = searchParams.get("exercise");
   const delay = searchParams.get("delay") || setting.delay;
 
-  // We need to set it everytime the props changes,
-  // mode is just an element of the internal state
+  const [directionMode, setDirectionMode ] = useState<TDirectionMode | null>(null);
+
   useEffect(() => {
-    setStateDirectionMode(directionMode);
-  }, [directionMode]);
+
+    if(exerciseNumber === "O1" || exerciseNumber === "O2" || exerciseNumber === "O3") {
+      setDirectionMode("modeCL");
+    }
+  }, [exerciseNumber]);
 
   function handleAnimationEnd(event: AnimationEvent<HTMLDivElement>): void {
     function exercise1(){
       if (event.animationName === 'modeCL') {
-        setStateDirectionMode('modeLC');
+        setDirectionMode('modeLC');
       } else if (event.animationName === 'modeLC') {
-        setStateDirectionMode('modeCR');
+        setDirectionMode('modeCR');
       } else if (event.animationName === 'modeRC') {
-        setStateDirectionMode('modeCL');
+        setDirectionMode('modeCL');
       } else if (event.animationName === 'modeCR') {
-        setStateDirectionMode('modeRC');
+        setDirectionMode('modeRC');
       } else {
         // The default animation mode.
-        setStateDirectionMode('modeCL')
+        setDirectionMode('modeCL')
       }
     }
     function exercise2(){
       if (event.animationName === 'modeCL') {
-        setStateDirectionMode('modeLR');
+        setDirectionMode('modeLR');
       } else if (event.animationName === 'modeLR') {
-        setStateDirectionMode('modeRL');
-      }else if (event.animationName === 'modeRL'){
-        setStateDirectionMode('modeLR')
+        setDirectionMode('modeRL');
+      } else if (event.animationName === 'modeRL') {
+        setDirectionMode('modeLR')
       }
     }
-    switch (exerciseNumber) {
-      case 'O1':
-        exercise1();
-      break;
-      case 'O2':
-        exercise2();
-      break;
-    }
+
+      function exercise3(): void {
+        if (event.animationName === 'modeCL') {
+          setDirectionMode('modeLC');
+        } else if (event.animationName === 'modeLC') {
+          setDirectionMode('modeCL');
+        }
+      }
+
+      switch (exerciseNumber) {
+        case 'O1':
+          exercise1();
+          break;
+        case 'O2':
+          exercise2();
+          break;
+        case 'O3':
+          exercise3();
+          break;
+      }
   }
 
 
@@ -83,7 +96,7 @@ const searchParams = useSearchParams();
         -moz-animation-iteration-count: 1;
         animation-delay: ${delay};
         background-color: ${color};
-        animation-name: ${stateDirectionMode};
+        animation-name: ${directionMode};
         animation-fill-mode: both;
         animation-timing-function: ease-in-out;
         animation-direction: alternate;

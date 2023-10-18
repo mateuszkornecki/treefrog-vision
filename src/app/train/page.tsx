@@ -21,7 +21,6 @@ function Content({onClick}:TContentProps) {
         return (
             <>
                 <Pointer
-                    directionMode={"modeCL"}
                     color={THEMES[themeName].pointerColor}
                     onClick={onClick}
                 />
