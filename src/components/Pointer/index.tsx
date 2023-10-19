@@ -6,30 +6,29 @@ import settingContext from "@/context/ConfigsContext";
 
 type TPointerSize = 'tiny' | 'regular' | 'large';
 type TDirectionMode = 'modeCL' | 'modeLC' | 'modeCR'| 'modeRC'| 'modeLR' | 'modeRL';
-
-
+type TExerciseNumber = "O1" | "O2" | "O3";
 type TPointerProps = {
+
+  exercise: TExerciseNumber
   onClick?: () => void
   paused?: boolean,
   color: string
 }
 
-function Pointer({ color, onClick, paused}: TPointerProps) {
+function Pointer({ color, onClick, paused, exercise}: TPointerProps) {
   const  setting = useContext(settingContext);
   const [pointerSize,setPointerSize] = useState(setting.pointerSize);
 const searchParams = useSearchParams();
   const iterationTime = searchParams.get("iterationTime") || setting.iterationTime;
-  const exerciseNumber = searchParams.get("exercise");
   const delay = searchParams.get("delay") || setting.delay;
 
   const [directionMode, setDirectionMode ] = useState<TDirectionMode | null>(null);
 
   useEffect(() => {
-
-    if(exerciseNumber === "O1" || exerciseNumber === "O2" || exerciseNumber === "O3") {
+    if(exercise === "O1" || exercise === "O2" || exercise === "O3") {
       setDirectionMode("modeCL");
     }
-  }, [exerciseNumber]);
+  }, [exercise]);
 
   function handleAnimationEnd(event: AnimationEvent<HTMLDivElement>): void {
     function exercise1(): void {
@@ -65,7 +64,7 @@ const searchParams = useSearchParams();
         }
       }
 
-      switch (exerciseNumber) {
+      switch (exercise) {
         case 'O1':
           exercise1();
           break;
@@ -157,4 +156,4 @@ const searchParams = useSearchParams();
 }
 
 export default Pointer;
-export type {TDirectionMode}
+export type {TDirectionMode, TExerciseNumber}

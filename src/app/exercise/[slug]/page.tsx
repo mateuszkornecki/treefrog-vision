@@ -1,16 +1,16 @@
 'use client'
 
-import Pointer from '@/components/Pointer';
+import Pointer, { TExerciseNumber} from '@/components/Pointer';
 import {useSearchParams} from "next/navigation";
 import ThemeNameContext, {TThemeName} from "@/context/ThemeNameContext";
 import THEMES from '@/THEMES.json';
 import {useContext, useState} from "react";
 
-
-type TContentProps = {
-    onClick: () => void
+type TAppContentProps = {
+    onClick: () => void,
+    exercise: TExerciseNumber
 }
-function Content({onClick}:TContentProps) {
+function AppContent({onClick, exercise}:TAppContentProps) {
     const isProduction = process.env.NODE_ENV === "production";
     const searchParams = useSearchParams();
     const alfaTestPassword = searchParams.get("password");
@@ -21,6 +21,7 @@ function Content({onClick}:TContentProps) {
         return (
             <>
                 <Pointer
+                    exercise={exercise}
                     color={THEMES[themeName].pointerColor}
                     onClick={onClick}
                 />
@@ -49,8 +50,8 @@ function Content({onClick}:TContentProps) {
     }
 }
 
-    function App() {
-
+    function Page({params}: {params: {slug: TExerciseNumber}
+    }) {
         const [themeName, setThemeName] = useState<TThemeName>('default');
 function getRandomThemeName(): TThemeName {
     const themeNames = Object.keys(THEMES) as unknown as TThemeName[]
@@ -67,10 +68,9 @@ function changeThemeTo(themeName: TThemeName|"random") {
     }
 }
 
-
         return (<div className="App">
                 <ThemeNameContext.Provider value={themeName}>
-                <Content onClick={()=> {
+                <AppContent exercise={params.slug} onClick={()=> {
                     changeThemeTo("random");
                 }}/>
                 <style jsx global>
@@ -96,4 +96,4 @@ function changeThemeTo(themeName: TThemeName|"random") {
         );
     }
 
-    export default App;
+    export default Page;
