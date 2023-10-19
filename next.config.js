@@ -6,12 +6,12 @@ module.exports = {
         return [
             {
                 source: '/',
-                destination: '/train?exercise=O1&iterationTime=30s&delay=5s',
+                destination: '/exercise/O1?iterationTime=30s&delay=5s',
                 permanent: true,
             },
             {
                 source: '/debug',
-                destination: '/train?exercise=O1&iterationTime=5s&delay=3s',
+                destination: '/exercise/O1?iterationTime=5s&delay=3s',
                 permanent: true,
             },
         ]
