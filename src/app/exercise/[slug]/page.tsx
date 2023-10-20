@@ -8,7 +8,7 @@ import {useContext, useState} from "react";
 
 type TAppContentProps = {
     onClick: () => void,
-    exercise: TExerciseNumber
+    exercise: string,
 }
 function AppContent({onClick, exercise}:TAppContentProps) {
     const isProduction = process.env.NODE_ENV === "production";
