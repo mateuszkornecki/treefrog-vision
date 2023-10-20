@@ -8,9 +8,8 @@ type TPointerSize = 'tiny' | 'regular' | 'large';
 type TDirectionMode = 'modeCL' | 'modeLC' | 'modeCR'| 'modeRC'| 'modeLR' | 'modeRL';
 type TExerciseNumber = "O1" | "O2" | "O3";
 type TPointerProps = {
-
-  exercise: TExerciseNumber
-  onClick?: () => void
+  exercise: string,
+  onClick?: () => void,
   paused?: boolean,
   color: string
 }
