@@ -6,7 +6,6 @@ import settingContext from "@/context/ConfigsContext";
 
 type TPointerSize = 'tiny' | 'regular' | 'large';
 type TDirectionMode = 'modeCL' | 'modeLC' | 'modeCR'| 'modeRC'| 'modeLR' | 'modeRL';
-type TExerciseNumber = "O1" | "O2" | "O3";
 type TPointerProps = {
   exercise: string,
   onClick?: () => void,
@@ -155,4 +154,4 @@ const searchParams = useSearchParams();
 }
 
 export default Pointer;
-export type {TDirectionMode, TExerciseNumber}
+export type {TDirectionMode}

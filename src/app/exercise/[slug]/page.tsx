@@ -10,6 +10,8 @@ type TAppContentProps = {
     onClick: () => void,
     exercise: string,
 }
+const exerciseNumbers = ["O1", "O2", "O3", "O4"];
+type TExerciseNumber = typeof exerciseNumbers[number];
 function AppContent({onClick, exercise}:TAppContentProps) {
     const isProduction = process.env.NODE_ENV === "production";
     const searchParams = useSearchParams();
@@ -38,13 +40,6 @@ function AppContent({onClick, exercise}:TAppContentProps) {
 
                     See you soon, and we will get back to work on the app...
                 </h3>
-            </center>
-        )
-    } else {
-        return (
-            <center>
-                <h1>404 Error</h1>
-                <h2>Sorry, we can’t seem to find what you’re looking for.</h2>
             </center>
         )
     }
@@ -97,3 +92,5 @@ function changeThemeTo(themeName: TThemeName|"random") {
     }
 
     export default Page;
+export {exerciseNumbers};
+export type {TExerciseNumber};
