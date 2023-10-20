@@ -86,7 +86,7 @@ const searchParams = useSearchParams();
         height: ${pointerSize};
         width: ${pointerSize};
         border-radius: 50%;
-        transition: background ${delay} ease;
+        transition: background-color 5s ease;
         animation-duration: ${iterationTime};
         -moz-animation-iteration-count: 1;
         animation-delay: ${delay};
