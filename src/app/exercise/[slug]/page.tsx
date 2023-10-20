@@ -1,10 +1,10 @@
 'use client'
 
-import Pointer, { TExerciseNumber} from '@/components/Pointer';
-import {useSearchParams} from "next/navigation";
+import {useContext, useEffect, useState} from "react";
+import Pointer from '@/components/Pointer';
+import {notFound, useSearchParams} from "next/navigation";
 import ThemeNameContext, {TThemeName} from "@/context/ThemeNameContext";
 import THEMES from '@/THEMES.json';
-import {useContext, useState} from "react";
 
 type TAppContentProps = {
     onClick: () => void,
@@ -17,6 +17,13 @@ function AppContent({onClick, exercise}:TAppContentProps) {
     const searchParams = useSearchParams();
     const alfaTestPassword = searchParams.get("password");
     const isValidAlfaTestPassword = process.env.NEXT_PUBLIC_TEST_PASSWORD === alfaTestPassword;
+
+
+    useEffect(() => {
+    if(!exerciseNumbers.includes(exercise)) {
+        return notFound();
+        }
+    }, [exercise]);
 
     const themeName = useContext(ThemeNameContext);
     if (!isProduction || isValidAlfaTestPassword) {
