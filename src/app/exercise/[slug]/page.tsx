@@ -99,5 +99,4 @@ function changeThemeTo(themeName: TThemeName|"random") {
     }
 
     export default Page;
-export {exerciseNumbers};
 export type {TExerciseNumber};
