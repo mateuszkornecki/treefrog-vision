@@ -25,6 +25,8 @@ const searchParams = useSearchParams();
   useEffect(() => {
     if(exercise === "O1" || exercise === "O2" || exercise === "O3") {
       setDirectionMode("modeCL");
+    } else if(exercise === "O4") {
+      setDirectionMode("modeCR");
     }
   }, [exercise]);
 
@@ -62,6 +64,14 @@ const searchParams = useSearchParams();
         }
       }
 
+      function exercise4(): void {
+      if (event.animationName === 'modeCR') {
+        setDirectionMode('modeRC');
+      } else if (event.animationName === 'modeRC') {
+        setDirectionMode('modeCR')
+      }
+      }
+
       switch (exercise) {
         case 'O1':
           exercise1();
@@ -71,8 +81,11 @@ const searchParams = useSearchParams();
           break;
         case 'O3':
           exercise3();
-          break;
-      }
+         break;
+     case 'O4':
+        exercise4();
+        break;
+    }
   }
   return <>
   <div
