@@ -6,11 +6,9 @@ import settingContext from "@/context/ConfigsContext";
 
 type TPointerSize = 'tiny' | 'regular' | 'large';
 type TDirectionMode = 'modeCL' | 'modeLC' | 'modeCR'| 'modeRC'| 'modeLR' | 'modeRL';
-type TExerciseNumber = "O1" | "O2" | "O3";
 type TPointerProps = {
-
-  exercise: TExerciseNumber
-  onClick?: () => void
+  exercise: string,
+  onClick?: () => void,
   paused?: boolean,
   color: string
 }
@@ -27,6 +25,8 @@ const searchParams = useSearchParams();
   useEffect(() => {
     if(exercise === "O1" || exercise === "O2" || exercise === "O3") {
       setDirectionMode("modeCL");
+    } else if(exercise === "O4") {
+      setDirectionMode("modeCR");
     }
   }, [exercise]);
 
@@ -64,6 +64,14 @@ const searchParams = useSearchParams();
         }
       }
 
+      function exercise4(): void {
+      if (event.animationName === 'modeCR') {
+        setDirectionMode('modeRC');
+      } else if (event.animationName === 'modeRC') {
+        setDirectionMode('modeCR')
+      }
+      }
+
       switch (exercise) {
         case 'O1':
           exercise1();
@@ -73,8 +81,11 @@ const searchParams = useSearchParams();
           break;
         case 'O3':
           exercise3();
-          break;
-      }
+         break;
+     case 'O4':
+        exercise4();
+        break;
+    }
   }
   return <>
   <div
@@ -88,7 +99,7 @@ const searchParams = useSearchParams();
         height: ${pointerSize};
         width: ${pointerSize};
         border-radius: 50%;
-        transition: background ${delay} ease;
+        transition: background-color 5s ease;
         animation-duration: ${iterationTime};
         -moz-animation-iteration-count: 1;
         animation-delay: ${delay};
@@ -156,4 +167,4 @@ const searchParams = useSearchParams();
 }
 
 export default Pointer;
-export type {TDirectionMode, TExerciseNumber}
+export type {TDirectionMode}

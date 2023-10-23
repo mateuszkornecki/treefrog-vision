@@ -1,20 +1,29 @@
 'use client'
 
-import Pointer, { TExerciseNumber} from '@/components/Pointer';
-import {useSearchParams} from "next/navigation";
+import {useContext, useEffect, useState} from "react";
+import Pointer from '@/components/Pointer';
+import {notFound, useSearchParams} from "next/navigation";
 import ThemeNameContext, {TThemeName} from "@/context/ThemeNameContext";
 import THEMES from '@/THEMES.json';
-import {useContext, useState} from "react";
 
 type TAppContentProps = {
     onClick: () => void,
-    exercise: TExerciseNumber
+    exercise: string,
 }
+const exerciseNumbers = ["O1", "O2", "O3", "O4"];
+type TExerciseNumber = typeof exerciseNumbers[number];
 function AppContent({onClick, exercise}:TAppContentProps) {
     const isProduction = process.env.NODE_ENV === "production";
     const searchParams = useSearchParams();
     const alfaTestPassword = searchParams.get("password");
     const isValidAlfaTestPassword = process.env.NEXT_PUBLIC_TEST_PASSWORD === alfaTestPassword;
+
+
+    useEffect(() => {
+    if(!exerciseNumbers.includes(exercise)) {
+        return notFound();
+        }
+    }, [exercise]);
 
     const themeName = useContext(ThemeNameContext);
     if (!isProduction || isValidAlfaTestPassword) {
@@ -38,13 +47,6 @@ function AppContent({onClick, exercise}:TAppContentProps) {
 
                     See you soon, and we will get back to work on the app...
                 </h3>
-            </center>
-        )
-    } else {
-        return (
-            <center>
-                <h1>404 Error</h1>
-                <h2>Sorry, we can’t seem to find what you’re looking for.</h2>
             </center>
         )
     }
@@ -97,3 +99,4 @@ function changeThemeTo(themeName: TThemeName|"random") {
     }
 
     export default Page;
+export type {TExerciseNumber};
