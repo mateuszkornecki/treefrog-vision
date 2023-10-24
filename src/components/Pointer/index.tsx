@@ -77,7 +77,7 @@ const searchParams = useSearchParams();
       } else if (event.animationName === 'modeRC') {
         setDirectionMode('modeCR')
       }
-      }
+    }
 
     function exercise5(): void {
       if (event.animationName === "modeCT") {
