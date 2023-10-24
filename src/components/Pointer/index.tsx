@@ -3,9 +3,11 @@
 import React, {AnimationEvent, useContext, useEffect, useState} from 'react';
 import {useSearchParams} from "next/navigation";
 import settingContext from "@/context/ConfigsContext";
+import {TExerciseNumber} from "@/app/exercise/[slug]/page";
 
 type TPointerSize = 'tiny' | 'regular' | 'large';
-type TDirectionMode = 'modeCL' | 'modeLC' | 'modeCR'| 'modeRC'| 'modeLR' | 'modeRL';
+type TDirectionMode = 'modeCL' | 'modeLC' | 'modeCR'| 'modeRC'| 'modeLR' | 'modeRL' | 'modeCT' | 'modeTC'
+    | 'modeBC' | 'modeCB';
 type TPointerProps = {
   exercise: string,
   onClick?: () => void,
@@ -22,12 +24,17 @@ const searchParams = useSearchParams();
 
   const [directionMode, setDirectionMode ] = useState<TDirectionMode | null>(null);
 
+ function setNextDirectionMode(exercise: TExerciseNumber):void {
+   if(exercise === "O1" || exercise === "O2" || exercise === "O3") {
+     setDirectionMode("modeCL");
+   } else if(exercise === "O4") {
+     setDirectionMode("modeCR");
+   } else if(exercise === "O5") {
+     setDirectionMode("modeCT");
+   }
+ }
   useEffect(() => {
-    if(exercise === "O1" || exercise === "O2" || exercise === "O3") {
-      setDirectionMode("modeCL");
-    } else if(exercise === "O4") {
-      setDirectionMode("modeCR");
-    }
+    setNextDirectionMode(exercise);
   }, [exercise]);
 
   function handleAnimationEnd(event: AnimationEvent<HTMLDivElement>): void {
@@ -72,6 +79,18 @@ const searchParams = useSearchParams();
       }
       }
 
+    function exercise5(): void {
+      if (event.animationName === "modeCT") {
+        setDirectionMode("modeTC");
+      } else if (event.animationName === "modeTC") {
+        setDirectionMode("modeCB");
+      } else if (event.animationName === "modeCB") {
+        setDirectionMode("modeBC");
+      } else if (event.animationName === "modeBC") {
+        setDirectionMode("modeCT");
+      }
+    }
+
       switch (exercise) {
         case 'O1':
           exercise1();
@@ -85,6 +104,9 @@ const searchParams = useSearchParams();
      case 'O4':
         exercise4();
         break;
+        case 'O5':
+          exercise5();
+          break;
     }
   }
   return <>
@@ -112,6 +134,47 @@ const searchParams = useSearchParams();
       }
       .Pointer:hover{
         cursor: pointer;
+      }
+      @keyframes modeCT {
+        from {
+          top: calc(50% - (${pointerSize} / 2));
+        }
+        to {
+          top: 0;
+        }
+      }
+      @keyframes modeCB {
+        from {
+          bottom: calc(50% - (${pointerSize} / 2));
+        }
+        to {
+          bottom: 0;
+        }
+      }    
+      @keyframes modeBC {
+        from {
+          bottom: 0;
+        }
+        to {
+          bottom: calc(50% - (${pointerSize} / 2));
+        }
+      }
+      @keyframes modeTC {
+        from {
+          top: 0
+        }
+        to {
+          top: calc(50% - (${pointerSize} / 2));;
+        }
+      }
+      }
+      @keyframes modeTC {
+        from {
+          bottom: 0
+        }
+        to {
+          bottom: calc(50% - (${pointerSize} / 2));;
+        }
       }
       @keyframes modeRC {
         from {
