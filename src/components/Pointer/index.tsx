@@ -38,7 +38,7 @@ const searchParams = useSearchParams();
   }, [exercise]);
 
   function handleAnimationEnd(event: AnimationEvent<HTMLDivElement>): void {
-    function exercise1(): void {
+    function exerciseO1(): void {
       if (event.animationName === 'modeCL') {
         setDirectionMode('modeLC');
       } else if (event.animationName === 'modeLC') {
@@ -53,7 +53,7 @@ const searchParams = useSearchParams();
       }
     }
 
-    function exercise2(): void {
+    function exerciseO2(): void {
       if (event.animationName === 'modeCL') {
         setDirectionMode('modeLR');
       } else if (event.animationName === 'modeLR') {
@@ -63,7 +63,7 @@ const searchParams = useSearchParams();
       }
     }
 
-      function exercise3(): void {
+      function exerciseO3(): void {
         if (event.animationName === 'modeCL') {
           setDirectionMode('modeLC');
         } else if (event.animationName === 'modeLC') {
@@ -71,7 +71,7 @@ const searchParams = useSearchParams();
         }
       }
 
-      function exercise4(): void {
+      function exerciseO4(): void {
       if (event.animationName === 'modeCR') {
         setDirectionMode('modeRC');
       } else if (event.animationName === 'modeRC') {
@@ -79,7 +79,7 @@ const searchParams = useSearchParams();
       }
     }
 
-    function exercise5(): void {
+    function exerciseO5(): void {
       if (event.animationName === "modeCT") {
         setDirectionMode("modeTC");
       } else if (event.animationName === "modeTC") {
@@ -93,19 +93,19 @@ const searchParams = useSearchParams();
 
       switch (exercise) {
         case 'O1':
-          exercise1();
+          exerciseO1();
           break;
         case 'O2':
-          exercise2();
+          exerciseO2();
           break;
         case 'O3':
-          exercise3();
+          exerciseO3();
          break;
      case 'O4':
-        exercise4();
+        exerciseO4();
         break;
         case 'O5':
-          exercise5();
+          exerciseO5();
           break;
     }
   }
