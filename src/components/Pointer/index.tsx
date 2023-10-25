@@ -24,7 +24,7 @@ const searchParams = useSearchParams();
 
   const [directionMode, setDirectionMode ] = useState<TDirectionMode | null>(null);
 
- function setNextDirectionMode(exercise: TExerciseNumber):void {
+ function setNextDirectionMode():void {
    if(exercise === "O1" || exercise === "O2" || exercise === "O3") {
      setDirectionMode("modeCL");
    } else if(exercise === "O4") {
@@ -34,7 +34,7 @@ const searchParams = useSearchParams();
    }
  }
   useEffect(() => {
-    setNextDirectionMode(exercise);
+    setNextDirectionMode();
   }, [exercise]);
 
   function handleAnimationEnd(event: AnimationEvent<HTMLDivElement>): void {
