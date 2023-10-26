@@ -1,6 +1,6 @@
 'use client'
 
-import React, {AnimationEvent, useContext, useEffect, useState} from 'react';
+import React, {AnimationEvent, useCallback, useContext, useEffect, useState} from 'react';
 import {useSearchParams} from "next/navigation";
 import settingContext from "@/context/ConfigsContext";
 import {TExerciseNumber} from "@/app/exercise/[slug]/page";
@@ -33,8 +33,11 @@ const searchParams = useSearchParams();
      setDirectionMode("centerToTop");
    }
  }
+
+  const handleNextDirectionMode = useCallback(setNextDirectionMode, []);
+
   useEffect(() => {
-    setNextDirectionMode();
+    handleNextDirectionMode();
   }, [exercise]);
 
   function handleAnimationEnd(event: AnimationEvent<HTMLDivElement>): void {
