@@ -10,7 +10,7 @@ type TAppContentProps = {
     onClick: () => void,
     exercise: string,
 }
-const exerciseNumbers = ["O1", "O2", "O3", "O4"];
+const exerciseNumbers = ["O1", "O2", "O3", "O4", "O5"];
 type TExerciseNumber = typeof exerciseNumbers[number];
 function AppContent({onClick, exercise}:TAppContentProps) {
     const isProduction = process.env.NODE_ENV === "production";

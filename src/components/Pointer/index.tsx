@@ -1,11 +1,12 @@
 'use client'
 
-import React, {AnimationEvent, useContext, useEffect, useState} from 'react';
+import React, {AnimationEvent, useCallback, useContext, useEffect, useState} from 'react';
 import {useSearchParams} from "next/navigation";
 import settingContext from "@/context/ConfigsContext";
 
 type TPointerSize = 'tiny' | 'regular' | 'large';
-type TDirectionMode = 'modeCL' | 'modeLC' | 'modeCR'| 'modeRC'| 'modeLR' | 'modeRL';
+type TDirectionMode = 'centerToLeft' | 'leftToCenter' | 'centerToRight'| 'rightToCenter'| 'leftToRight' | 'rightToLeft' | 'centerToTop' | 'topToCenter'
+    | 'bottomToCenter' | 'centerToBottom';
 type TPointerProps = {
   exercise: string,
   onClick?: () => void,
@@ -22,69 +23,92 @@ const searchParams = useSearchParams();
 
   const [directionMode, setDirectionMode ] = useState<TDirectionMode | null>(null);
 
+ function setNextDirectionMode():void {
+   if(exercise === "O1" || exercise === "O2" || exercise === "O3") {
+     setDirectionMode("centerToLeft");
+   } else if(exercise === "O4") {
+     setDirectionMode("centerToRight");
+   } else if(exercise === "O5") {
+     setDirectionMode("centerToTop");
+   }
+ }
+
+  const handleNextDirectionMode = useCallback(setNextDirectionMode, [exercise]);
+
   useEffect(() => {
-    if(exercise === "O1" || exercise === "O2" || exercise === "O3") {
-      setDirectionMode("modeCL");
-    } else if(exercise === "O4") {
-      setDirectionMode("modeCR");
-    }
-  }, [exercise]);
+    handleNextDirectionMode();
+  }, [exercise, handleNextDirectionMode]);
 
   function handleAnimationEnd(event: AnimationEvent<HTMLDivElement>): void {
-    function exercise1(): void {
-      if (event.animationName === 'modeCL') {
-        setDirectionMode('modeLC');
-      } else if (event.animationName === 'modeLC') {
-        setDirectionMode('modeCR');
-      } else if (event.animationName === 'modeRC') {
-        setDirectionMode('modeCL');
-      } else if (event.animationName === 'modeCR') {
-        setDirectionMode('modeRC');
+    function exerciseO1(): void {
+      if (event.animationName === 'centerToLeft') {
+        setDirectionMode('leftToCenter');
+      } else if (event.animationName === 'leftToCenter') {
+        setDirectionMode('centerToRight');
+      } else if (event.animationName === 'rightToCenter') {
+        setDirectionMode('centerToLeft');
+      } else if (event.animationName === 'centerToRight') {
+        setDirectionMode('rightToCenter');
       } else {
         // The default animation mode.
-        setDirectionMode('modeCL')
+        setDirectionMode('centerToLeft')
       }
     }
 
-    function exercise2(): void {
-      if (event.animationName === 'modeCL') {
-        setDirectionMode('modeLR');
-      } else if (event.animationName === 'modeLR') {
-        setDirectionMode('modeRL');
-      } else if (event.animationName === 'modeRL') {
-        setDirectionMode('modeLR')
+    function exerciseO2(): void {
+      if (event.animationName === 'centerToLeft') {
+        setDirectionMode('leftToRight');
+      } else if (event.animationName === 'leftToRight') {
+        setDirectionMode('rightToLeft');
+      } else if (event.animationName === 'rightToLeft') {
+        setDirectionMode('leftToRight')
       }
     }
 
-      function exercise3(): void {
-        if (event.animationName === 'modeCL') {
-          setDirectionMode('modeLC');
-        } else if (event.animationName === 'modeLC') {
-          setDirectionMode('modeCL');
+      function exerciseO3(): void {
+        if (event.animationName === 'centerToLeft') {
+          setDirectionMode('leftToCenter');
+        } else if (event.animationName === 'leftToCenter') {
+          setDirectionMode('centerToLeft');
         }
       }
 
-      function exercise4(): void {
-      if (event.animationName === 'modeCR') {
-        setDirectionMode('modeRC');
-      } else if (event.animationName === 'modeRC') {
-        setDirectionMode('modeCR')
+      function exerciseO4(): void {
+      if (event.animationName === 'centerToRight') {
+        setDirectionMode('rightToCenter');
+      } else if (event.animationName === 'rightToCenter') {
+        setDirectionMode('centerToRight')
       }
+    }
+
+    function exerciseO5(): void {
+      if (event.animationName === "centerToTop") {
+        setDirectionMode("topToCenter");
+      } else if (event.animationName === "topToCenter") {
+        setDirectionMode("centerToBottom");
+      } else if (event.animationName === "centerToBottom") {
+        setDirectionMode("bottomToCenter");
+      } else if (event.animationName === "bottomToCenter") {
+        setDirectionMode("centerToTop");
       }
+    }
 
       switch (exercise) {
         case 'O1':
-          exercise1();
+          exerciseO1();
           break;
         case 'O2':
-          exercise2();
+          exerciseO2();
           break;
         case 'O3':
-          exercise3();
+          exerciseO3();
          break;
      case 'O4':
-        exercise4();
+        exerciseO4();
         break;
+        case 'O5':
+          exerciseO5();
+          break;
     }
   }
   return <>
@@ -113,15 +137,47 @@ const searchParams = useSearchParams();
       .Pointer:hover{
         cursor: pointer;
       }
-      @keyframes modeRC {
+      @keyframes centerToTop {
         from {
-          left:calc(100% - (${pointerSize}));
+          top: calc(50% - (${pointerSize} / 2));
+        }
+        to {
+          top: 0;
+        }
+      }
+      @keyframes centerToBottom {
+        from {
+          bottom: calc(50% - (${pointerSize} / 2));
+        }
+        to {
+          bottom: 0;
+        }
+      }    
+      @keyframes bottomToCenter {
+        from {
+          bottom: 0;
+        }
+        to {
+          bottom: calc(50% - (${pointerSize} / 2));
+        }
+      }
+      @keyframes topToCenter {
+        from {
+          top: 0
+        }
+        to {
+          top: calc(50% - (${pointerSize} / 2));;
+        }
+      }
+      @keyframes rightToCenter {
+        from {
+          left: calc(100% - (${pointerSize}));
         }
         to {
           left: calc(50% - (${pointerSize} / 2));
         }
       }
-      @keyframes modeLC {
+      @keyframes leftToCenter {
         from {
           left: 0
         }
@@ -129,7 +185,7 @@ const searchParams = useSearchParams();
           left: calc(50% - (${pointerSize} / 2));
         }
       }
-      @keyframes modeCR {
+      @keyframes centerToRight {
         from {
           left: calc(50% - (${pointerSize} / 2));
         }
@@ -137,7 +193,7 @@ const searchParams = useSearchParams();
           left:calc(100% - (${pointerSize}));
         }
       }
-      @keyframes modeCL {
+      @keyframes centerToLeft {
         from {
           left: calc(50% - (${pointerSize} / 2));
         }
@@ -145,7 +201,7 @@ const searchParams = useSearchParams();
           left: 0;
         }
       }
-      @keyframes modeLR {
+      @keyframes leftToRight {
         from {
           left: 0;
         }
@@ -153,7 +209,7 @@ const searchParams = useSearchParams();
           left: calc(100% - (${pointerSize}))
         }
       }
-      @keyframes modeRL {
+      @keyframes rightToLeft {
         from {
           left: calc(100% - (${pointerSize}));
         }
