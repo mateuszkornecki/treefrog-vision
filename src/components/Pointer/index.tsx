@@ -34,11 +34,11 @@ const searchParams = useSearchParams();
    }
  }
 
-  const handleNextDirectionMode = useCallback(setNextDirectionMode, []);
+  const handleNextDirectionMode = useCallback(setNextDirectionMode, [exercise]);
 
   useEffect(() => {
     handleNextDirectionMode();
-  }, [exercise]);
+  }, [exercise, handleNextDirectionMode]);
 
   function handleAnimationEnd(event: AnimationEvent<HTMLDivElement>): void {
     function exerciseO1(): void {
