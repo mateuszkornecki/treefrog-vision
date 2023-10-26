@@ -3,7 +3,6 @@
 import React, {AnimationEvent, useCallback, useContext, useEffect, useState} from 'react';
 import {useSearchParams} from "next/navigation";
 import settingContext from "@/context/ConfigsContext";
-import {TExerciseNumber} from "@/app/exercise/[slug]/page";
 
 type TPointerSize = 'tiny' | 'regular' | 'large';
 type TDirectionMode = 'centerToLeft' | 'leftToCenter' | 'centerToRight'| 'rightToCenter'| 'leftToRight' | 'rightToLeft' | 'centerToTop' | 'topToCenter'
