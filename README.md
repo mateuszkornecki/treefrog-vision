@@ -29,6 +29,11 @@ If you have any question, don't hesitate, just ask me!
 
 ### 
 helped in the process of building the application
+- [Company: Black Label](https://blacklabel.net)
 - [Justyna Stanach](https://pl.linkedin.com/in/justyna-stanach-45428814b) (PO,UX/UI designer)
 - [Magdalena Iszczuk](https://www.linkedin.com/in/magdaiszczuk/?originalSubdomain=pl) (UX/UI designer)
-- Katarzyna Kasprzyk (vision therapist, consultant)
+- Katarzyna Kasprzyk(vision therapist, consultant)
+- [Grzegorz Blachliński](https://www.linkedin.com/in/gblachlinski/?originalSubdomain=pl) (advisor about structure, process and product)
+- [Timothy Chase](https://www.linkedin.com/in/timchase-mkt/?originalSubdomain=pl) (advisor about PR, branding and translations)
+- [Mateusz Cygan](https://www.linkedin.com/in/mateusz-cygan/) (advisor about UX/UI design)
+
