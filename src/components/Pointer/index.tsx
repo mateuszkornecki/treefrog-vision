@@ -1,7 +1,6 @@
 'use client'
 
 import React, {AnimationEvent, useCallback, useContext, useEffect, useState} from 'react';
-import {useSearchParams} from "next/navigation";
 import settingContext from "@/context/ConfigsContext";
 
 type TPointerSize = 'tiny' | 'regular' | 'large';
