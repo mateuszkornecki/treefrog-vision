@@ -226,4 +226,4 @@ function Pointer({ color, onClick, paused, exercise,iterationTime, delay}: TPoin
 }
 
 export default Pointer;
-export type {TDirectionMode}
+export type {TDirectionMode, TSeconds};
