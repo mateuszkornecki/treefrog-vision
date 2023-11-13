@@ -1,0 +1,21 @@
+name: tree-frog tests
+on:
+  push:
+    branches:
+      - 'master'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          working-directory: ./
+          component: true
+        env:
+          NEXT_PUBLIC_TEST_PASSWORD: 'dixJu7-fetfug-bacqyx'

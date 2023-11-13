@@ -1,25 +1,27 @@
 'use client'
 
 import React, {AnimationEvent, useCallback, useContext, useEffect, useState} from 'react';
-import {useSearchParams} from "next/navigation";
 import settingContext from "@/context/ConfigsContext";
 
 type TPointerSize = 'tiny' | 'regular' | 'large';
 type TDirectionMode = 'centerToLeft' | 'leftToCenter' | 'centerToRight'| 'rightToCenter'| 'leftToRight' | 'rightToLeft' | 'centerToTop' | 'topToCenter'
     | 'bottomToCenter' | 'centerToBottom';
+type TSeconds = `${number}s`;
+
+
+
 type TPointerProps = {
   exercise: string,
+  iterationTime: TSeconds
+  delay: TSeconds
   onClick?: () => void,
   paused?: boolean,
   color: string
 }
 
-function Pointer({ color, onClick, paused, exercise}: TPointerProps) {
+function Pointer({ color, onClick, paused, exercise,iterationTime, delay}: TPointerProps) {
   const  setting = useContext(settingContext);
   const [pointerSize,setPointerSize] = useState(setting.pointerSize);
-const searchParams = useSearchParams();
-  const iterationTime = searchParams.get("iterationTime") || setting.iterationTime;
-  const delay = searchParams.get("delay") || setting.delay;
 
   const [directionMode, setDirectionMode ] = useState<TDirectionMode | null>(null);
 
@@ -223,4 +225,4 @@ const searchParams = useSearchParams();
 }
 
 export default Pointer;
-export type {TDirectionMode}
+export type {TDirectionMode, TSeconds};

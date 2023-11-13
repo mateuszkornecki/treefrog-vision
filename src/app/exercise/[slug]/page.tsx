@@ -5,6 +5,8 @@ import Pointer from '@/components/Pointer';
 import {notFound, useSearchParams} from "next/navigation";
 import ThemeNameContext, {TThemeName} from "@/context/ThemeNameContext";
 import THEMES from '@/THEMES.json';
+import settingContext from "@/context/ConfigsContext";
+import {isSeconds} from "@/app/utils/isSeconds";
 
 type TAppContentProps = {
     onClick: () => void,
@@ -25,11 +27,22 @@ function AppContent({onClick, exercise}:TAppContentProps) {
         }
     }, [exercise]);
 
+    const  setting = useContext(settingContext);
+
     const themeName = useContext(ThemeNameContext);
+    const iterationTime = searchParams.get("iterationTime") || setting.iterationTime;
+    const delay = searchParams.get("delay") || setting.delay;
+
+    isSeconds(iterationTime);
+    isSeconds(delay);
+
     if (!isProduction || isValidAlfaTestPassword) {
+
         return (
             <>
                 <Pointer
+                    delay={delay}
+                    iterationTime={iterationTime}
                     exercise={exercise}
                     color={THEMES[themeName].pointerColor}
                     onClick={onClick}
