@@ -25,7 +25,7 @@ function Pointer({ color, onClick, paused, exercise,iterationTime, delay}: TPoin
 
   const [directionMode, setDirectionMode ] = useState<TDirectionMode | null>(null);
 
- function setNextDirectionMode():void {
+ function setInitialDirectionMode():void {
    if(exercise === "O1" || exercise === "O2" || exercise === "O3") {
      setDirectionMode("centerToLeft");
    } else if(exercise === "O4") {
@@ -35,7 +35,7 @@ function Pointer({ color, onClick, paused, exercise,iterationTime, delay}: TPoin
    }
  }
 
-  const handleNextDirectionMode = useCallback(setNextDirectionMode, [exercise]);
+  const handleNextDirectionMode = useCallback(setInitialDirectionMode, [exercise]);
 
   useEffect(() => {
     handleNextDirectionMode();
