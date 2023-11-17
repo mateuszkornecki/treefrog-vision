@@ -2,16 +2,15 @@
 
 import React, {AnimationEvent, useCallback, useContext, useEffect, useState} from 'react';
 import settingContext from "@/context/ConfigsContext";
+import {TExerciseNumber} from "@/app/exercise/[slug]/page";
 
 type TPointerSize = 'tiny' | 'regular' | 'large';
 type TDirectionMode = 'centerToLeft' | 'leftToCenter' | 'centerToRight'| 'rightToCenter'| 'leftToRight' | 'rightToLeft' | 'centerToTop' | 'topToCenter'
     | 'bottomToCenter' | 'centerToBottom';
 type TSeconds = `${number}s`;
 
-
-
 type TPointerProps = {
-  exercise: string,
+  exercise: TExerciseNumber,
   iterationTime: TSeconds
   delay: TSeconds
   onClick?: () => void,
@@ -19,7 +18,66 @@ type TPointerProps = {
   color: string
 }
 
-function Pointer({ color, onClick, paused, exercise,iterationTime, delay}: TPointerProps) {
+function getNextDirectionMode(exercise: TExerciseNumber, previousDirectionMode: string): TDirectionMode  {
+
+  const INVALID_DIRECTION_MODE_ERROR  = "Invalid directionMode!"
+  if(exercise === "O1") {
+    if (previousDirectionMode === 'centerToLeft') {
+      return 'leftToCenter';
+    } else if (previousDirectionMode === 'leftToCenter') {
+      return 'centerToRight';
+    } else if (previousDirectionMode === 'rightToCenter') {
+      return 'centerToLeft';
+    } else if (previousDirectionMode === 'centerToRight') {
+      return 'rightToCenter';
+    } else {
+      throw new Error(INVALID_DIRECTION_MODE_ERROR);
+    }
+  } else if(exercise === "O2") {
+    if (previousDirectionMode === 'centerToLeft') {
+      return 'leftToRight';
+    } else if (previousDirectionMode === 'leftToRight') {
+      return 'rightToLeft';
+    } else if (previousDirectionMode === 'rightToLeft') {
+      return 'leftToRight';
+    } else {
+      throw new Error(INVALID_DIRECTION_MODE_ERROR);
+    }
+  } else if(exercise === "O3") {
+    if (previousDirectionMode === 'centerToLeft') {
+      return 'leftToCenter';
+    } else if (previousDirectionMode === 'leftToCenter') {
+      return 'centerToLeft';
+    } else {
+      throw new Error(INVALID_DIRECTION_MODE_ERROR);
+    }
+  } else if(exercise === "O4") {
+    if (previousDirectionMode === 'centerToRight') {
+      return 'rightToCenter';
+    } else if (previousDirectionMode === 'rightToCenter') {
+      return 'centerToRight';
+    } else {
+      throw new Error(INVALID_DIRECTION_MODE_ERROR);
+    }
+  } else if(exercise === "O5") {
+    if (previousDirectionMode === "centerToTop") {
+      return "topToCenter";
+    } else if (previousDirectionMode === "topToCenter") {
+      return "centerToBottom";
+    } else if (previousDirectionMode === "centerToBottom") {
+      return "bottomToCenter";
+    } else if (previousDirectionMode === "bottomToCenter") {
+      return "centerToTop";
+    } else {
+      throw new Error(INVALID_DIRECTION_MODE_ERROR);
+    }
+  } else {
+    throw new Error("Incorrect exercise number!")
+  }
+}
+
+
+function Pointer({ color, onClick, paused,iterationTime, delay, exercise}: TPointerProps) {
   const  setting = useContext(settingContext);
   const [pointerSize,setPointerSize] = useState(setting.pointerSize);
 
@@ -41,75 +99,22 @@ function Pointer({ color, onClick, paused, exercise,iterationTime, delay}: TPoin
     handleNextDirectionMode();
   }, [exercise, handleNextDirectionMode]);
 
-  function handleAnimationEnd(event: AnimationEvent<HTMLDivElement>): void {
-    function exerciseO1(): void {
-      if (event.animationName === 'centerToLeft') {
-        setDirectionMode('leftToCenter');
-      } else if (event.animationName === 'leftToCenter') {
-        setDirectionMode('centerToRight');
-      } else if (event.animationName === 'rightToCenter') {
-        setDirectionMode('centerToLeft');
-      } else if (event.animationName === 'centerToRight') {
-        setDirectionMode('rightToCenter');
-      } else {
-        // The default animation mode.
-        setDirectionMode('centerToLeft')
-      }
-    }
-
-    function exerciseO2(): void {
-      if (event.animationName === 'centerToLeft') {
-        setDirectionMode('leftToRight');
-      } else if (event.animationName === 'leftToRight') {
-        setDirectionMode('rightToLeft');
-      } else if (event.animationName === 'rightToLeft') {
-        setDirectionMode('leftToRight')
-      }
-    }
-
-      function exerciseO3(): void {
-        if (event.animationName === 'centerToLeft') {
-          setDirectionMode('leftToCenter');
-        } else if (event.animationName === 'leftToCenter') {
-          setDirectionMode('centerToLeft');
-        }
-      }
-
-      function exerciseO4(): void {
-      if (event.animationName === 'centerToRight') {
-        setDirectionMode('rightToCenter');
-      } else if (event.animationName === 'rightToCenter') {
-        setDirectionMode('centerToRight')
-      }
-    }
-
-    function exerciseO5(): void {
-      if (event.animationName === "centerToTop") {
-        setDirectionMode("topToCenter");
-      } else if (event.animationName === "topToCenter") {
-        setDirectionMode("centerToBottom");
-      } else if (event.animationName === "centerToBottom") {
-        setDirectionMode("bottomToCenter");
-      } else if (event.animationName === "bottomToCenter") {
-        setDirectionMode("centerToTop");
-      }
-    }
-
+    function handleAnimationEnd(event: AnimationEvent<HTMLDivElement>): void {
       switch (exercise) {
         case 'O1':
-          exerciseO1();
+          setDirectionMode(getNextDirectionMode("O1", event.animationName));
           break;
         case 'O2':
-          exerciseO2();
+          setDirectionMode(getNextDirectionMode("O2", event.animationName));
           break;
         case 'O3':
-          exerciseO3();
+          setDirectionMode(getNextDirectionMode("O3", event.animationName));
          break;
      case 'O4':
-        exerciseO4();
+       setDirectionMode(getNextDirectionMode("O4", event.animationName));
         break;
         case 'O5':
-          exerciseO5();
+          setDirectionMode(getNextDirectionMode("O5", event.animationName));
           break;
     }
   }
@@ -225,4 +230,5 @@ function Pointer({ color, onClick, paused, exercise,iterationTime, delay}: TPoin
 }
 
 export default Pointer;
+export {getNextDirectionMode};
 export type {TDirectionMode, TSeconds};
