@@ -1,6 +1,5 @@
 import getNextDirectionMode from "@/utils/getNextDirectionMode";
-import {describe, expect, test} from '@jest/globals';
-
+import {describe, expect, test} from '@jest/globals';const ALPACA_THAT_THROWS_ERRORS = 'this alpaca will throw an error';
 
 describe('getNextDirectionMode function', () => {
     test('returns "All previousDirectionMode for exercise O1 returns a correct output', () => {
@@ -8,5 +7,6 @@ describe('getNextDirectionMode function', () => {
         expect(getNextDirectionMode("O1", 'leftToCenter')).toBe('centerToRight');
         expect(getNextDirectionMode("O1", 'rightToCenter')).toBe('centerToLeft');
         expect(getNextDirectionMode("O1", 'centerToRight')).toBe('rightToCenter');
+        expect(() => getNextDirectionMode("O1", ALPACA_THAT_THROWS_ERRORS)).toThrow();
     });
 });
