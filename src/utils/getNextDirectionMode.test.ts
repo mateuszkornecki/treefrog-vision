@@ -19,4 +19,10 @@ describe('getNextDirectionMode function', () => {
         expect(getNextDirectionMode("O2", 'rightToLeft')).toBe('leftToRight');
         expect(() => getNextDirectionMode("O2", ALPACA_THAT_THROWS_ERRORS)).toThrow();
     });
+
+    test('returns "All previousDirectionModes for exercise O3 returns a correct output', () => {
+        expect(getNextDirectionMode("O3", 'centerToLeft')).toBe('leftToCenter');
+        expect(getNextDirectionMode("O3", 'leftToCenter')).toBe('centerToLeft');
+        expect(() => getNextDirectionMode("O3", ALPACA_THAT_THROWS_ERRORS)).toThrow();
+    });
 });
