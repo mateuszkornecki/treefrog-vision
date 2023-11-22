@@ -6,7 +6,7 @@ import {notFound, useSearchParams} from "next/navigation";
 import ThemeNameContext, {TThemeName} from "@/context/ThemeNameContext";
 import THEMES from '@/THEMES.json';
 import settingContext from "@/context/ConfigsContext";
-import {isSeconds} from "@/app/utils/isSeconds";
+import {isSeconds} from "@/utils/isSeconds";
 
 type TAppContentProps = {
     onClick: () => void,
