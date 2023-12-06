@@ -1,5 +1,7 @@
 import {ReactNode} from "react";
-import './layout.css'
+import './layout.css';
+import { Providers } from './providers';
+
 
 export const metadata = {
   title: 'Tree-frog',
@@ -13,7 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+      <Providers>{children}</Providers>
+      </body>
     </html>
   )
 }
