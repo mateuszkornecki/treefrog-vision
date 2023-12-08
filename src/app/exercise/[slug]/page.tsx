@@ -83,26 +83,28 @@ function changeThemeTo(themeName: TThemeName|"random") {
     }
 }
 
-        return (<div className="App">
+        return (
+            <div className="exercise">
                 <ThemeNameContext.Provider value={themeName}>
                 <AppContent exercise={params.slug} onClick={()=> {
                     changeThemeTo("random");
                 }}/>
                 <style jsx global>
                     {`
-                        .App {
-                          text-align: center;
-                          display: flex;
-                          align-items: center;
-                          justify-content: center;
-                          height: 100vh;
-                          width: 100vw;
-                          background-color: ${THEMES[themeName].backgroundColor};
-                          transition: background-color 5s ease;
-                        }
-                        h3 {
-                          max-width: 700px;
-                        }
+                      .exercise {
+                        text-align: center;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 100vh;
+                        width: 100vw;
+                        background-color: ${THEMES[themeName].backgroundColor};
+                        transition: background-color 5s ease;
+                      }
+
+                      h3 {
+                        max-width: 700px;
+                      }
                     `}
                 </style>
 
