@@ -1,19 +1,19 @@
-import { Heading } from '@chakra-ui/react';
+import { Heading, Box } from '@chakra-ui/react';
 
 const Page =() => {
 
     return (
         <header>
             <Heading as='h1' size='xl'>Ustawienia ćwiczenia</Heading>
-            <main className='exercise-config__list--scrollable'>
-                <Heading as='h2' size='md' className='exercise-config__item'>Kolorystyka ćwiczenia:</Heading>
-                <Heading as='h2' size='md' className='exercise-config__item'>Wielkość obiektu:</Heading>
-                <Heading as='h2' size='md' className='exercise-config__item'>Szybkość poruszania się obiektu:</Heading>
-                <Heading as='h2' size='md' className='exercise-config__item'>Czas zatrzymania obiektu:</Heading>
-                <Heading as='h2' size='md' className='exercise-config__item'>Kierunki:</Heading>
-
-            </main>
-    </header>
+<Box as='main' padding='1rem' overflowY='auto' maxH='100vh'  bgGradient="linear(to-t, green.200, pink.500)">
+    <Heading as='h2' size='md'>Kolorystyka ćwiczenia:</Heading>
+    <Heading as='h2' size='md'>Wielkość obiektu:</Heading>
+    <Heading as='h2' size='md'>Szybkość poruszania się obiektu:</Heading>
+    <Heading as='h2' size='md'>Czas zatrzymania obiektu:</Heading>
+    <Heading as='h2' size='md'>Kierunki poruszania się obiektu:</Heading>
+    <Heading as='h2' size='md'>Długość ćwiczenia:</Heading>
+</Box>
+        </header>
     );
 }
 
