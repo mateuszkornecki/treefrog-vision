@@ -7,6 +7,7 @@ import ThemeNameContext, {TThemeName} from "@/context/ThemeNameContext";
 import THEMES from '@/THEMES.json';
 import settingContext from "@/context/ConfigsContext";
 import {isSeconds} from "@/utils/isSeconds";
+import { Heading } from '@chakra-ui/react';
 
 type TAppContentProps = {
     onClick: () => void,
@@ -52,14 +53,14 @@ function AppContent({onClick, exercise}:TAppContentProps) {
     } else if (isProduction) {
         return (
             <center>
-                <h3>
+                <Heading as='h1' size='lg' maxW='700px'>
                     Hi, We are very pleased that you visited us!
 
                     In the future, you will find here a great (or at least we hope so) tool that will help you work on your field of vision.
                     At the moment, we are still working on the application, we are doing everything we can to make it good and, most importantly, helpful.
 
                     See you soon, and we will get back to work on the app...
-                </h3>
+                </Heading>
             </center>
         )
     }
@@ -100,10 +101,6 @@ function changeThemeTo(themeName: TThemeName|"random") {
                         width: 100vw;
                         background-color: ${THEMES[themeName].backgroundColor};
                         transition: background-color 5s ease;
-                      }
-
-                      h3 {
-                        max-width: 700px;
                       }
                     `}
                 </style>
