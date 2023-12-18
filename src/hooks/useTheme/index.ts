@@ -9,6 +9,6 @@ function useTheme() {
         setCurrentThemeName(themeName);
     }
     return {currentTheme, changeThemeTo};
-};
+}
 
 export default useTheme;
