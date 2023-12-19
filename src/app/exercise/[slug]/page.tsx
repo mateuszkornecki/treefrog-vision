@@ -1,20 +1,19 @@
 'use client'
 
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect} from "react";
 import Pointer from '@/components/Pointer';
 import {notFound, useSearchParams} from "next/navigation";
-import ThemeNameContext, {TThemeName} from "@/context/ThemeNameContext";
 import THEMES from '@/THEMES.json';
 import settingContext from "@/context/ConfigsContext";
 import {isSeconds} from "@/utils/isSeconds";
+import {ThemeContext} from "@/Providers";
 
 type TAppContentProps = {
-    onClick: () => void,
     exercise: string,
 }
 const exerciseNumbers = ["O1", "O2", "O3", "O4", "O5"];
 type TExerciseNumber = typeof exerciseNumbers[number];
-function AppContent({onClick, exercise}:TAppContentProps) {
+function AppContent({exercise}:TAppContentProps) {
     const isProduction = process.env.NODE_ENV === "production";
     const searchParams = useSearchParams();
     const alfaTestPassword = searchParams.get("password");
@@ -28,8 +27,8 @@ function AppContent({onClick, exercise}:TAppContentProps) {
     }, [exercise]);
 
     const  setting = useContext(settingContext);
+    const {currentTheme} = useContext(ThemeContext);
 
-    const themeName = useContext(ThemeNameContext);
     const iterationTime = searchParams.get("iterationTime") || setting.iterationTime;
     const delay = searchParams.get("delay") || setting.delay;
 
@@ -44,8 +43,7 @@ function AppContent({onClick, exercise}:TAppContentProps) {
                     delay={delay}
                     iterationTime={iterationTime}
                     exercise={exercise}
-                    color={THEMES[themeName].pointerColor}
-                    onClick={onClick}
+                    color={currentTheme.pointerColor}
                 />
             </>
         );
@@ -65,30 +63,13 @@ function AppContent({onClick, exercise}:TAppContentProps) {
     }
 }
 
-    function Page({params}: {params: {slug: TExerciseNumber}
-    }) {
-        const [themeName, setThemeName] = useState<TThemeName>('default');
-function getRandomThemeName(): TThemeName {
-    const themeNames = Object.keys(THEMES) as unknown as TThemeName[]
-    return themeNames[Math.floor(Math.random() * themeNames.length)];
-}
-
-function changeThemeTo(themeName: TThemeName|"random") {
-    if(themeName === "random") {
-        const randomThemeName = getRandomThemeName();
-        setThemeName(randomThemeName);
-    } else {
-        setThemeName(themeName);
-
-    }
-}
+    function Page({params}: {params: {slug: TExerciseNumber}}) {
+    const {currentTheme} = useContext(ThemeContext);
+        type TThemeName = keyof typeof THEMES;
 
         return (
             <div className="exercise">
-                <ThemeNameContext.Provider value={themeName}>
-                <AppContent exercise={params.slug} onClick={()=> {
-                    changeThemeTo("random");
-                }}/>
+                <AppContent exercise={params.slug} />
                 <style jsx global>
                     {`
                       .exercise {
@@ -98,7 +79,7 @@ function changeThemeTo(themeName: TThemeName|"random") {
                         justify-content: center;
                         height: 100vh;
                         width: 100vw;
-                        background-color: ${THEMES[themeName].backgroundColor};
+                        background-color: ${currentTheme.backgroundColor};
                         transition: background-color 5s ease;
                       }
 
@@ -107,11 +88,10 @@ function changeThemeTo(themeName: TThemeName|"random") {
                       }
                     `}
                 </style>
-
-        </ThemeNameContext.Provider>
             </div>
         );
     }
 
     export default Page;
-export type {TExerciseNumber};
+export type {TExerciseNumber
+};

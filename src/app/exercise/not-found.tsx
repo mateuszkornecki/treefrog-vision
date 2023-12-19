@@ -1,13 +1,11 @@
 'use client'
 
 import Link from 'next/link'
-import React, {useContext, useEffect} from "react";
-import ThemeNameContext from "@/context/ThemeNameContext";
-import THEMES from "@/THEMES.json";
+import React, {useContext} from "react";
+import {ThemeContext} from "@/Providers";
 
 export default function NotFound() {
-    const themeName = useContext(ThemeNameContext);
-    const currentTheme = THEMES[themeName];
+    const {currentTheme} = useContext(ThemeContext);
 
     return (
         <center>
