@@ -11,16 +11,11 @@
     "e2e": "cypress open"
   },
   "dependencies": {
-    "@chakra-ui/next-js": "^2.2.0",
-    "@chakra-ui/react": "^2.8.2",
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
     "@types/node": "20.5.9",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
-    "framer-motion": "^10.16.14",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "5.2.2"
