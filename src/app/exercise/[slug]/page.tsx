@@ -6,7 +6,7 @@ import {notFound, useSearchParams} from "next/navigation";
 import THEMES from '@/THEMES.json';
 import settingContext from "@/context/ConfigsContext";
 import {isSeconds} from "@/utils/isSeconds";
-import {ThemeContext} from "@/Providers";
+import {ThemeContext} from "@/components/Providers";
 
 type TAppContentProps = {
     exercise: string,
@@ -65,7 +65,6 @@ function AppContent({exercise}:TAppContentProps) {
 
     function Page({params}: {params: {slug: TExerciseNumber}}) {
     const {currentTheme} = useContext(ThemeContext);
-        type TThemeName = keyof typeof THEMES;
 
         return (
             <div className="exercise">

@@ -1,8 +1,8 @@
 'use client'
 
-import Link from 'next/link'
+import Link from 'next/link';
 import React, {useContext} from "react";
-import {ThemeContext} from "@/Providers";
+import ThemeContext from "@/context/ThemeContext";
 
 export default function NotFound() {
     const {currentTheme} = useContext(ThemeContext);

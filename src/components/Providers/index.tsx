@@ -1,16 +1,15 @@
 "use client"
 
-import {createContext, ReactNode, useEffect, useState} from "react";
+import {ReactNode, useEffect, useState} from "react";
 import THEMES from "@/THEMES.json";
+import ThemeContext from "@/context/ThemeContext";
+import {TThemeName} from "@/types/TThemeName";
 
 type TProvidersProps = {
     children: ReactNode
 }
 
-type TThemeName = keyof typeof THEMES;
-
-const ThemeContext = createContext({currentTheme: THEMES['default'], changeThemeTo: (newThemeName: TThemeName): void => {}})
-const Providers =({children}: TProvidersProps) => {
+const Index =({children}: TProvidersProps) => {
 
     const [currentThemeName, setCurrentName] = useState<TThemeName>("default");
     const [currentTheme, setCurrentTheme] = useState(THEMES[currentThemeName]);
@@ -43,6 +42,6 @@ const Providers =({children}: TProvidersProps) => {
     );
 }
 
-export default Providers;
+export default Index;
 
 export {ThemeContext}

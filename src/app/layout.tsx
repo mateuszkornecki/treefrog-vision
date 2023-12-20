@@ -1,6 +1,6 @@
 import './layout.css';
 import {ReactNode} from "react";
-import Providers from "@/Providers";
+import Providers from "@/components/Providers";
 
 export const metadata = {
   title: 'Tree-frog',
