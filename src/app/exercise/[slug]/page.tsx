@@ -67,7 +67,7 @@ function AppContent({exercise}:TAppContentProps) {
     const {currentTheme} = useContext(ThemeContext);
 
         return (
-            <div className="exercise">
+            <main className="exercise">
                 <AppContent exercise={params.slug} />
                 <style jsx global>
                     {`
@@ -87,7 +87,7 @@ function AppContent({exercise}:TAppContentProps) {
                       }
                     `}
                 </style>
-            </div>
+            </main>
         );
     }
 
