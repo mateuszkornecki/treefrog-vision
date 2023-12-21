@@ -3,7 +3,6 @@
 import {useContext, useEffect} from "react";
 import Pointer from '@/components/Pointer';
 import {notFound, useSearchParams} from "next/navigation";
-import THEMES from '@/THEMES.json';
 import settingContext from "@/context/ConfigsContext";
 import {isSeconds} from "@/utils/isSeconds";
 import {ThemeContext} from "@/components/Providers";
