@@ -9,7 +9,7 @@ type TProvidersProps = {
     children: ReactNode
 }
 
-const Index =({children}: TProvidersProps) => {
+const Providers =({children}: TProvidersProps) => {
 
     const [currentThemeName, setCurrentName] = useState<TThemeName>("default");
     const [currentTheme, setCurrentTheme] = useState(THEMES[currentThemeName]);
@@ -18,8 +18,6 @@ const Index =({children}: TProvidersProps) => {
         console.log(newThemeName)
         setCurrentTheme(THEMES[newThemeName]);
     }
-
-
 
     useEffect(() => {
         changeThemeTo(currentThemeName);
@@ -31,17 +29,12 @@ const Index =({children}: TProvidersProps) => {
 
     }
 
-
-
-
-
     return (
         <ThemeContext.Provider value={appState}>
             {children}
         </ThemeContext.Provider>
     );
 }
+export default Providers;
 
-export default Index;
-
-export {ThemeContext}
+export {ThemeContext};
