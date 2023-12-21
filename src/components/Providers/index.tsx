@@ -24,8 +24,7 @@ const Providers =({children}: TProvidersProps) => {
 
     const appState = {
         currentTheme,
-        changeThemeTo
-
+        changeThemeTo: changeThemeTo,
     }
 
     return (
