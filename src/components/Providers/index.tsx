@@ -9,7 +9,7 @@ type TProvidersProps = {
     children: ReactNode
 }
 
-const Providers =({children}: TProvidersProps) => {
+function Providers({children}: TProvidersProps) {
     const [currentThemeName, setCurrentName] = useState<TThemeName>("default")
     const [currentTheme, setCurrentTheme] = useState(THEMES[currentThemeName])
 
