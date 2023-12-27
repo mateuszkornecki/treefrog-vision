@@ -10,11 +10,11 @@ type TProvidersProps = {
 }
 
 function Providers({children}: TProvidersProps) {
-    const [currentThemeName, setCurrentName] = useState<TThemeName>("default")
+    const [currentThemeName, setCurrentThemeName] = useState<TThemeName>("default")
     const [currentTheme, setCurrentTheme] = useState(THEMES[currentThemeName])
 
     function changeThemeTo(newThemeName: TThemeName): void {
-        setCurrentName(newThemeName)
+        setCurrentThemeName(newThemeName)
         setCurrentTheme(THEMES[newThemeName])
     }
 
