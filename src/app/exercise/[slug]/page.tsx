@@ -5,7 +5,7 @@ import Pointer from '@/components/Pointer';
 import {notFound, useSearchParams} from "next/navigation";
 import settingContext from "@/context/ConfigsContext";
 import {isSeconds} from "@/utils/isSeconds";
-import {ThemeContext} from "@/components/Providers";
+import ThemeContext from "@/context/ThemeContext";
 
 type TAppContentProps = {
     exercise: string,
