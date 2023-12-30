@@ -1,30 +1,23 @@
-import {ReactNode, useEffect, useState} from "react";
-import {TThemeName} from "@/types/TThemeName";
-import THEMES from "@/THEMES.json";
-import ThemeContext from "@/context/ThemeContext";
+import {ReactNode, useEffect, useState} from "react"
+import ConfigContext from "@/context/ConfigContext"
+import CONFIGS from "@/CONFIGS.json"
+import {TConfigName} from "@/types/TConfigName"
 
-export function ThemeContextProvider({children}: {
-    children: ReactNode
-}) {
-    const [currentThemeName, setCurrentThemeName] = useState<TThemeName>("default")
-    const [currentTheme, setCurrentTheme] = useState(THEMES[currentThemeName])
-
-    function changeThemeTo(newThemeName: TThemeName): void {
-        setCurrentThemeName(newThemeName)
-        setCurrentTheme(THEMES[newThemeName])
+export default function ConfigContextProvider({children}:{children: ReactNode}) {
+    const [currentConfigName,SetCurentConfigName] = useState<TConfigName>('default')
+    const [currentConfig,SetCurentConfig] = useState(CONFIGS[currentConfigName])
+    function changeConfigTo(newConfigName: TConfigName): void {
+        SetCurentConfigName(newConfigName)
+        SetCurentConfig(CONFIGS[newConfigName])
     }
 
     useEffect(() => {
-        changeThemeTo(currentThemeName)
-    }, [currentThemeName])
+        changeConfigTo(currentConfigName)
+    },[currentConfigName])
 
-    const themeState = {
-        currentTheme,
-        changeThemeTo: changeThemeTo,
-    }
     return (
-        <ThemeContext.Provider value={themeState}>
+        <ConfigContext.Provider value={{currentConfig: CONFIGS['default'], changeContextTo: changeConfigTo}}>
             {children}
-        </ThemeContext.Provider>
-    )
+        </ConfigContext.Provider>
+            )
 }

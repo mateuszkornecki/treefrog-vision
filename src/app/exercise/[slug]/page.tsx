@@ -1,38 +1,38 @@
 'use client'
 
-import {useContext, useEffect} from "react";
-import Pointer from '@/components/Pointer';
-import {notFound, useSearchParams} from "next/navigation";
-import settingContext from "@/context/ConfigsContext";
-import {isSeconds} from "@/utils/isSeconds";
-import ThemeContext from "@/context/ThemeContext";
+import {useContext, useEffect, useState} from "react"
+import Pointer from '@/components/Pointer'
+import {notFound, useSearchParams} from "next/navigation"
+import configCOntext from "@/context/ConfigContext"
+import {isSeconds} from "@/utils/isSeconds"
+import ThemeContext from "@/context/ThemeContext"
 
 type TAppContentProps = {
     exercise: string,
 }
-const exerciseNumbers = ["O1", "O2", "O3", "O4", "O5"];
-type TExerciseNumber = typeof exerciseNumbers[number];
+const exerciseNumbers = ["O1", "O2", "O3", "O4", "O5"]
+type TExerciseNumber = typeof exerciseNumbers[number]
 function AppContent({exercise}:TAppContentProps) {
-    const isProduction = process.env.NODE_ENV === "production";
-    const searchParams = useSearchParams();
-    const alfaTestPassword = searchParams.get("password");
-    const isValidAlfaTestPassword = process.env.NEXT_PUBLIC_TEST_PASSWORD === alfaTestPassword;
+    const isProduction = process.env.NODE_ENV === "production"
+    const searchParams = useSearchParams()
+    const alfaTestPassword = searchParams.get("password")
+    const isValidAlfaTestPassword = process.env.NEXT_PUBLIC_TEST_PASSWORD === alfaTestPassword
 
 
     useEffect(() => {
     if(!exerciseNumbers.includes(exercise)) {
-        return notFound();
+        return notFound()
         }
     }, [exercise]);
 
-    const  setting = useContext(settingContext);
-    const {currentTheme} = useContext(ThemeContext);
+    const {currentConfig} = useContext(configCOntext)
+    const {currentTheme} = useContext(ThemeContext)
 
-    const iterationTime = searchParams.get("iterationTime") || setting.iterationTime;
-    const delay = searchParams.get("delay") || setting.delay;
+    const iterationTime = searchParams.get("iterationTime") || currentConfig.iterationTime
+    const delay = searchParams.get("delay") || currentConfig.delay
 
-    isSeconds(iterationTime);
-    isSeconds(delay);
+    isSeconds(iterationTime)
+    isSeconds(delay)
 
     if (!isProduction || isValidAlfaTestPassword) {
 
@@ -63,8 +63,12 @@ function AppContent({exercise}:TAppContentProps) {
 }
 
     function Page({params}: {params: {slug: TExerciseNumber}}) {
-    const {currentTheme} = useContext(ThemeContext);
+    const {currentTheme} = useContext(ThemeContext)
+        const [backgroundColor, setBackgroundColor] = useState(currentTheme.backgroundColor)
 
+        useEffect(() => {
+            setBackgroundColor(currentTheme.backgroundColor)
+        }, []);
         return (
             <main className="exercise">
                 <AppContent exercise={params.slug} />
@@ -77,7 +81,7 @@ function AppContent({exercise}:TAppContentProps) {
                         justify-content: center;
                         height: 100vh;
                         width: 100vw;
-                        background-color: ${currentTheme.backgroundColor};
+                        background-color: ${backgroundColor};
                         transition: background-color 5s ease;
                       }
 
@@ -90,6 +94,6 @@ function AppContent({exercise}:TAppContentProps) {
         );
     }
 
-    export default Page;
+    export default Page
 export type {TExerciseNumber
 };
