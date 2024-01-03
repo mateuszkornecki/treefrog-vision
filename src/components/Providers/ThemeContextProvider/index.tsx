@@ -6,20 +6,20 @@ import ThemeContext from "@/context/ThemeContext";
 export function ThemeContextProvider({children}: {
     children: ReactNode
 }) {
-    const [currentThemeName, setCurrentThemeName] = useState<TThemeName>("default")
-    const [currentTheme, setCurrentTheme] = useState(THEMES[currentThemeName])
+    const [themeName, setThemeName] = useState<TThemeName>("default")
+    const [theme, setTheme] = useState(THEMES[themeName])
 
     function changeThemeTo(newThemeName: TThemeName): void {
-        setCurrentThemeName(newThemeName)
-        setCurrentTheme(THEMES[newThemeName])
+        setThemeName(newThemeName)
+        setTheme(THEMES[newThemeName])
     }
 
     useEffect(() => {
-        changeThemeTo(currentThemeName)
-    }, [currentThemeName])
+        changeThemeTo(themeName)
+    }, [themeName])
 
     const themeState = {
-        currentTheme,
+        theme: theme,
         changeThemeTo: changeThemeTo,
     }
     return (

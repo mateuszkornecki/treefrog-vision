@@ -5,7 +5,7 @@ import {TThemeName} from "@/types/TThemeName";
 const initialChangeThemeToFn = (newThemeName: TThemeName) => {}
 
 const initialContextValue = {
-    currentTheme: THEMES['default'],
+    theme: THEMES['default'],
 changeThemeTo: initialChangeThemeToFn
 }
 
