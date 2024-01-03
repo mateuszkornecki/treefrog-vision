@@ -1,10 +1,9 @@
 "use client"
 
-import {useContext} from "react"
-import ThemeContext from "@/context/ThemeContext"
+import useTheme from "@/hooks/useTheme";
 
 function Page(){
-    const currentTheme = useContext(ThemeContext)
+    const {theme} = useTheme()
 
     return (
         <main className={"exerciseConfig"}>
