@@ -3,9 +3,9 @@
 import {useContext, useEffect, useState} from "react"
 import Pointer from '@/components/Pointer'
 import {notFound, useSearchParams} from "next/navigation"
-import configCOntext from "@/context/ConfigContext"
+import configContext from "@/context/ConfigContext"
 import {isSeconds} from "@/utils/isSeconds"
-import ThemeContext from "@/context/ThemeContext"
+import useTheme from "@/hooks/useTheme";
 
 type TAppContentProps = {
     exercise: string,
@@ -25,8 +25,8 @@ function AppContent({exercise}:TAppContentProps) {
         }
     }, [exercise]);
 
-    const {currentConfig} = useContext(configCOntext)
-    const {currentTheme} = useContext(ThemeContext)
+    const {currentConfig} = useContext(configContext)
+    const {theme} = useTheme()
 
     const iterationTime = searchParams.get("iterationTime") || currentConfig.iterationTime
     const delay = searchParams.get("delay") || currentConfig.delay
@@ -42,7 +42,7 @@ function AppContent({exercise}:TAppContentProps) {
                     delay={delay}
                     iterationTime={iterationTime}
                     exercise={exercise}
-                    color={currentTheme.pointerColor}
+                    color={theme.pointerColor}
                 />
             </>
         );
@@ -63,12 +63,12 @@ function AppContent({exercise}:TAppContentProps) {
 }
 
     function Page({params}: {params: {slug: TExerciseNumber}}) {
-    const {currentTheme} = useContext(ThemeContext)
-        const [backgroundColor, setBackgroundColor] = useState(currentTheme.backgroundColor)
+    const {theme} = useTheme()
+        const [backgroundColor, setBackgroundColor] = useState(theme.backgroundColor)
 
         useEffect(() => {
-            setBackgroundColor(currentTheme.backgroundColor)
-        }, []);
+            setBackgroundColor(theme.backgroundColor)
+        }, [theme.backgroundColor]);
         return (
             <main className="exercise">
                 <AppContent exercise={params.slug} />
