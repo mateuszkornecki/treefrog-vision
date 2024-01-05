@@ -1,6 +1,6 @@
 'use client'
 
-import {useContext, useEffect, useState} from "react"
+import {useEffect, useState} from "react"
 import Pointer from '@/components/Pointer'
 import {notFound, useSearchParams} from "next/navigation"
 import {isSeconds} from "@/utils/isSeconds"
