@@ -21,9 +21,9 @@ type TPointerProps = {
 
 
 function Pointer({ color, onClick, paused,iterationTime, delay, exercise}: TPointerProps) {
-  const  {currentConfig} = useContext(ConfigContext)
+  const  {config} = useContext(ConfigContext)
 
-  const [pointerSize,setPointerSize] = useState(currentConfig.pointerSize)
+  const [pointerSize,setPointerSize] = useState(config.pointerSize)
 
   const [directionMode, setDirectionMode ] = useState<TDirectionMode | null>(null)
 

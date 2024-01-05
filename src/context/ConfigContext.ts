@@ -5,8 +5,8 @@ import {TConfigName} from "@/types/TConfigName";
 const initialChangeConfigToFn = (newConfigName: TConfigName) => {}
 
 const initialContextValue = {
-    currentConfig: CONFIGS['default'],
-    changeContextTo: initialChangeConfigToFn
+    config: CONFIGS['default'],
+    changeConfigTo: initialChangeConfigToFn
 }
 
 const ConfigContext = createContext(initialContextValue);

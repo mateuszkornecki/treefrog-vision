@@ -25,11 +25,11 @@ function AppContent({exercise}:TAppContentProps) {
         }
     }, [exercise]);
 
-    const {currentConfig} = useContext(configContext)
+    const {config} = useContext(configContext)
     const {theme} = useTheme()
 
-    const iterationTime = searchParams.get("iterationTime") || currentConfig.iterationTime
-    const delay = searchParams.get("delay") || currentConfig.delay
+    const iterationTime = searchParams.get("iterationTime") || config.iterationTime
+    const delay = searchParams.get("delay") || config.delay
 
     isSeconds(iterationTime)
     isSeconds(delay)
