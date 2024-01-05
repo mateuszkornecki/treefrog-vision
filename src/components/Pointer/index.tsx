@@ -1,9 +1,9 @@
 'use client'
 
 import React, {AnimationEvent, useCallback, useContext, useEffect, useState} from 'react';
-import ConfigContext from "@/context/ConfigContext";
 import {TExerciseNumber} from "@/app/exercise/[slug]/page"
 import getNextDirectionMode from "@/utils/getNextDirectionMode"
+import useConfig from "@/hooks/useConfig"
 
 type TPointerSize = 'tiny' | 'regular' | 'large'
 type TDirectionMode = 'centerToLeft' | 'leftToCenter' | 'centerToRight'| 'rightToCenter'| 'leftToRight' | 'rightToLeft' | 'centerToTop' | 'topToCenter'
@@ -21,7 +21,7 @@ type TPointerProps = {
 
 
 function Pointer({ color, onClick, paused,iterationTime, delay, exercise}: TPointerProps) {
-  const  {config} = useContext(ConfigContext)
+  const  {config} = useConfig()
 
   const [pointerSize,setPointerSize] = useState(config.pointerSize)
 

@@ -3,9 +3,9 @@
 import {useContext, useEffect, useState} from "react"
 import Pointer from '@/components/Pointer'
 import {notFound, useSearchParams} from "next/navigation"
-import configContext from "@/context/ConfigContext"
 import {isSeconds} from "@/utils/isSeconds"
-import useTheme from "@/hooks/useTheme";
+import useTheme from "@/hooks/useTheme"
+import useConfig from "@/hooks/useConfig"
 
 type TAppContentProps = {
     exercise: string,
@@ -25,7 +25,7 @@ function AppContent({exercise}:TAppContentProps) {
         }
     }, [exercise]);
 
-    const {config} = useContext(configContext)
+    const {config} = useConfig()
     const {theme} = useTheme()
 
     const iterationTime = searchParams.get("iterationTime") || config.iterationTime
