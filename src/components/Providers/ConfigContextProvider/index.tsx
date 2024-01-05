@@ -16,7 +16,7 @@ export default function ConfigContextProvider({children}:{children: ReactNode}) 
     },[configName])
 
     return (
-        <ConfigContext.Provider value={{config: CONFIGS['default'], changeConfigTo: changeConfigTo}}>
+        <ConfigContext.Provider value={{config: config, changeConfigTo: changeConfigTo}}>
             {children}
         </ConfigContext.Provider>
             )
