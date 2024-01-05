@@ -1,6 +1,6 @@
 'use client'
 
-import React, {AnimationEvent, useCallback, useContext, useEffect, useState} from 'react';
+import React, {AnimationEvent, useCallback, useEffect, useState} from 'react';
 import {TExerciseNumber} from "@/app/exercise/[slug]/page"
 import getNextDirectionMode from "@/utils/getNextDirectionMode"
 import useConfig from "@/hooks/useConfig"
