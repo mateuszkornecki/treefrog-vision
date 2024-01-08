@@ -1,6 +1,6 @@
 {
-  "name": "tree-frog",
-  "version": "0.5.0",
+  "name": "treefrog-vision",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
