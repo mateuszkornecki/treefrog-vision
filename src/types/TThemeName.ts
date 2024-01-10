@@ -1,3 +1,3 @@
-import THEMES from "@/THEMES.json";
+import THEMES from "@/constants/THEMES.json";
 
 export type TThemeName = keyof typeof THEMES;
