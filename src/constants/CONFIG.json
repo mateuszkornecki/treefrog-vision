@@ -1,8 +1,5 @@
 {
-    "default": {
-      "name": "default",
       "iterationTime": "30s",
       "delay": "5s",
       "pointerSize": "175px"
-    }
 }

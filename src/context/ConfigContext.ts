@@ -1,12 +1,11 @@
 import {createContext} from "react";
-import CONFIGS from "@/CONFIGS.json";
-import {TConfigName} from "@/types/TConfigName";
+import CONFIG from "@/constants/CONFIG.json";
+import {TThemeName} from "@/types/TThemeName"
 
-const initialChangeConfigToFn = (newConfigName: TConfigName) => {}
-
+const initialChangeThemeNameToFn = (newThemeName: TThemeName) => {}
+const initialThemeName:TThemeName = "default"
 const initialContextValue = {
-    config: CONFIGS['default'],
-    changeConfigTo: initialChangeConfigToFn
+    ...CONFIG, changeThemeNameTo: initialChangeThemeNameToFn
 }
 
 const ConfigContext = createContext(initialContextValue);

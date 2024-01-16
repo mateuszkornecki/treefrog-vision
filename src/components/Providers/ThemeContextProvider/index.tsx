@@ -1,30 +1,35 @@
 import {ReactNode, useEffect, useState} from "react";
 import {TThemeName} from "@/types/TThemeName";
-import THEMES from "@/THEMES.json";
-import ThemeContext from "@/context/ThemeContext";
+import CONFIG from '@/constants/CONFIG.json'
+import ConfigContext from "@/context/ConfigContext";
+import {TConfig} from "@/types/TConfig"
+import useConfig from "@/hooks/useConfig"
 
-export function ThemeContextProvider({children}: {
+type TConfigContextProviderProps = {
     children: ReactNode
-}) {
+}
+export function ConfigContextProvider({children}:TConfigContextProviderProps) {
     const [themeName, setThemeName] = useState<TThemeName>("default")
-    const [theme, setTheme] = useState(THEMES[themeName])
-
-    function changeThemeTo(newThemeName: TThemeName): void {
+    function changeThemeNameTo(newThemeName:TThemeName) {
         setThemeName(newThemeName)
-        setTheme(THEMES[newThemeName])
     }
+
+    const initialConfig:TConfig = {...CONFIG, themeName,changeThemeNameTo}
+    const [config, setConfig] = useState<TConfig>(initialConfig)
+
 
     useEffect(() => {
-        changeThemeTo(themeName)
+        setConfig(prevState => {
+            return {...prevState,themeName}
+        })
     }, [themeName])
 
-    const themeState = {
-        theme: theme,
-        changeThemeTo: changeThemeTo,
-    }
+
     return (
-        <ThemeContext.Provider value={themeState}>
+        <ConfigContext.Provider value={config}>
             {children}
-        </ThemeContext.Provider>
+        </ConfigContext.Provider>
     )
-}export default ThemeContextProvider
+}export default ConfigContextProvider
+
+//TODO bring back the useTheme hook

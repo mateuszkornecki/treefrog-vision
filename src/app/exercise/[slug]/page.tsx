@@ -4,8 +4,8 @@ import {useEffect, useState} from "react"
 import Pointer from '@/components/Pointer'
 import {notFound, useSearchParams} from "next/navigation"
 import {isSeconds} from "@/utils/isSeconds"
-import useTheme from "@/hooks/useTheme"
 import useConfig from "@/hooks/useConfig"
+import THEMES from "@/constants/THEMES.json"
 
 type TAppContentProps = {
     exercise: string,
@@ -25,8 +25,9 @@ function AppContent({exercise}:TAppContentProps) {
         }
     }, [exercise]);
 
-    const {config} = useConfig()
-    const {theme} = useTheme()
+    const config = useConfig()
+    const {themeName} = config
+    const theme = THEMES[themeName]
 
     const iterationTime = searchParams.get("iterationTime") || config.iterationTime
     const delay = searchParams.get("delay") || config.delay
@@ -63,7 +64,9 @@ function AppContent({exercise}:TAppContentProps) {
 }
 
     function Page({params}: {params: {slug: TExerciseNumber}}) {
-    const {theme} = useTheme()
+        const config = useConfig()
+        const {themeName} = config
+        const theme = THEMES[themeName]
         const [backgroundColor, setBackgroundColor] = useState(theme.backgroundColor)
 
         useEffect(() => {

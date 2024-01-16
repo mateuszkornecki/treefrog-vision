@@ -21,7 +21,7 @@ type TPointerProps = {
 
 
 function Pointer({ color, onClick, paused,iterationTime, delay, exercise}: TPointerProps) {
-  const  {config} = useConfig()
+  const  config = useConfig()
 
   const [pointerSize,setPointerSize] = useState(config.pointerSize)
 

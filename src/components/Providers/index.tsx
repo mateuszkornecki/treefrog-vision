@@ -2,7 +2,7 @@
 
 import {ReactNode} from "react"
 import ThemeContextProvider from "./ThemeContextProvider"
-import ConfigContextProvider from "@/components/Providers/ConfigContextProvider";
+import ConfigContextProvider from "@/components/Providers/ThemeContextProvider";
 
 type TProvidersProps = {
     children: ReactNode
