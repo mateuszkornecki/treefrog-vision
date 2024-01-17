@@ -5,6 +5,7 @@ import {TThemeName} from "@/types/TThemeName"
 const initialChangeThemeNameToFn = (newThemeName: TThemeName) => {}
 const initialThemeName:TThemeName = "default"
 const initialContextValue = {
+    themeName: initialThemeName as TThemeName,
     ...CONFIG, changeThemeNameTo: initialChangeThemeNameToFn
 }
 
