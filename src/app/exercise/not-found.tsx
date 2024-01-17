@@ -5,7 +5,7 @@ import React from "react";
 import useTheme from "@/hooks/useTheme";
 
 export default function NotFound() {
-    const {theme} = useTheme()
+    const theme = useTheme()
 
     return (
         <center>
