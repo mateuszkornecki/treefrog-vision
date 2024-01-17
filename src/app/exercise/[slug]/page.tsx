@@ -5,7 +5,7 @@ import Pointer from '@/components/Pointer'
 import {notFound, useSearchParams} from "next/navigation"
 import {isSeconds} from "@/utils/isSeconds"
 import useConfig from "@/hooks/useConfig"
-import THEMES from "@/constants/THEMES.json"
+import useTheme from "@/hooks/useTheme"
 
 type TAppContentProps = {
     exercise: string,
@@ -27,7 +27,7 @@ function AppContent({exercise}:TAppContentProps) {
 
     const config = useConfig()
     const {themeName} = config
-    const theme = THEMES[themeName]
+    const theme = useTheme()
 
     const iterationTime = searchParams.get("iterationTime") || config.iterationTime
     const delay = searchParams.get("delay") || config.delay
@@ -64,9 +64,7 @@ function AppContent({exercise}:TAppContentProps) {
 }
 
     function Page({params}: {params: {slug: TExerciseNumber}}) {
-        const config = useConfig()
-        const {themeName} = config
-        const theme = THEMES[themeName]
+        const theme = useTheme()
         const [backgroundColor, setBackgroundColor] = useState(theme.backgroundColor)
 
         useEffect(() => {
