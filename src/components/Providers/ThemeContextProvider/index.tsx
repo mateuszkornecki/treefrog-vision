@@ -32,4 +32,3 @@ export function ConfigContextProvider({children}:TConfigContextProviderProps) {
     )
 }export default ConfigContextProvider
 
-//TODO bring back the useTheme hook
