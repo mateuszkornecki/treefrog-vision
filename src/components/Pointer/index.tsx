@@ -1,14 +1,14 @@
 'use client'
 
-import React, {AnimationEvent, useCallback, useContext, useEffect, useState} from 'react';
-import settingContext from "@/context/ConfigsContext";
-import {TExerciseNumber} from "@/app/exercise/[slug]/page";
-import getNextDirectionMode from "@/utils/getNextDirectionMode";
+import React, {AnimationEvent, useCallback, useEffect, useState} from 'react';
+import {TExerciseNumber} from "@/app/exercise/[slug]/page"
+import getNextDirectionMode from "@/utils/getNextDirectionMode"
+import useConfig from "@/hooks/useConfig"
 
-type TPointerSize = 'tiny' | 'regular' | 'large';
+type TPointerSize = 'tiny' | 'regular' | 'large'
 type TDirectionMode = 'centerToLeft' | 'leftToCenter' | 'centerToRight'| 'rightToCenter'| 'leftToRight' | 'rightToLeft' | 'centerToTop' | 'topToCenter'
-    | 'bottomToCenter' | 'centerToBottom';
-type TSeconds = `${number}s`;
+    | 'bottomToCenter' | 'centerToBottom'
+type TSeconds = `${number}s`
 
 type TPointerProps = {
   exercise: TExerciseNumber,
@@ -21,43 +21,44 @@ type TPointerProps = {
 
 
 function Pointer({ color, onClick, paused,iterationTime, delay, exercise}: TPointerProps) {
-  const  setting = useContext(settingContext);
-  const [pointerSize,setPointerSize] = useState(setting.pointerSize);
+  const  config = useConfig()
 
-  const [directionMode, setDirectionMode ] = useState<TDirectionMode | null>(null);
+  const [pointerSize,setPointerSize] = useState(config.pointerSize)
+
+  const [directionMode, setDirectionMode ] = useState<TDirectionMode | null>(null)
 
  function setInitialDirectionMode():void {
    if(exercise === "O1" || exercise === "O2" || exercise === "O3") {
-     setDirectionMode("centerToLeft");
+     setDirectionMode("centerToLeft")
    } else if(exercise === "O4") {
-     setDirectionMode("centerToRight");
+     setDirectionMode("centerToRight")
    } else if(exercise === "O5") {
-     setDirectionMode("centerToTop");
+     setDirectionMode("centerToTop")
    }
  }
 
-  const handleNextDirectionMode = useCallback(setInitialDirectionMode, [exercise]);
+  const handleNextDirectionMode = useCallback(setInitialDirectionMode, [exercise])
 
   useEffect(() => {
-    handleNextDirectionMode();
-  }, [exercise, handleNextDirectionMode]);
+    handleNextDirectionMode()
+  }, [exercise, handleNextDirectionMode])
 
     function handleAnimationEnd(event: AnimationEvent<HTMLDivElement>): void {
       switch (exercise) {
         case 'O1':
-          setDirectionMode(getNextDirectionMode("O1", event.animationName));
+          setDirectionMode(getNextDirectionMode("O1", event.animationName))
           break;
         case 'O2':
-          setDirectionMode(getNextDirectionMode("O2", event.animationName));
+          setDirectionMode(getNextDirectionMode("O2", event.animationName))
           break;
         case 'O3':
-          setDirectionMode(getNextDirectionMode("O3", event.animationName));
+          setDirectionMode(getNextDirectionMode("O3", event.animationName))
          break;
      case 'O4':
-       setDirectionMode(getNextDirectionMode("O4", event.animationName));
+       setDirectionMode(getNextDirectionMode("O4", event.animationName))
         break;
         case 'O5':
-          setDirectionMode(getNextDirectionMode("O5", event.animationName));
+          setDirectionMode(getNextDirectionMode("O5", event.animationName))
           break;
     }
   }
@@ -113,10 +114,10 @@ function Pointer({ color, onClick, paused,iterationTime, delay, exercise}: TPoin
       }
       @keyframes topToCenter {
         from {
-          top: 0
+          top: 0;
         }
         to {
-          top: calc(50% - (${pointerSize} / 2));;
+          top: calc(50% - (${pointerSize} / 2));
         }
       }
       @keyframes rightToCenter {
@@ -129,7 +130,7 @@ function Pointer({ color, onClick, paused,iterationTime, delay, exercise}: TPoin
       }
       @keyframes leftToCenter {
         from {
-          left: 0
+          left: 0;
         }
         to {
           left: calc(50% - (${pointerSize} / 2));
@@ -156,7 +157,7 @@ function Pointer({ color, onClick, paused,iterationTime, delay, exercise}: TPoin
           left: 0;
         }
         to {
-          left: calc(100% - (${pointerSize}))
+          left: calc(100% - (${pointerSize}));
         }
       }
       @keyframes rightToLeft {
@@ -172,5 +173,5 @@ function Pointer({ color, onClick, paused,iterationTime, delay, exercise}: TPoin
   </>
 }
 
-export default Pointer;
-export type {TDirectionMode, TSeconds};
+export default Pointer
+export type {TDirectionMode, TSeconds}

@@ -1,13 +1,11 @@
 'use client'
 
-import Link from 'next/link'
-import React, {useContext, useEffect} from "react";
-import ThemeNameContext from "@/context/ThemeNameContext";
-import THEMES from "@/THEMES.json";
+import Link from 'next/link';
+import React from "react";
+import useTheme from "@/hooks/useTheme";
 
 export default function NotFound() {
-    const themeName = useContext(ThemeNameContext);
-    const currentTheme = THEMES[themeName];
+    const theme = useTheme()
 
     return (
         <center>
@@ -19,7 +17,7 @@ export default function NotFound() {
               .container {
                 height: 100vh;
                 width: 100vw;
-                background-color: ${currentTheme.backgroundColor};
+                background-color: ${theme.backgroundColor};
                 padding-top: 1rem;
               }
     `}</style>

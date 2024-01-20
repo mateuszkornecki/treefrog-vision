@@ -1,40 +1,39 @@
 'use client'
 
-import {useContext, useEffect, useState} from "react";
-import Pointer from '@/components/Pointer';
-import {notFound, useSearchParams} from "next/navigation";
-import ThemeNameContext, {TThemeName} from "@/context/ThemeNameContext";
-import THEMES from '@/THEMES.json';
-import settingContext from "@/context/ConfigsContext";
-import {isSeconds} from "@/utils/isSeconds";
+import {useEffect, useState} from "react"
+import Pointer from '@/components/Pointer'
+import {notFound, useSearchParams} from "next/navigation"
+import {isSeconds} from "@/utils/isSeconds"
+import useConfig from "@/hooks/useConfig"
+import useTheme from "@/hooks/useTheme"
 
 type TAppContentProps = {
-    onClick: () => void,
     exercise: string,
 }
-const exerciseNumbers = ["O1", "O2", "O3", "O4", "O5"];
-type TExerciseNumber = typeof exerciseNumbers[number];
-function AppContent({onClick, exercise}:TAppContentProps) {
-    const isProduction = process.env.NODE_ENV === "production";
-    const searchParams = useSearchParams();
-    const alfaTestPassword = searchParams.get("password");
-    const isValidAlfaTestPassword = process.env.NEXT_PUBLIC_TEST_PASSWORD === alfaTestPassword;
+const exerciseNumbers = ["O1", "O2", "O3", "O4", "O5"]
+type TExerciseNumber = typeof exerciseNumbers[number]
+function AppContent({exercise}:TAppContentProps) {
+    const isProduction = process.env.NODE_ENV === "production"
+    const searchParams = useSearchParams()
+    const alfaTestPassword = searchParams.get("password")
+    const isValidAlfaTestPassword = process.env.NEXT_PUBLIC_TEST_PASSWORD === alfaTestPassword
 
 
     useEffect(() => {
     if(!exerciseNumbers.includes(exercise)) {
-        return notFound();
+        return notFound()
         }
     }, [exercise]);
 
-    const  setting = useContext(settingContext);
+    const config = useConfig()
+    const {themeName} = config
+    const theme = useTheme()
 
-    const themeName = useContext(ThemeNameContext);
-    const iterationTime = searchParams.get("iterationTime") || setting.iterationTime;
-    const delay = searchParams.get("delay") || setting.delay;
+    const iterationTime = searchParams.get("iterationTime") || config.iterationTime
+    const delay = searchParams.get("delay") || config.delay
 
-    isSeconds(iterationTime);
-    isSeconds(delay);
+    isSeconds(iterationTime)
+    isSeconds(delay)
 
     if (!isProduction || isValidAlfaTestPassword) {
 
@@ -44,8 +43,7 @@ function AppContent({onClick, exercise}:TAppContentProps) {
                     delay={delay}
                     iterationTime={iterationTime}
                     exercise={exercise}
-                    color={THEMES[themeName].pointerColor}
-                    onClick={onClick}
+                    color={theme.pointerColor}
                 />
             </>
         );
@@ -65,51 +63,38 @@ function AppContent({onClick, exercise}:TAppContentProps) {
     }
 }
 
-    function Page({params}: {params: {slug: TExerciseNumber}
-    }) {
-        const [themeName, setThemeName] = useState<TThemeName>('default');
-function getRandomThemeName(): TThemeName {
-    const themeNames = Object.keys(THEMES) as unknown as TThemeName[]
-    return themeNames[Math.floor(Math.random() * themeNames.length)];
-}
+    function Page({params}: {params: {slug: TExerciseNumber}}) {
+        const theme = useTheme()
+        const [backgroundColor, setBackgroundColor] = useState(theme.backgroundColor)
 
-function changeThemeTo(themeName: TThemeName|"random") {
-    if(themeName === "random") {
-        const randomThemeName = getRandomThemeName();
-        setThemeName(randomThemeName);
-    } else {
-        setThemeName(themeName);
-
-    }
-}
-
-        return (<div className="App">
-                <ThemeNameContext.Provider value={themeName}>
-                <AppContent exercise={params.slug} onClick={()=> {
-                    changeThemeTo("random");
-                }}/>
+        useEffect(() => {
+            setBackgroundColor(theme.backgroundColor)
+        }, [theme.backgroundColor]);
+        return (
+            <main className="exercise">
+                <AppContent exercise={params.slug} />
                 <style jsx global>
                     {`
-                        .App {
-                          text-align: center;
-                          display: flex;
-                          align-items: center;
-                          justify-content: center;
-                          height: 100vh;
-                          width: 100vw;
-                          background-color: ${THEMES[themeName].backgroundColor};
-                          transition: background-color 5s ease;
-                        }
-                        h3 {
-                          max-width: 700px;
-                        }
+                      .exercise {
+                        text-align: center;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 100vh;
+                        width: 100vw;
+                        background-color: ${backgroundColor};
+                        transition: background-color 5s ease;
+                      }
+
+                      h3 {
+                        max-width: 700px;
+                      }
                     `}
                 </style>
-
-        </ThemeNameContext.Provider>
-            </div>
+            </main>
         );
     }
 
-    export default Page;
-export type {TExerciseNumber};
+    export default Page
+export type {TExerciseNumber
+};
