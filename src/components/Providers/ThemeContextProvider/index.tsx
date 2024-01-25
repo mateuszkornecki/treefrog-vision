@@ -3,7 +3,6 @@ import {TThemeName} from "@/types/TTheme";
 import CONFIG from '@/constants/CONFIG.json'
 import ConfigContext from "@/context/ConfigContext";
 import {TConfig} from "@/types/TConfig"
-import useConfig from "@/hooks/useConfig"
 
 type TConfigContextProviderProps = {
     children: ReactNode
