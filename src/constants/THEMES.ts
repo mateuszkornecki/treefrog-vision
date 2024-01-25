@@ -8,8 +8,3 @@ export const THEMES = {
         "backgroundColor": "black"
 }
 }
-
-type TThemeName = keyof typeof THEMES
-type TTheme = typeof THEMES[TThemeName]
-
-export type {TTheme, TThemeName}
