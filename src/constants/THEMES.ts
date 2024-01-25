@@ -1,10 +1,12 @@
 export const THEMES = {
     default: {
-    "pointerColor": "black",
-        "backgroundColor": "#f1c421"
+        name: "default",
+    pointerColor: "black",
+        backgroundColor: "#f1c421"
 },
     bw: {
-    "pointerColor": "white",
-        "backgroundColor": "black"
+        name: "default",
+    pointerColor: "white",
+        backgroundColor: "black"
 }
 }
