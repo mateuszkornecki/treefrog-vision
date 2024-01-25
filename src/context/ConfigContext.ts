@@ -1,6 +1,6 @@
 import {createContext} from "react";
 import CONFIG from "@/constants/CONFIG.json";
-import {TThemeName} from "@/types/TThemeName"
+import {TThemeName} from "@/types/TTheme"
 
 const initialChangeThemeNameToFn = (newThemeName: TThemeName) => {}
 const initialThemeName:TThemeName = "default"

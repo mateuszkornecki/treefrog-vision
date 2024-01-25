@@ -1,5 +1,5 @@
 import {ReactNode, useEffect, useState} from "react";
-import {TThemeName} from "@/types/TThemeName";
+import {TThemeName} from "@/types/TTheme";
 import CONFIG from '@/constants/CONFIG.json'
 import ConfigContext from "@/context/ConfigContext";
 import {TConfig} from "@/types/TConfig"

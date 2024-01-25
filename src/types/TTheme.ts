@@ -1,4 +1,7 @@
-import THEMES from '@/constants/THEMES.json'
-import {TThemeName} from "@/types/TThemeName"
+import {THEMES} from "@/constants/THEMES"
 
-export type TTheme = typeof THEMES[TThemeName]
+type TThemeName = keyof typeof THEMES
+type TTheme = typeof THEMES[TThemeName]
+type TThemes = typeof THEMES
+
+export type {TTheme, TThemeName, TThemes}
