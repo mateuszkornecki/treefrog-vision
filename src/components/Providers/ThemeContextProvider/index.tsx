@@ -13,7 +13,7 @@ export function ConfigContextProvider({children}:TConfigContextProviderProps) {
         setThemeName(newThemeName)
     }
 
-    const initialConfig:TConfig = {...CONFIG, themeName,changeThemeNameTo}
+    const initialConfig:TConfig = {...CONFIG, themeName, changeThemeNameTo}
     const [config, setConfig] = useState<TConfig>(initialConfig)
 
 
