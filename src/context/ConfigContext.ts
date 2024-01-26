@@ -3,9 +3,9 @@ import CONFIG from "@/constants/CONFIG.json";
 import {TThemeName} from "@/types/TTheme"
 
 const initialChangeThemeNameToFn = (newThemeName: TThemeName) => {}
-const initialThemeName:TThemeName = "default"
+
 const initialContextValue = {
-    themeName: initialThemeName as TThemeName,
+    themeName: "default",
     ...CONFIG, changeThemeNameTo: initialChangeThemeNameToFn
 }
 
