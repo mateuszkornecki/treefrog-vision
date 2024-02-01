@@ -7,7 +7,7 @@ export const THEMES: TThemes = {
         backgroundColor: "#f1c421"
 },
     bw: {
-        name: "default",
+        name: "bw",
     pointerColor: "white",
         backgroundColor: "black"
 }
