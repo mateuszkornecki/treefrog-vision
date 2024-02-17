@@ -1,17 +1,21 @@
 "use client"
 
-import ConfigItem from "@/components/ConfigItem"
-import Configs from "@/components/Configs"
+import ExerciseDirection from'./components/ExerciseDirection'
 
-function Page(){
+function Page() {
+    //TODO
+    // Components:
+    // -[] ExerciseTheme
+    // -[] PointerSize
+    // -[] PointerSpeed
+    // -[] ChangeDelay
+    // -[] PointerDirection
+    // -[] ExerciseTime
+    // -[] ExercisePreview
 
     return (
         <main>
-            <Configs>
-                <ConfigItem name={"Prędkość poruszania się obiektu:"}>
-                    <input type={'range'}/>
-                </ConfigItem>
-            </Configs>
+<ExerciseDirection />
         </main>
     )
 }
