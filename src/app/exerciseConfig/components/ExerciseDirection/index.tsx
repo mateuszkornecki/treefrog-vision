@@ -8,7 +8,7 @@ function ExerciseDirection(): ReactElement {
                 <div className="exerciseTheme__RTItem">RT</div>
                 <div className="exerciseTheme__RBItem">RB</div>
                 <div className="exerciseTheme__CBItem">CB</div>
-                <div className="CexerciseTheme__CTItem">CT</div>
+                <div className="exerciseTheme__CTItem">CT</div>
                 <div className="exerciseTheme__LCItem">LC</div>
                 <div className="exerciseTheme__LBItem">LB</div>
                 <div className="exerciseTheme__CCItem">CC</div>
@@ -44,8 +44,8 @@ function ExerciseDirection(): ReactElement {
                     .exerciseTheme__RBItem { grid-area: 5 / 5 / 6 / 6; }
 
                     .exerciseTheme__CBItem { grid-area: 5 / 3 / 6 / 4; }
-
-                    .CexerciseTheme__CTItem { grid-area: 1 / 3 / 2 / 4; }
+                    
+                    .exerciseTheme__CTItem { grid-area: 1 / 3 / 2 / 4; }
 
                     .exerciseTheme__LCItem { grid-area: 3 / 1 / 4 / 2; }
 
