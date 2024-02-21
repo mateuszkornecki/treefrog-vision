@@ -39,47 +39,21 @@ function ExerciseDirection(): ReactElement {
                     }
 
                     .exerciseTheme__RCItem { grid-area: 3 / 5 / 4 / 6; }
-
                     .exerciseTheme__CCItem { grid-area: 3 / 3 / 4 / 4; }
-
                     .exerciseTheme__RTItem { grid-area: 1 / 5 / 2 / 6; }
-
                     .exerciseTheme__RBItem { grid-area: 5 / 5 / 6 / 6; }
-
                     .exerciseTheme__CBItem { grid-area: 5 / 3 / 6 / 4; }
-                    
                     .exerciseTheme__CTItem { grid-area: 1 / 3 / 2 / 4; }
-
                     .exerciseTheme__LCItem { grid-area: 3 / 1 / 4 / 2; }
-
                     .exerciseTheme__LBItem { grid-area: 5 / 1 / 6 / 2; }
-
                     .exerciseTheme__CCItem { grid-area: 3 / 3 / 4 / 4; }
-
-
-                    html, body , .exerciseTheme__container {
-                        height: 100%;
-                        margin: 0;
-                    }
-
-                    /* For presentation only, no need to copy the code below */
-
-                    .exerciseTheme__container * {
-                        border: 1px solid red;
-                        position: relative;
-                    }
-
-                    .exerciseTheme__container *:after {
-                        /* content:attr(class); */
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        display: grid;
-                        align-items: center;
-                        justify-content: center;
-                    }
+                    
+               // TODO Delete the presentation code after the component will be ready
+                    
+                    // Presentation only!
+//                    .exerciseTheme__container * {
+//                        //border: 1px solid red;
+//                    }
                 `}
             </style>
         </>
