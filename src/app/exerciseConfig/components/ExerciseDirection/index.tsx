@@ -15,12 +15,15 @@ function ExerciseDirection(): ReactElement {
             </div>
             <style jsx>
                 {`
-                    .exerciseTheme__container {  display: grid;
-                        grid-template-columns: 4em 4em 4em 4em 4em;
-                        grid-template-rows: 4em 4em 4em 4em 4em;
-                        grid-auto-columns: 1fr;
-                        gap: 0 0;
-                        grid-auto-flow: row;
+                    .exerciseTheme__container {
+                        display: grid;
+                        // TODO Check if height and width are set correctly
+                        grid-template-columns: 6rem 6rem 6rem 6rem 6rem;
+                        grid-template-rows: 4rem 4rem 4rem 4rem 4rem;
+                        // TODO: convert to rem
+                        border: 2px solid #E6E0E9;
+                        border-radius: 0.5rem;
+                    ;
                     }
 
                     .exerciseTheme__LTItem {  display: grid;
