@@ -23,35 +23,43 @@ function ExerciseDirection(): ReactElement {
                         // TODO: convert to rem
                         border: 2px solid #E6E0E9;
                         border-radius: 0.5rem;
-                    ;
                     }
 
-                    .exerciseTheme__LTItem {  display: grid;
-                        grid-template-columns: 1fr 1fr 1fr;
-                        grid-template-rows: 1fr 1fr 1fr;
-                        gap: 0 0;
-                        grid-auto-flow: row;
-                        grid-template-areas:
-                                ". . ."
-                                ". . ."
-                                ". . .";
+                    .exerciseDirection__LTItem {
                         grid-area: 1 / 1 / 2 / 2;
                     }
-
-                    .exerciseTheme__RCItem { grid-area: 3 / 5 / 4 / 6; }
-                    .exerciseTheme__CCItem { grid-area: 3 / 3 / 4 / 4; }
-                    .exerciseTheme__RTItem { grid-area: 1 / 5 / 2 / 6; }
-                    .exerciseTheme__RBItem { grid-area: 5 / 5 / 6 / 6; }
-                    .exerciseTheme__CBItem { grid-area: 5 / 3 / 6 / 4; }
-                    .exerciseTheme__CTItem { grid-area: 1 / 3 / 2 / 4; }
-                    .exerciseTheme__LCItem { grid-area: 3 / 1 / 4 / 2; }
-                    .exerciseTheme__LBItem { grid-area: 5 / 1 / 6 / 2; }
-                    .exerciseTheme__CCItem { grid-area: 3 / 3 / 4 / 4; }
+                    .exerciseDirection__RCItem {
+                        grid-area: 3 / 5 / 4 / 6; 
+                    }
+                    .exerciseDirection__CCItem {
+                        grid-area: 3 / 3 / 4 / 4; 
+                    }
+                    .exerciseDirection__RTItem {
+                        grid-area: 1 / 5 / 2 / 6; 
+                    }
+                    .exerciseDirection__RBItem {
+                        grid-area: 5 / 5 / 6 / 6; 
+                    }
+                    .exerciseDirection__CBItem {
+                        grid-area: 5 / 3 / 6 / 4; 
+                    }
+                    .exerciseDirection__CTItem {
+                        grid-area: 1 / 3 / 2 / 4; 
+                    }
+                    .exerciseDirection__LCItem {
+                        grid-area: 3 / 1 / 4 / 2; 
+                    }
+                    .exerciseDirection__LBItem {
+                        grid-area: 5 / 1 / 6 / 2; 
+                    }
+                    .exerciseDirection__CCItem {
+                        grid-area: 3 / 3 / 4 / 4; 
+                    }
                     
                // TODO Delete the presentation code after the component will be ready
                     
                     // Presentation only!
-//                    .exerciseTheme__container * {
+//                    .exerciseDirection__container * {
 //                        //border: 1px solid red;
 //                    }
                 `}
