@@ -20,8 +20,7 @@ function ExerciseDirection(): ReactElement {
                         // TODO Check if height and width are set correctly
                         grid-template-columns: 6rem 6rem 6rem 6rem 6rem;
                         grid-template-rows: 4rem 4rem 4rem 4rem 4rem;
-                        // TODO: convert to rem
-                        border: 2px solid #E6E0E9;
+                        border: 0.13rem solid #E6E0E9;
                         border-radius: 0.5rem;
                     }
                     
