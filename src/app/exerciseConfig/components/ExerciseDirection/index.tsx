@@ -3,18 +3,19 @@ import './styles/style.css'
 function ExerciseDirection(): ReactElement {
     return (
         <>
-            <div className="exerciseDirection__container">
-                <div className="exerciseDirection__item exerciseDirection__item--LT">LT</div>
-                <div className="exerciseDirection__item exerciseDirection__item--RC">RC</div>
-                <div className="exerciseDirection__item exerciseDirection__item--RT">RT</div>
-                <div className="exerciseDirection__item exerciseDirection__item--RB">RB</div>
-                <div className="exerciseDirection__item exerciseDirection__item--CB">CB</div>
-                <div className="exerciseDirection__item exerciseDirection__item--CT">CT</div>
-                <div className="exerciseDirection__item exerciseDirection__item--LC">LC</div>
-                <div className="exerciseDirection__item exerciseDirection__item--LB">LB</div>
-                <div className="exerciseDirection__item exerciseDirection__item--CC">CC</div>
+            <div className="exerciseTheme__container">
+                <div className="exerciseTheme__top">top</div>
+                <div className="exerciseTheme__topClick">topClick</div>
+                <div className="exerciseTheme__center">center</div>
+                <div className="exerciseTheme__bottomClick">bottomClick</div>
+                <div className="exerciseTheme__bottom">bottom</div>
+                <div className="exerciseTheme__right">right</div>
+                <div className="exerciseTheme__rightClick">rightClick</div>
+                <div className="exerciseTheme__leftClick">leftClick</div>
+                <div className="exerciseTheme__left">left</div>
             </div>
         </>
     )
 }
+
 export default ExerciseDirection
