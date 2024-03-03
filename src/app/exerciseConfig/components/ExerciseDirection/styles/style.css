@@ -1,12 +1,12 @@
 .exerciseDirection__container {
     display: grid;
-    grid-template-columns: repeat(5, 6em);
-    grid-template-rows: repeat(5, 4em);
+    grid-template-columns: 2em 7em 2em 7em 2em;
+    grid-template-rows: 2em 3em 2em 3em 2em;
     color: red;
     border: 0.13rem solid #E6E0E9;
     border-radius: 0.5rem;
     /*grid-auto-columns: 1fr;*/
-    /*gap: 0px 0px;*/
+    gap: 0.375em;
     grid-auto-flow: row;
     grid-template-areas:
     ". . top . ."
@@ -26,6 +26,23 @@
 
 .exerciseDirection__center {
     grid-area: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.exerciseDirection__pointer {
+    background: green;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+}
+
+.exerciseDirection__pointer--black {
+    background: black !important;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
 }
 
 .exerciseDirection__bottomRadio {
@@ -52,13 +69,9 @@
 .exerciseDirection__left {
     grid-area: left;
 }
-
-/*TODO 1 Draw top/bottom/left/right Pointers */
-/*TODO 2  Draw center Pointer*/
-/*TODO 3  Draw horizontal arrowDirection*/
+/*Temporarily dev helper*/
 [class*="Radio"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: green;
 }
