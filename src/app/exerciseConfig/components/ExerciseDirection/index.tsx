@@ -5,13 +5,13 @@ function ExerciseDirection(): ReactElement {
         <>
             <div className="exerciseDirection__container">
                 <div className="exerciseDirection__top">top</div>
-                <div className="exerciseDirection__topRadio">topClick</div>
+                <div className="exerciseDirection__topRadio">topRadio</div>
                 <div className="exerciseDirection__center">center</div>
-                <div className="exerciseDirection__bottomRadio">bottomClick</div>
+                <div className="exerciseDirection__bottomRadio">bottomRadio</div>
                 <div className="exerciseDirection__bottom">bottom</div>
                 <div className="exerciseDirection__right">right</div>
-                <div className="exerciseDirection__rightRadio">rightClick</div>
-                <div className="exerciseDirection__leftRadio">leftClick</div>
+                <div className="exerciseDirection__rightRadio">rightRadio</div>
+                <div className="exerciseDirection__leftRadio">leftRadio</div>
                 <div className="exerciseDirection__left">left</div>
             </div>
         </>
