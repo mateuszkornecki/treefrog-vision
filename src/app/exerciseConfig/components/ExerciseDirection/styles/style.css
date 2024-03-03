@@ -10,9 +10,9 @@
     grid-auto-flow: row;
     grid-template-areas:
     ". . top . ."
-    ". . topClick . ."
-    "left leftClick center rightClick right"
-    ". . bottomClick . ."
+    ". . topRadio . ."
+    "left leftRadio center rightRadio right"
+    ". . bottomRadio . ."
     ". . bottom . .";
 }
 
@@ -20,16 +20,16 @@
     grid-area: top;
 }
 
-.exerciseTheme__topClick {
-    grid-area: topClick;
+.exerciseTheme__topRadio {
+    grid-area: topRadio;
 }
 
 .exerciseTheme__center {
     grid-area: center;
 }
 
-.exerciseTheme__bottomClick {
-    grid-area: bottomClick;
+.exerciseTheme__bottomRadio {
+    grid-area: bottomRadio;
 }
 
 
@@ -41,18 +41,25 @@
     grid-area: right;
 }
 
-.exerciseTheme__rightClick {
-    grid-area: rightClick;
+.exerciseTheme__rightRadio {
+    grid-area: rightRadio;
 }
 
-.exerciseTheme__leftClick {
-    grid-area: leftClick;
+.exerciseTheme__leftRadio {
+    grid-area: leftRadio;
 }
 
 .exerciseTheme__left {
     grid-area: left;
 }
 
-[class*="Click"] {
+/*TODO 1 Draw top/bottom/left/right Pointers */
+/*TODO 2  Draw center Pointer*/
+/*TODO 3  Draw horizontal arrows*/
+
+[class*="Radio"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: green;
 }
