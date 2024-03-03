@@ -3,16 +3,16 @@ import './styles/style.css'
 function ExerciseDirection(): ReactElement {
     return (
         <>
-            <div className="exerciseTheme__container">
-                <div className="exerciseTheme__top">top</div>
-                <div className="exerciseTheme__topRadio">topClick</div>
-                <div className="exerciseTheme__center">center</div>
-                <div className="exerciseTheme__bottomRadio">bottomClick</div>
-                <div className="exerciseTheme__bottom">bottom</div>
-                <div className="exerciseTheme__right">right</div>
-                <div className="exerciseTheme__rightRadio">rightClick</div>
-                <div className="exerciseTheme__leftRadio">leftClick</div>
-                <div className="exerciseTheme__left">left</div>
+            <div className="exerciseDirection__container">
+                <div className="exerciseDirection__top">top</div>
+                <div className="exerciseDirection__topRadio">topClick</div>
+                <div className="exerciseDirection__center">center</div>
+                <div className="exerciseDirection__bottomRadio">bottomClick</div>
+                <div className="exerciseDirection__bottom">bottom</div>
+                <div className="exerciseDirection__right">right</div>
+                <div className="exerciseDirection__rightRadio">rightClick</div>
+                <div className="exerciseDirection__leftRadio">leftClick</div>
+                <div className="exerciseDirection__left">left</div>
             </div>
         </>
     )

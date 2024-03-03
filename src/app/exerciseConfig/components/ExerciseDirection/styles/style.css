@@ -1,4 +1,4 @@
-.exerciseTheme__container {
+.exerciseDirection__container {
     display: grid;
     grid-template-columns: repeat(5, 6em);
     grid-template-rows: repeat(5, 4em);
@@ -16,47 +16,46 @@
     ". . bottom . .";
 }
 
-.exerciseTheme__top {
+.exerciseDirection__top {
     grid-area: top;
 }
 
-.exerciseTheme__topRadio {
+.exerciseDirection__topRadio {
     grid-area: topRadio;
 }
 
-.exerciseTheme__center {
+.exerciseDirection__center {
     grid-area: center;
 }
 
-.exerciseTheme__bottomRadio {
+.exerciseDirection__bottomRadio {
     grid-area: bottomRadio;
 }
 
 
-.exerciseTheme__bottom {
+.exerciseDirection__bottom {
     grid-area: bottom;
 }
 
-.exerciseTheme__right {
+.exerciseDirection__right {
     grid-area: right;
 }
 
-.exerciseTheme__rightRadio {
+.exerciseDirection__rightRadio {
     grid-area: rightRadio;
 }
 
-.exerciseTheme__leftRadio {
+.exerciseDirection__leftRadio {
     grid-area: leftRadio;
 }
 
-.exerciseTheme__left {
+.exerciseDirection__left {
     grid-area: left;
 }
 
 /*TODO 1 Draw top/bottom/left/right Pointers */
 /*TODO 2  Draw center Pointer*/
-/*TODO 3  Draw horizontal arrows*/
-
+/*TODO 3  Draw horizontal arrowDirection*/
 [class*="Radio"] {
     display: flex;
     justify-content: center;
