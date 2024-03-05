@@ -10,9 +10,9 @@
     grid-auto-flow: row;
     grid-template-areas:
     ". . top . ."
-    ". . topRadio . ."
-    "left leftRadio center rightRadio right"
-    ". . bottomRadio . ."
+    ". . topPicker . ."
+    "left leftPicker center rightPicker right"
+    ". . bottomPicker . ."
     ". . bottom . .";
 }
 
@@ -20,8 +20,8 @@
     grid-area: top;
 }
 
-.pointerDirection__topRadio {
-    grid-area: topRadio;
+.pointerDirection__topPicker {
+    grid-area: topPicker;
 }
 
 .pointerDirection__center {
@@ -45,8 +45,8 @@
     border-radius: 50%;
 }
 
-.pointerDirection__bottomRadio {
-    grid-area: bottomRadio;
+.pointerDirection__bottomPicker {
+    grid-area: bottomPicker;
 }
 
 
@@ -58,19 +58,19 @@
     grid-area: right;
 }
 
-.pointerDirection__rightRadio {
-    grid-area: rightRadio;
+.pointerDirection__rightPicker {
+    grid-area: rightPicker;
 }
 
-.pointerDirection__leftRadio {
-    grid-area: leftRadio;
+.pointerDirection__leftPicker {
+    grid-area: leftPicker;
 }
 
 .pointerDirection__left {
     grid-area: left;
 }
 /*Temporarily dev helper*/
-[class*="Radio"] {
+[class*="Picker"] {
     display: flex;
     justify-content: center;
     align-items: center;
