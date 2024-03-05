@@ -1,4 +1,4 @@
-.exerciseDirection__container {
+.pointerDirection__container {
     display: grid;
     grid-template-columns: 2em 7em 2em 7em 2em;
     grid-template-rows: 2em 3em 2em 3em 2em;
@@ -16,57 +16,57 @@
     ". . bottom . .";
 }
 
-.exerciseDirection__top {
+.pointerDirection__top {
     grid-area: top;
 }
 
-.exerciseDirection__topRadio {
+.pointerDirection__topRadio {
     grid-area: topRadio;
 }
 
-.exerciseDirection__center {
+.pointerDirection__center {
     grid-area: center;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.exerciseDirection__pointer {
+.pointerDirection__pointer {
     background: green;
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
 }
 
-.exerciseDirection__pointer--black {
+.pointerDirection__pointer--black {
     background: black !important;
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
 }
 
-.exerciseDirection__bottomRadio {
+.pointerDirection__bottomRadio {
     grid-area: bottomRadio;
 }
 
 
-.exerciseDirection__bottom {
+.pointerDirection__bottom {
     grid-area: bottom;
 }
 
-.exerciseDirection__right {
+.pointerDirection__right {
     grid-area: right;
 }
 
-.exerciseDirection__rightRadio {
+.pointerDirection__rightRadio {
     grid-area: rightRadio;
 }
 
-.exerciseDirection__leftRadio {
+.pointerDirection__leftRadio {
     grid-area: leftRadio;
 }
 
-.exerciseDirection__left {
+.pointerDirection__left {
     grid-area: left;
 }
 /*Temporarily dev helper*/

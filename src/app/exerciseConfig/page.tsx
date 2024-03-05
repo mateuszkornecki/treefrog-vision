@@ -1,6 +1,6 @@
 "use client"
 
-import ExerciseDirection from'./components/ExerciseDirection'
+import PointerDirection from './components/PointerDirection'
 
 function Page() {
     //TODO
@@ -15,7 +15,7 @@ function Page() {
 
     return (
         <main>
-<ExerciseDirection />
+<PointerDirection />
         </main>
     )
 }
