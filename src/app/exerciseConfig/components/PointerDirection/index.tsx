@@ -1,7 +1,5 @@
-import React, {ReactElement, useEffect, useState} from "react"
+import React, {ReactElement, useState} from "react"
 import './styles/style.css'
-import {identity} from "rxjs"
-import {TDirectionMode} from "@/components/Pointer"
 
 function PointerDirection(): ReactElement {
 
