@@ -10,9 +10,9 @@
     grid-auto-flow: row;
     grid-template-areas:
     ". . top . ."
-    ". . topPicker . ."
-    "left leftPicker center rightPicker right"
-    ". . bottomPicker . ."
+    ". . topTrace . ."
+    "left leftTrace center rightTrace right"
+    ". . bottomTrace . ."
     ". . bottom . .";
 }
 
@@ -20,8 +20,10 @@
     grid-area: top;
 }
 
-.pointerDirection__topPicker {
-    grid-area: topPicker;
+.pointerDirection__topTrace {
+    display: flex;
+    justify-content: center;
+    grid-area: topTrace;
 }
 
 .pointerDirection__center {
@@ -45,8 +47,10 @@
     border-radius: 50%;
 }
 
-.pointerDirection__bottomPicker {
-    grid-area: bottomPicker;
+.pointerDirection__bottomTrace {
+    display: flex;
+    justify-content: center;
+    grid-area: bottomTrace;
 }
 
 
@@ -58,19 +62,35 @@
     grid-area: right;
 }
 
-.pointerDirection__rightPicker {
-    grid-area: rightPicker;
+.pointerDirection__rightTrace {
+    display: flex;
+    align-items: center;
+    grid-area: rightTrace;
 }
 
-.pointerDirection__leftPicker {
-    grid-area: leftPicker;
+.pointerDirection__leftTrace {
+    display: flex;
+    align-items: center;
+    grid-area: leftTrace;
+}
+
+.pointerDirection__verticalTrace {
+    background: black;
+    width: 3px;
+    height: 100%;
+}
+
+.pointerDirection__horizontalTrace {
+    background: black;
+    width: 100%;
+    height: 3px;
 }
 
 .pointerDirection__left {
     grid-area: left;
 }
 /*Temporarily dev helper*/
-[class*="Picker"] {
+[class*="Trace"] {
     display: flex;
     justify-content: center;
     align-items: center;

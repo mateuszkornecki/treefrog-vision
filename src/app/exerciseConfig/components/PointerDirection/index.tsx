@@ -48,7 +48,10 @@ function Picker({onClick, isActive, direction}: TPickerProps) {
 }
 
 function PointerDirection(): ReactElement {
-    const [activeDirection, setActiveDirection] = useState<TActiveDirection>('top')
+
+    type TDirection = "right" | "left" | "top" | "bottom"
+    const [firstDirection, setFirstDirection] = useState<TDirection>()
+    const [secondDirection, setSecondDirection] = useState<TDirection>()
 
     return (
         <>
@@ -56,30 +59,30 @@ function PointerDirection(): ReactElement {
                 <div className="pointerDirection__top">
                     <div className={"pointerDirection__pointer--black"}/>
                 </div>
-                <div className="pointerDirection__topPicker">
-                    <Picker isActive={activeDirection === 'top'}  direction={'top'} onClick={()=> setActiveDirection('top')} />
+                <div className="pointerDirection__topTrace">
+                    <div className={"pointerDirection__verticalTrace"} />
                 </div>
                 <div className="pointerDirection__center">
                     <div className={"pointerDirection__pointer"}/>
                 </div>
-                <div className="pointerDirection__bottomPicker">
-                    <Picker isActive={activeDirection === 'bottom'} direction={'bottom'} onClick={()=> setActiveDirection('bottom')} />
-
+                <div className="pointerDirection__bottomTrace">
+                    <div className={"pointerDirection__verticalTrace"}/>
                 </div>
                 <div className="pointerDirection__bottom">
-                    <div className={"pointerDirection__pointer--black"}/>
+                <div className={"pointerDirection__pointer--black"}/>
                 </div>
                 <div className="pointerDirection__right">
                     <div className={"pointerDirection__pointer--black"}/>
                 </div>
-                <div className="pointerDirection__rightPicker">
-                    <Picker isActive={activeDirection === 'right'}  direction={'right'} onClick={()=> setActiveDirection('right')} />
+                <div className="pointerDirection__rightTrace">
+                    <div className={"pointerDirection__horizontalTrace"}/>
                 </div>
-                <div className="pointerDirection__leftPicker">
-                    <Picker isActive={activeDirection === 'left'}  direction={'left'} onClick={()=> setActiveDirection('left')} />
+                <div className="pointerDirection__leftTrace">
+                    <div className={"pointerDirection__horizontalTrace"}/>
+
                 </div>
                 <div className="pointerDirection__left">
-                    <div className={"pointerDirection__pointer--black"}/>
+                <div className={"pointerDirection__pointer--black"}/>
                 </div>
             </div>
         </>
