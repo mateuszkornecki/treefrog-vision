@@ -1,4 +1,4 @@
-import React, {ReactElement, useEffect, useState} from "react"
+import React, {ReactElement, useState} from "react"
 import './styles/style.css'
 
 function PointerDirection(): ReactElement {
