@@ -11,22 +11,33 @@ function PointerDirection(): ReactElement {
         <>
             <div className="pointerDirection__container">
                 <div className="pointerDirection__top">
-                    <div className={"pointerDirection__pointer--black"}/>
+                    <div
+                        className={"pointerDirection__pointer pointerDirection__pointer--black"}
+                        onClick={()=> handlePointerClick("top")}/>
                 </div>
                 <div className="pointerDirection__topTrace">
                     <div className={"pointerDirection__verticalTrace"} />
                 </div>
                 <div className="pointerDirection__center">
-                    <div className={"pointerDirection__pointer"}/>
+                    <div
+                        className={"pointerDirection__pointer pointerDirection__pointer--black"}
+                        onClick={() => handlePointerClick('center')}
+                    />
                 </div>
                 <div className="pointerDirection__bottomTrace">
                     <div className={"pointerDirection__verticalTrace"}/>
                 </div>
                 <div className="pointerDirection__bottom">
-                <div className={"pointerDirection__pointer--black"}/>
+                <div
+                    className={"pointerDirection__pointer pointerDirection__pointer--black"}
+                    onClick={() => handlePointerClick("bottom")}
+                />
                 </div>
                 <div className="pointerDirection__right">
-                    <div className={"pointerDirection__pointer--black"}/>
+                    <div
+                        className={"pointerDirection__pointer pointerDirection__pointer--black"}
+                        onClick={() => handlePointerClick("right")}
+                    />
                 </div>
                 <div className="pointerDirection__rightTrace">
                     <div className={"pointerDirection__horizontalTrace"}/>
@@ -36,7 +47,10 @@ function PointerDirection(): ReactElement {
 
                 </div>
                 <div className="pointerDirection__left">
-                <div className={"pointerDirection__pointer--black"}/>
+                <div
+                    className={"pointerDirection__pointer pointerDirection__pointer--black"}
+                    onClick={() => handlePointerClick("left")}
+                />
                 </div>
             </div>
         </>

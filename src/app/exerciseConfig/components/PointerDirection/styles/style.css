@@ -34,17 +34,18 @@
 }
 
 .pointerDirection__pointer {
-    background: green;
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
+    cursor: pointer;
+}
+
+.pointerDirection__pointer--green {
+    background: green;
 }
 
 .pointerDirection__pointer--black {
-    background: black !important;
-    height: 2rem;
-    width: 2rem;
-    border-radius: 50%;
+    background: black;
 }
 
 .pointerDirection__bottomTrace {
