@@ -16,8 +16,11 @@ function PointerDirection(): ReactElement {
             return
         }
 
+        //selecting third direction will temporarily result in selecting it as the first direction and
+        // resetting the second one
         if (hasSelectedDirections) {
-            return
+            setFirstDirection(direction)
+            setSecondDirection(undefined)
         } else {
             if(!firstDirection) {
                 setFirstDirection(direction)
