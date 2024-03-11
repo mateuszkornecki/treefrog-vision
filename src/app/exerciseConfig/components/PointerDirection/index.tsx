@@ -8,7 +8,13 @@ function PointerDirection(): ReactElement {
     const [secondDirection, setSecondDirection] = useState<TDirection>()
 
     function handlePointerClick(direction: TDirection) {
+        const isAlreadySaved = direction === firstDirection || direction === secondDirection
         const hasSelectedDirections = firstDirection && secondDirection
+
+        //fail fast - this direction is already saved!
+        if(isAlreadySaved) {
+            return
+        }
 
         if (hasSelectedDirections) {
             return
