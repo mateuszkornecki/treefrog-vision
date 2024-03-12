@@ -12,9 +12,12 @@ function PointerDirection(): ReactElement {
 
     const directionsString = JSON.stringify(directions)
     useEffect(() => {
+        // All available directions already selected
         setHasAllSelected(directions.length === ALLOW_TO_SELECT)
+
     }, [directionsString, directions.length])
 
+    // Reset directions when the page is reloaded
     useEffect(() => {
         setDirections([])
     }, [])
