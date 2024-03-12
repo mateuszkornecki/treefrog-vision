@@ -1,37 +1,43 @@
-import React, {ReactElement, useState} from "react"
+import React, {ReactElement, useEffect, useState} from "react"
 import './styles/style.css'
 
 function PointerDirection(): ReactElement {
 
     type TDirection = "right" | "left" | "top" | "bottom" | "center"
-    const [firstDirection, setFirstDirection] = useState<TDirection>()
-    const [secondDirection, setSecondDirection] = useState<TDirection>()
+
+    const ALLOW_TO_SELECT = 2
+    const [directions, setDirections] = useState<TDirection[]>([])
+    const [traces, setTraces] = useState<TDirection[]>([])
+    const [hasAllSelected, setHasAllSelected] = useState(false)
+
+    const directionsString = JSON.stringify(directions)
+    useEffect(() => {
+        setHasAllSelected(directions.length === ALLOW_TO_SELECT)
+    }, [directionsString, directions.length])
+
+    useEffect(() => {
+        setDirections([])
+    }, [])
 
     function handlePointerClick(direction: TDirection) {
-        const isAlreadySaved = direction === firstDirection || direction === secondDirection
-        const hasSelectedDirections = firstDirection && secondDirection
+        const isAlreadySaved = directions.find(el => el === direction)
+        const hasEnoughDirections = directions.length === ALLOW_TO_SELECT
 
-        //fail fast - this direction is already saved!
-        if(isAlreadySaved) {
+        //fail fast - this direction is already saved or all possible directions has been selected
+        if(isAlreadySaved || hasEnoughDirections) {
             return
         }
 
-        //selecting third direction will temporarily result in selecting it as the first direction and
-        // resetting the second one
-        if (hasSelectedDirections) {
-            setFirstDirection(direction)
-            setSecondDirection(undefined)
+        //reset all selected directions
+        if (hasEnoughDirections) {
+            return
         } else {
-            if(!firstDirection) {
-                setFirstDirection(direction)
-            } else if(!secondDirection) {
-                setSecondDirection(direction)
-            }
+            setDirections(prevState => [...prevState, direction])
         }
            }
 
-           function getPointerClassName(direction: string): string  {
-               if(direction === firstDirection || direction ===secondDirection) {
+           function getPointerColorClassName(direction: string): string  {
+               if(direction === directions[0] || direction ===directions[1]) {
                    return "pointerDirection__pointer pointerDirection__pointer--green"
                } else {
                    return "pointerDirection__pointer pointerDirection__pointer--black"
@@ -44,7 +50,7 @@ function PointerDirection(): ReactElement {
             <div className="pointerDirection__container">
                 <div className="pointerDirection__top">
                     <div
-                        className={getPointerClassName("top")}
+                        className={getPointerColorClassName("top")}
                         onClick={()=> handlePointerClick("top")}
                     />
                 </div>
@@ -53,7 +59,7 @@ function PointerDirection(): ReactElement {
                 </div>
                 <div className="pointerDirection__center">
                     <div
-                        className={getPointerClassName("center")}
+                        className={getPointerColorClassName("center")}
                         onClick={() => handlePointerClick('center')}
                     />
                 </div>
@@ -62,13 +68,13 @@ function PointerDirection(): ReactElement {
                 </div>
                 <div className="pointerDirection__bottom">
                 <div
-                    className={getPointerClassName("bottom")}
+                    className={getPointerColorClassName("bottom")}
                     onClick={() => handlePointerClick("bottom")}
                 />
                 </div>
                 <div className="pointerDirection__right">
                     <div
-                        className={getPointerClassName("right")}
+                        className={getPointerColorClassName("right")}
                         onClick={() => handlePointerClick("right")}
                     />
                 </div>
@@ -81,10 +87,15 @@ function PointerDirection(): ReactElement {
                 </div>
                 <div className="pointerDirection__left">
                 <div
-                    className={getPointerClassName("left")}
+                    className={getPointerColorClassName("left")}
                     onClick={() => handlePointerClick("left")}
                 />
                 </div>
+                <style jsx>{`
+                    .pointerDirection__pointer--black {
+                        background: ${hasAllSelected ? "rgba(0,0,0,0.5)" : "black"};
+                    }
+                `}</style>
             </div>
         </>
     )
