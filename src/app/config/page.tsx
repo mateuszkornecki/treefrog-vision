@@ -1,6 +1,6 @@
 "use client"
 
-import PointerDirection from './components/PointerDirection'
+import PointerPausePlace from './components/PointerDirection'
 
 function Page() {
     //TODO
@@ -15,7 +15,7 @@ function Page() {
 
     return (
         <main>
-<PointerDirection />
+<PointerPausePlace />
         </main>
     )
 }

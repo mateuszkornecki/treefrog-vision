@@ -16,12 +16,12 @@ module.exports = {
             },
             {
                 source: '/prodConfig',
-                destination: '/config?clpassword=dixJu7-fetfug-bacqyx',
+                destination: '/config?password=dixJu7-fetfug-bacqyx',
                 permanent: true,
             },
             {
                 source: '/prodExercise',
-                destination: '/exercise/O1?iterationTime=5s&delay=3s?clpassword=dixJu7-fetfug-bacqyx',
+                destination: '/exercise/O1?iterationTime=5s&delay=3s?password=dixJu7-fetfug-bacqyx',
                 permanent: true,
             },
         ]
