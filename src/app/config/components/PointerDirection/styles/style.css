@@ -48,6 +48,10 @@
     background: black;
 }
 
+.pointerDirection__pointer--gray {
+    background: gray;
+}
+
 .pointerDirection__bottomTrace {
     display: flex;
     justify-content: center;
