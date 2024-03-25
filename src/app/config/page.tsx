@@ -9,7 +9,6 @@ function Page() {
     // -[] PointerSize
     // -[] PointerSpeed
     // -[] ChangeDelay
-    // -[] PointerDirection
     // -[] ExerciseTime
     // -[] ExercisePreview
 
