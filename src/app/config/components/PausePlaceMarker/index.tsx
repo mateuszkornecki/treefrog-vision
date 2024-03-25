@@ -6,33 +6,21 @@ export type TPausePlaceMarkerProps = {
     place: Direction
     pausePlaces: Direction[],
     onClick: (place: Direction) => void
+    isSelected: boolean,
+    canBeSelected: boolean
 }
 
-        export default function PausePlaceMarker({place, pausePlaces, onClick}: TPausePlaceMarkerProps):ReactElement {
-    const [possiblePlaces, setPossiblePlaces]  = useState(() => getPossiblePausePlaces([...pausePlaces, place]))
+        export default function PausePlaceMarker({place, pausePlaces, onClick, isSelected, canBeSelected}: TPausePlaceMarkerProps):ReactElement {
+    // const [possiblePlaces, setPossiblePlaces]  = useState(() => getPossiblePausePlaces([...pausePlaces, place]))
     const [good, setGood] = useState(false)
-    const [sisSelected, setSisSelected] = useState(false)
 
-    useEffect(() => {
-        const testIfSelected = Boolean(pausePlaces .find(el => el === place))
-        setSisSelected(testIfSelected)
-
-
-        const testIfGoodClick =  Boolean(possiblePlaces.find(el => el === place) || !pausePlaces.length)
-        setGood((testIfGoodClick))
-
-        setPossiblePlaces([...pausePlaces, place])
-        console.log('BUKA', possiblePlaces)
-
-    }, [pausePlaces, place])
-
-    const colorOfOtherMarkers = good ? "black" : "gray"
-    const cursor = good || sisSelected ? "pointer" : "not-allowed"
+    const markerColor  = isSelected? "green" : canBeSelected ? "black" : "gray"
+    const cursor = isSelected || canBeSelected ? "pointer" : "not-allowed"
     return (
         <>
             <style jsx>{`
                     .blockPausePlaceMarker {
-                        background: ${sisSelected ? "green" : colorOfOtherMarkers};
+                        background: ${markerColor};
                         height: 2rem;
                         width: 2rem;
                         border-radius: 50%;
@@ -40,10 +28,7 @@ export type TPausePlaceMarkerProps = {
                     }
                 `}</style>
             <div
-                onClick={good ? () => {
-                    onClick(place)
-                    setSisSelected(true)
-                } : () =>{}}
+                onClick={canBeSelected ? () => {onClick(place)} : () =>{}}
                 className={`blockPausePlaceMarker pointerDirection__${place}
             } `}
             />
