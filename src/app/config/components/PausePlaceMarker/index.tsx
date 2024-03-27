@@ -1,5 +1,4 @@
 import React, {ReactElement, useEffect, useState} from "react"
-import getPossiblePausePlaces from "@/utils/getPossiblePausePlaces"
 import Direction from "../../../enums/Direction"
 
 export type TPausePlaceMarkerProps = {
@@ -11,7 +10,6 @@ export type TPausePlaceMarkerProps = {
 }
 
         export default function PausePlaceMarker({place, pausePlaces, onClick, isSelected, canBeSelected}: TPausePlaceMarkerProps):ReactElement {
-    // const [possiblePlaces, setPossiblePlaces]  = useState(() => getPossiblePausePlaces([...pausePlaces, place]))
     const [good, setGood] = useState(false)
 
     const markerColor  = isSelected? "green" : canBeSelected ? "black" : "gray"

@@ -1,12 +1,12 @@
-'use client'
+"use client"
 
-import React, {AnimationEvent, useCallback, useEffect, useState} from 'react';
+import React, {AnimationEvent, useCallback, useEffect, useState} from "react"
 import {TExerciseNumber} from "@/app/exercise/[slug]/page"
-import getNextDirectionMode from "@/utils/getNextDirectionMode"
+import getNextAnimationName from "@/utils/getNextAnimationName"
 import useConfig from "@/hooks/useConfig"
 
 type TPointerSize = 'tiny' | 'regular' | 'large'
-type TDirectionMode = 'centerToLeft' | 'leftToCenter' | 'centerToRight'| 'rightToCenter'| 'leftToRight' | 'rightToLeft' | 'centerToTop' | 'topToCenter'
+type TAnimationName = 'centerToLeft' | 'leftToCenter' | 'centerToRight'| 'rightToCenter'| 'leftToRight' | 'rightToLeft' | 'centerToTop' | 'topToCenter'
     | 'bottomToCenter' | 'centerToBottom'
 type TSeconds = `${number}s`
 
@@ -20,49 +20,50 @@ type TPointerProps = {
 }
 
 
-function Pointer({ color, onClick, paused,iterationTime, delay, exercise}: TPointerProps) {
+export default function Pointer({ color, onClick, paused,iterationTime, delay, exercise}: TPointerProps) {
   const  config = useConfig()
 
   const [pointerSize,setPointerSize] = useState(config.pointerSize)
 
-  const [directionMode, setDirectionMode ] = useState<TDirectionMode | null>(null)
+  const [animationName, setAnimationName ] = useState<TAnimationName | null>(null)
 
- function setInitialDirectionMode():void {
+ function setInitialAnimationName():void {
    if(exercise === "O1" || exercise === "O2" || exercise === "O3") {
-     setDirectionMode("centerToLeft")
+     setAnimationName("centerToLeft")
    } else if(exercise === "O4") {
-     setDirectionMode("centerToRight")
+     setAnimationName("centerToRight")
    } else if(exercise === "O5") {
-     setDirectionMode("centerToTop")
+     setAnimationName("centerToTop")
    }
  }
 
-  const handleNextDirectionMode = useCallback(setInitialDirectionMode, [exercise])
+  const handleNextAnimationName = useCallback(setInitialAnimationName, [exercise])
 
   useEffect(() => {
-    handleNextDirectionMode()
-  }, [exercise, handleNextDirectionMode])
+    handleNextAnimationName()
+  }, [exercise, handleNextAnimationName])
 
     function handleAnimationEnd(event: AnimationEvent<HTMLDivElement>): void {
       switch (exercise) {
         case 'O1':
-          setDirectionMode(getNextDirectionMode("O1", event.animationName))
+          setAnimationName(getNextAnimationName("O1", event.animationName))
           break;
         case 'O2':
-          setDirectionMode(getNextDirectionMode("O2", event.animationName))
+          setAnimationName(getNextAnimationName("O2", event.animationName))
           break;
         case 'O3':
-          setDirectionMode(getNextDirectionMode("O3", event.animationName))
+          setAnimationName(getNextAnimationName("O3", event.animationName))
          break;
      case 'O4':
-       setDirectionMode(getNextDirectionMode("O4", event.animationName))
+       setAnimationName(getNextAnimationName("O4", event.animationName))
         break;
         case 'O5':
-          setDirectionMode(getNextDirectionMode("O5", event.animationName))
+          setAnimationName(getNextAnimationName("O5", event.animationName))
           break;
     }
   }
-  return <>
+
+    return <>
   <div
       className={"Pointer"}
       onAnimationEnd={handleAnimationEnd}
@@ -79,7 +80,7 @@ function Pointer({ color, onClick, paused,iterationTime, delay, exercise}: TPoin
         -moz-animation-iteration-count: 1;
         animation-delay: ${delay};
         background-color: ${color};
-        animation-name: ${directionMode};
+        animation-name: ${animationName};
         animation-fill-mode: both;
         animation-timing-function: ease-in-out;
         animation-direction: alternate;
@@ -173,5 +174,4 @@ function Pointer({ color, onClick, paused,iterationTime, delay, exercise}: TPoin
   </>
 }
 
-export default Pointer
-export type {TDirectionMode, TSeconds}
+export type {TAnimationName, TSeconds}
