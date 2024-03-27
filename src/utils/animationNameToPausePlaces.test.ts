@@ -10,9 +10,4 @@ describe('animationNameToPausePlaces function', () => {
           expect(animationNameToPausePlaces('bottomToCenter')).toStrictEqual([Direction.Bottom, Direction.Center]);
           expect(animationNameToPausePlaces('leftToRight')).toStrictEqual([Direction.Left, Direction.Right]);
      });
-
-
-
-
-
 });
