@@ -1,4 +1,4 @@
-import React, {ReactElement, useEffect, useState} from "react"
+import React, {ReactElement, useState} from "react"
 import Direction from "../../../enums/Direction"
 
 export type TPausePlaceMarkerProps = {
@@ -9,9 +9,7 @@ export type TPausePlaceMarkerProps = {
     canBeSelected: boolean
 }
 
-        export default function PausePlaceMarker({place, pausePlaces, onClick, isSelected, canBeSelected}: TPausePlaceMarkerProps):ReactElement {
-    const [good, setGood] = useState(false)
-
+        export default function PausePlaceMarker({place, onClick, isSelected, canBeSelected}: TPausePlaceMarkerProps):ReactElement {
     const markerColor  = isSelected? "green" : canBeSelected ? "black" : "gray"
     const cursor = isSelected || canBeSelected ? "pointer" : "not-allowed"
     return (
