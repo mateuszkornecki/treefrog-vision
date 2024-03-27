@@ -1,7 +1,7 @@
 import {TExerciseNumber} from "@/app/exercise/[slug]/page";
-import {TDirectionMode} from "@/components/Pointer";
+import {TAnimationName} from "@/components/Pointer";
 
-function getNextDirectionMode(exercise: TExerciseNumber, previousDirectionMode: string): TDirectionMode  {
+export default  function getNextAnimationName(exercise: TExerciseNumber, previousDirectionMode: string): TAnimationName  {
 
     const INVALID_DIRECTION_MODE_ERROR  = "Invalid directionMode!"
     if(exercise === "O1") {
@@ -59,4 +59,3 @@ function getNextDirectionMode(exercise: TExerciseNumber, previousDirectionMode: 
     }
 }
 
-export default getNextDirectionMode;
