@@ -1,9 +1,8 @@
 import {ReactNode, useEffect, useState} from "react";
-import {TThemeName} from "@/types/TThemeName";
+import {TThemeName} from "@/types/TTheme";
 import CONFIG from '@/constants/CONFIG.json'
 import ConfigContext from "@/context/ConfigContext";
 import {TConfig} from "@/types/TConfig"
-import useConfig from "@/hooks/useConfig"
 
 type TConfigContextProviderProps = {
     children: ReactNode
@@ -14,7 +13,7 @@ export function ConfigContextProvider({children}:TConfigContextProviderProps) {
         setThemeName(newThemeName)
     }
 
-    const initialConfig:TConfig = {...CONFIG, themeName,changeThemeNameTo}
+    const initialConfig:TConfig = {...CONFIG, themeName, changeThemeNameTo}
     const [config, setConfig] = useState<TConfig>(initialConfig)
 
 

@@ -1,4 +1,11 @@
-import THEMES from '@/constants/THEMES.json'
-import {TThemeName} from "@/types/TThemeName"
+type TThemeName = "default" | "bw"
 
-export type TTheme = typeof THEMES[TThemeName]
+type TTheme = {
+    name: TThemeName,
+    pointerColor:string,
+    backgroundColor: string
+}
+
+type TThemes = {[k in TThemeName]: TTheme }
+
+export type {TTheme, TThemeName, TThemes}

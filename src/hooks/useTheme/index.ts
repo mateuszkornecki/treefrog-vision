@@ -1,5 +1,5 @@
 import {TTheme} from "@/types/TTheme"
-import THEMES from "@/constants/THEMES.json"
+import {THEMES} from "@/constants/THEMES"
 import useConfig from "@/hooks/useConfig"
 
 export default function useTheme():TTheme {

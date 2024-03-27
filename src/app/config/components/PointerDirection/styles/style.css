@@ -1,0 +1,102 @@
+.pointerDirection__container {
+    display: grid;
+    grid-template-columns: 2em 7em 2em 7em 2em;
+    grid-template-rows: 2em 3em 2em 3em 2em;
+    color: red;
+    border: 0.13rem solid #E6E0E9;
+    border-radius: 0.5rem;
+    /*grid-auto-columns: 1fr;*/
+    gap: 0.375em;
+    grid-auto-flow: row;
+    grid-template-areas:
+    ". . top . ."
+    ". . topTrace . ."
+    "left leftTrace center rightTrace right"
+    ". . bottomTrace . ."
+    ". . bottom . .";
+}
+
+.pointerDirection__top {
+    grid-area: top;
+}
+
+.pointerDirection__topTrace {
+    display: flex;
+    justify-content: center;
+    grid-area: topTrace;
+}
+
+.pointerDirection__center {
+    grid-area: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pointerDirection__pointer {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.pointerDirection__pointer--green {
+    background: green;
+}
+
+.pointerDirection__pointer--black {
+    background: black;
+}
+
+.pointerDirection__pointer--gray {
+    background: gray;
+}
+
+.pointerDirection__bottomTrace {
+    display: flex;
+    justify-content: center;
+    grid-area: bottomTrace;
+}
+
+
+.pointerDirection__bottom {
+    grid-area: bottom;
+}
+
+.pointerDirection__right {
+    grid-area: right;
+}
+
+.pointerDirection__rightTrace {
+    display: flex;
+    align-items: center;
+    grid-area: rightTrace;
+}
+
+.pointerDirection__leftTrace {
+    display: flex;
+    align-items: center;
+    grid-area: leftTrace;
+}
+
+.pointerDirection__verticalTrace {
+    background: black;
+    width: 3px;
+    height: 100%;
+}
+
+.pointerDirection__horizontalTrace {
+    background: black;
+    width: 100%;
+    height: 3px;
+}
+
+.pointerDirection__left {
+    grid-area: left;
+}
+/*Temporarily dev helper*/
+[class*="Trace"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

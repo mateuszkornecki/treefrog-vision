@@ -1,4 +1,4 @@
-import {TThemeName} from "@/types/TThemeName"
+import {TThemeName} from "@/types/TTheme"
 
 export type TConfig = {
     iterationTime: string,
