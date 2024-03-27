@@ -1,6 +1,6 @@
 import React, {ReactElement, useEffect, useState} from "react"
 import getPossiblePausePlaces from "@/utils/getPossiblePausePlaces"
-import Direction from "@/app/enums/DDirection"
+import Direction from "../../../enums/Direction"
 
 export type TPausePlaceMarkerProps = {
     place: Direction

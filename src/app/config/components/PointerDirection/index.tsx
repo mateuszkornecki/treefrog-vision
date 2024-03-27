@@ -1,7 +1,7 @@
 import React, {ReactElement, useEffect, useState} from "react"
 import "./styles/style.css"
 import PausePlaceMarker from "../PausePlaceMarker"
-import Direction from "@/app/enums/DDirection"
+import Direction from "../../../enums/Direction"
 import getPossiblePausePlaces from "@/utils/getPossiblePausePlaces"
 
 function PointerPausePlace(): ReactElement {

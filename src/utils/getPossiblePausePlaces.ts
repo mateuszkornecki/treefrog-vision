@@ -1,4 +1,4 @@
-import Direction from '@/app/enums/DDirection'
+import Direction from '../app/enums/Direction'
 export default function getPossiblePausePlaces(currentPausePlaces: Direction[]): Direction[] {
     switch (currentPausePlaces.length) {
         case 0:
